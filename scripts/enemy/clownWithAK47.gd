@@ -1,11 +1,9 @@
 extends "res://scripts/enemy/baseEnemy.gd"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
+	print("Inherited print")
+
+func start(_Player, _maxHealth, _moveSpeed):
+	super.start(_Player,_maxHealth,_moveSpeed)
