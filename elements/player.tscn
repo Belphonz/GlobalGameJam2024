@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqwi7ki8bncgk"]
 
-[ext_resource type="Script" path="res://CharacterController.gd" id="1_anuxd"]
-[ext_resource type="Texture2D" path="res://PlayerSpriteTEMP.png" id="2_744xh"]
+[ext_resource type="Script" path="res://scripts/CharacterController.gd" id="1_anuxd"]
+[ext_resource type="Texture2D" uid="uid://eo1fi6tj10li" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy414"]
 
