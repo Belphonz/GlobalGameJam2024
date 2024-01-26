@@ -9,6 +9,10 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_anuxd")
+MAX_HP = null
+MOVEMENT_SPEED = null
+BULLET_SPEED = null
+FIRERATE = null
 
 [node name="PlayerCollider" type="Area2D" parent="."]
 
