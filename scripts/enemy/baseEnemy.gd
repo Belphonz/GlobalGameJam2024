@@ -9,10 +9,11 @@ var actionRate: float
 
 var moveSpeed: float
 
-func start(_Player, _maxHealth, _actionRate):	#When enemy is created, add all 
+func start(_Player, _maxHealth, _actionRate, _moveSpeed):	#When enemy is created, add all 
 	Player=_Player
 	maxHealth=_maxHealth
 	actionRate=_actionRate
+	moveSpeed=_moveSpeed
 	
 func move():	#Overwrite to add specific enemy movement
 	pass
