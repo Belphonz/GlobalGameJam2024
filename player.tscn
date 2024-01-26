@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ntgop8yx8bc5"]
+
+[ext_resource type="Script" path="res://CharacterController.gd" id="1_anuxd"]
+[ext_resource type="Texture2D" uid="uid://eo1fi6tj10li" path="res://PlayerSpriteTEMP.png" id="2_744xh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_weqyt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpn1e"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_anuxd")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_weqyt")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tpn1e")
+
+[node name="Download" type="Sprite2D" parent="."]
+position = Vector2(0, -8.9407e-08)
+scale = Vector2(0.0836111, 0.0852778)
+texture = ExtResource("2_744xh")
