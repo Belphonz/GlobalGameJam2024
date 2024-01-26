@@ -1,0 +1,23 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bqrrcdcqneap2"]
+
+[ext_resource type="Texture2D" uid="uid://nrbfx3u3dqdn" path="res://Transparent.png" id="1_fk3na"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2otsl"]
+resource_name = "Collision"
+texture = ExtResource("1_fk3na")
+1:1/0 = 0
+1:1/0/modulate = Color(1, 1, 1, 0.752941)
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+1:3/size_in_atlas = Vector2i(3, 3)
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+
+[resource]
+uv_clipping = true
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_2otsl")
