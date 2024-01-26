@@ -22,3 +22,7 @@ func attack(delta):	#Function called every frame
 	if(attackTimer>=attackSpeed):
 		attackTimer=0
 		print("Test")		#TODO: Add shooting bullet
+
+func move(delta):
+	velocity=playerDirection * moveSpeed
+	move_and_slide()

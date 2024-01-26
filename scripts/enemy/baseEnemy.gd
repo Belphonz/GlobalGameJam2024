@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 var Player:Node2D=null		#Node2D
 var playerDirection: Vector2
@@ -20,7 +20,8 @@ func attack(delta):	 #Acts as shooting
 	pass
 	
 func _process(delta):
-	playerDirection=Player.get_global_position()
+	playerDirection=(Player.get_global_position()-get_global_position()).normalized()
+	
 	attack(delta)
 	move(delta)
 
