@@ -15,7 +15,7 @@ var fireCone:float = 35
 var fireChangeRate:float = 16.0
 
 @export
-var firingRange:float=200.0
+var firingRange:float=120.0
 @export
 var rangeRange:float=80.0
 
@@ -114,11 +114,7 @@ func attack(delta):	#Function called every frame
 		bulletID += 1
 		bulletInstance.name = "EnBullet " + str(bulletID)
 		
-<<<<<<< Updated upstream
-		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 60)
-=======
 		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 30)
->>>>>>> Stashed changes
 		get_parent().get_parent().add_child(bulletInstance)
 		
 	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
@@ -144,18 +140,18 @@ func bounce():
 		sprite.move_local_y(BOUNCEY, false)
 
 func move(delta):
-	
+	var sprite = get_child(0) as Node2D
 	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
 	
 	var direction:int=sign(distFromPlayer-firingRange)
 	if weaponActive == false:
 		if(abs(distFromPlayer-firingRange)<rangeRange):	##Enemy is at optimal range, don't move
-			bounce()
+			sprite.rotation = 0
 			return
 		velocity=playerDirection * moveSpeed * direction
 		move_and_slide()
 		bounce()
 	if weaponActive == true:
-		var sprite = get_child(0) as Node2D
 		sprite.rotation = 0
+		
 		

@@ -1,14 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://5r5oq3pr8bb7"]
 
 [ext_resource type="Script" path="res://scripts/bullets/bullet.gd" id="1_smo80"]
-[ext_resource type="Texture2D" uid="uid://bi7v2ies02tq7" path="res://assets/gfx/Enemy/47/Clown47Bullet.png" id="2_7u3m2"]
 [ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="2_hk06q"]
+[ext_resource type="Texture2D" uid="uid://cu4a2xr2p76hr" path="res://assets/gfx/Enemy/clown47/IMG_7813.png" id="3_r4egn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq4ye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dg4m4"]
-radius = 4.8625
-height = 29.175
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw8v3"]
 radius = 6.03848
@@ -25,13 +23,8 @@ scale = Vector2(0.414198, 0.414198)
 texture = ExtResource("2_hk06q")
 
 [node name="AK47" type="Sprite2D" parent="."]
-<<<<<<< Updated upstream
 scale = Vector2(0.120156, 0.120156)
-texture = ExtResource("2_7u3m2")
-=======
-scale = Vector2(0.147127, 0.147127)
-texture = ExtResource("3_qavso")
->>>>>>> Stashed changes
+texture = ExtResource("3_r4egn")
 
 [node name="PlayerColl" type="CollisionShape2D" parent="."]
 visible = false
@@ -40,10 +33,12 @@ shape = SubResource("CircleShape2D_xq4ye")
 one_way_collision_margin = 3.5
 
 [node name="AK47Coll" type="CollisionShape2D" parent="."]
-scale = Vector2(8.22622, 8.22622)
+visible = false
+scale = Vector2(0.120156, 0.120156)
 shape = SubResource("CapsuleShape2D_dg4m4")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 scale = Vector2(18.944, 18.944)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
