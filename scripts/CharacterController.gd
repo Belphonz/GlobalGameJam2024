@@ -5,6 +5,7 @@ var HP = 100.0
 @export var MOVEMENT_SPEED = 300.0
 @export var BULLET_SPEED = 400.0
 @export var FIRERATE = 0.2
+var move_direction
 @export var BOUNCEPOWER = 0.05
 
 func Controller():
