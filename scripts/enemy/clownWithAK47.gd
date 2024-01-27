@@ -47,6 +47,10 @@ func _process(delta):
 	super._process(delta)
 	if Dying:
 		DeathTimer += delta
+	if HP <= 0:
+		var animation = get_child(0) as AnimatedSprite2D
+		animation.play("Bloodsplatter", 3,false)
+		Dying = true
 	onDeath()
 
 
@@ -173,7 +177,4 @@ func onDeath():
 func _on_area_2d_area_entered(area):
 	if "PlBullet" in area.owner.name:
 		HP -= 1
-	if HP <= 0:
-		var animation = get_child(0) as AnimatedSprite2D
-		animation.play("Bloodsplatter", 3,false)
-		Dying = true
+
