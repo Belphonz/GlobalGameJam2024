@@ -13,8 +13,12 @@ var bulletID = 0
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
+@export var iFrameTime:float=2.0
 
 var usingController:bool=false
+
+var iFramesActive:bool=false
+var iFramesTimer:float=0
 
 
 func Controller():
@@ -79,10 +83,20 @@ func _physics_process(delta):
 	Controller()
 	Bounce(delta)
 	
+	if(iFramesActive):
+		iFramesTimer+=delta
+		print("IFrames")
+		if(iFramesTimer>iFrameTime):
+			iFramesTimer=0
+			iFramesActive=false
+			
+	
 	Shoot(delta)
 	Death()
 
 
 func _on_player_collider_area_entered(area):
-	if "Bullet" in area.owner.name:
+	if "Bullet" in area.owner.name && !iFramesActive:
 		HP -= 1
+		iFramesActive=true
+		
