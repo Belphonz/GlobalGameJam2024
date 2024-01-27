@@ -8,7 +8,7 @@ var jester=preload("res://elements/enemies/jester.tscn")
 @export
 var CAK47MoveSpeed:float
 
-
+var EnemyID = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +20,8 @@ func spawnClownAK47(position:Vector2):
 	var enemyInstanceNode=cAK47.instantiate()
 	enemyInstanceNode.set_global_position(position)
 	enemyInstanceNode.start(Player,1)
+	EnemyID += 1
+	enemyInstanceNode.name = "Enemy ClownAK47" + str(EnemyID)
 	add_child(enemyInstanceNode)
 
 func spawnJester(position:Vector2):

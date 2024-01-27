@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bolxcixlhgykv"]
+
+[ext_resource type="PackedScene" path="res://scenes/Stage.tscn" id="1_eong5"]
+[ext_resource type="PackedScene" path="res://elements/player.tscn" id="2_rnxx0"]
+[ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
+[ext_resource type="AudioStream" uid="uid://ck86rgpyvyfgx" path="res://assets/sfx/Themes/Game_Theme.wav" id="4_kkpkc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
+
+[node name="Stage" parent="." instance=ExtResource("1_eong5")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kkpkc")
+autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+position = Vector2(240, 184)
