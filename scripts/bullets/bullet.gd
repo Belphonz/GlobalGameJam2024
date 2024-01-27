@@ -10,23 +10,28 @@ var allEntities = ["ClownAK47", "Player"]
 func _ready():
 	velocity = direction * speed
 	
+func death():	
+	queue_free()
+	
+func bouncemethod(direction):
+	velocity = velocity.bounce(direction)
+	
 func basicbounce(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		if isPlayerBullet :
-			if collision_info.get_collider().name in allEntities:
-				queue_free()
+			if "Enemy" in collision_info.get_collider().name or collision_info.get_collider().name in allEntities:
+				death()
 		else:
 			if collision_info.get_collider().name == "Player":
-				queue_free()
+				death()
 		if not "Bullet" in collision_info.get_collider().name :
 			bounceCount += 1
-			velocity = velocity.bounce(collision_info.get_normal())
+			bouncemethod(collision_info.get_normal())
 		else:
 			global_position += velocity * delta
 	if bounceCount == maxBounceCount:
-		queue_free()
-	
+		death()
 
 func _physics_process(delta):
 	basicbounce(delta)
