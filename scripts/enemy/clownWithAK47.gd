@@ -123,7 +123,8 @@ func attack(delta):	#Function called every frame
 		bulletInstance.name = "EnBullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 30)
-		get_parent().get_parent().add_child(bulletInstance)
+		get_node("../../BulletObject").add_child(bulletInstance)	#Does same as before, but gets BulletObject
+		#get_parent().get_parent().add_child(bulletInstance)
 		
 	if(attackingTimer>=firingTime and not Dying):	#Weapon deactivates after firing for too long
 		weaponActive = false

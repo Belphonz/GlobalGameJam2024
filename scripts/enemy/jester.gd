@@ -53,13 +53,14 @@ func attack(delta):
 			#Throw trap
 			var NailHazard=nailHazard.instantiate()
 			NailHazard.throw(get_global_position(),get_global_position()+throwDirection*nailThrowDistance)
-			get_parent().get_parent().add_child(NailHazard)
+			get_node("../../BulletObject").add_child(NailHazard)
 		else:
 			
 			#Throw bell
 			var Bell=bellBullet.instantiate()
 			Bell.throw(get_global_position(),get_global_position()+throwDirection*bellThrowDistance)
-			get_parent().get_parent().add_child(Bell)
+			get_node("../../BulletObject").add_child(Bell)
+			#get_parent().get_parent().get_child("BulletObject").add_child(Bell)
 	
 	
 func move(delta):
