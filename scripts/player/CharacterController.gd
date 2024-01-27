@@ -5,15 +5,16 @@ var HP:float = 100.0
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_SPEED:float = 400.0
-@export var FIRE_RATE:float = 1
-var CURRENT_FIRE_RATE = 0
+@export var FIRE_RATE:float = 0.4
+var CURRENT_FIRE_RATE = 0.0
 var move_direction
 var bulletID = 0
 @export var BOUNCEPOWER = 1.5
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
-	
+
+
 func Controller():
 	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = move_direction * MOVEMENT_SPEED
@@ -21,12 +22,16 @@ func Controller():
 	
 func Shoot(delta):
 	var shootPoint = get_child(1) as Node2D
-	CURRENT_FIRE_RATE = CURRENT_FIRE_RATE + delta
+	var audioShoot = get_child(2) as AudioStreamPlayer2D
+	var audioNoShoot = get_child(3) as AudioStreamPlayer2D
 	
+	CURRENT_FIRE_RATE += delta
 	var facingdirection = (get_global_mouse_position() - global_position).normalized()
 	shootPoint.rotation = facingdirection.angle()
+	if Input.is_action_just_pressed("shoot") and CURRENT_FIRE_RATE < FIRE_RATE:
+		audioNoShoot.play()
 	if Input.is_action_pressed("shoot") and CURRENT_FIRE_RATE > FIRE_RATE:
-		
+		audioShoot.play()
 		var bulletInstance:CharacterBody2D = preload("res://elements/bullets/bullet.tscn").instantiate()
 		bulletInstance.speed = BULLET_SPEED
 		bulletInstance.direction = facingdirection
