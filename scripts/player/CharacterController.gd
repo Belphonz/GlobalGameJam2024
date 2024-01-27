@@ -14,9 +14,11 @@ var bulletID = 0
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
 
+var usingController:bool=false
+
 
 func Controller():
-	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_direction * MOVEMENT_SPEED
 	move_and_slide()
 	
@@ -26,7 +28,17 @@ func Shoot(delta):
 	var audioNoShoot = get_child(3) as AudioStreamPlayer2D
 	
 	CURRENT_FIRE_RATE += delta
-	var facingdirection = (get_global_mouse_position() - global_position).normalized()
+	
+	var facingdirection:Vector2	#Get direction to fire
+	if(Input.get_connected_joypads().size() > 0):	#Using controller
+		facingdirection=Vector2(Input.get_joy_axis(0,JOY_AXIS_RIGHT_X),Input.get_joy_axis(0,JOY_AXIS_RIGHT_Y))
+		if(facingdirection.dot(facingdirection)<0.1):	#If aiming no-where
+			facingdirection=Vector2(1,0)
+		else:
+			facingdirection=facingdirection.normalized()	#Normalize facing direction so it's not affecting bullet velocity	
+	else:					#Using mouse
+		facingdirection = (get_global_mouse_position() - global_position).normalized()
+		
 	shootPoint.rotation = facingdirection.angle()
 	if Input.is_action_just_pressed("shoot") and CURRENT_FIRE_RATE < FIRE_RATE:
 		audioNoShoot.play()
