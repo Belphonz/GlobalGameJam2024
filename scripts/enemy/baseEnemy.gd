@@ -11,6 +11,7 @@ var moveSpeed: float
 func start(_Player, _maxHealth):	#When enemy is created, add all 
 	Player=_Player
 	maxHealth=_maxHealth
+	HP = maxHealth
 	
 	
 func move(delta):	#Overwrite to add specific enemy movement
@@ -24,9 +25,13 @@ func _process(delta):
 	
 	attack(delta)
 	move(delta)
+	
 
 func GetHurt(damage:int):
 	pass
 
 func onDeath():
-	pass
+	queue_free()
+
+
+

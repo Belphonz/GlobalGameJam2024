@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddvjdlrsw7l8d"]
+[gd_scene load_steps=10 format=3 uid="uid://ddvjdlrsw7l8d"]
 
 [ext_resource type="Texture2D" uid="uid://ggjso3uj7m6n" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_kckv0"]
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
@@ -38,6 +38,8 @@ animations = [{
 radius = 8.39662
 height = 17.6791
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5s8v7"]
+
 [node name="Clown47" type="CharacterBody2D"]
 position = Vector2(0, -41)
 scale = Vector2(4.16424, 4.16424)
@@ -63,3 +65,11 @@ stream = ExtResource("6_hjr3r")
 position = Vector2(0, 2)
 scale = Vector2(0.952765, 1.01815)
 shape = SubResource("CapsuleShape2D_vb0ry")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.24014, 2.4014)
+shape = SubResource("CircleShape2D_5s8v7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
