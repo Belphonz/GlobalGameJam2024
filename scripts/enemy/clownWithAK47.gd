@@ -15,9 +15,9 @@ var fireCone:float = 10 * PI/180
 var fireChangeRate:float = 1/32.0 * PI
 
 @export
-var firingRange:float=100.0
+var firingRange:float=200.0
 @export
-var rangeRange:float=40.0
+var rangeRange:float=80.0
 
 var offset:float=0
 var fireChange=fireChangeRate
@@ -106,7 +106,7 @@ func attack(delta):	#Function called every frame
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
 		bulletID += 1
-		bulletInstance.name = "En Bullet " + str(bulletID)
+		bulletInstance.name = "EnBullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 60)
 		get_parent().get_parent().add_child(bulletInstance)

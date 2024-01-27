@@ -16,7 +16,7 @@ var bulletID = 0
 
 
 func Controller():
-	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = move_direction * MOVEMENT_SPEED
 	move_and_slide()
 	
@@ -47,7 +47,7 @@ func Shoot(delta):
 		CURRENT_FIRE_RATE = 0
 	
 	
-func Bounce(): 
+func Bounce(delta): 
 	var sprite = get_child(0) as Node2D
 	# rotates only sprite and flips if over the limit
 	sprite.rotate(BOUNCEPOWER * (PI/180))
@@ -65,7 +65,7 @@ func Death():
 
 func _physics_process(delta):
 	Controller()
-	Bounce()
+	Bounce(delta)
 	Shoot(delta)
 	Death()
 

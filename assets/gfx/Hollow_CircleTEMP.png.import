@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3855er8h7283"
-path="res://.godot/imported/ClownTEMP.png-03ce445d1f7b094f9da257c9d6d62f6b.ctex"
+uid="uid://3j7whj1v2r3q"
+path="res://.godot/imported/Hollow_CircleTEMP.png-45d0e712e1dbc26ed24db7e3797d248c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/Player/ClownTEMP.png"
-dest_files=["res://.godot/imported/ClownTEMP.png-03ce445d1f7b094f9da257c9d6d62f6b.ctex"]
+source_file="res://assets/gfx/Hollow_CircleTEMP.png"
+dest_files=["res://.godot/imported/Hollow_CircleTEMP.png-45d0e712e1dbc26ed24db7e3797d248c.ctex"]
 
 [params]
 

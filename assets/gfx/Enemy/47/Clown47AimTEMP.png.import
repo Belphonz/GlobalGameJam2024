@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3j7whj1v2r3q"
-path="res://.godot/imported/Hollow_CircleTEMP.png-9fbb2a6f23696cce3826ea5d8da22ee3.ctex"
+uid="uid://cq3ihq82vku8y"
+path="res://.godot/imported/Clown47AimTEMP.png-ae5e57940e6975485b88e2d11972005d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/Player/Hollow_CircleTEMP.png"
-dest_files=["res://.godot/imported/Hollow_CircleTEMP.png-9fbb2a6f23696cce3826ea5d8da22ee3.ctex"]
+source_file="res://assets/gfx/Enemy/47/Clown47AimTEMP.png"
+dest_files=["res://.godot/imported/Clown47AimTEMP.png-ae5e57940e6975485b88e2d11972005d.ctex"]
 
 [params]
 

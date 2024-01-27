@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o4r3dtwcfbp6"
-path="res://.godot/imported/Clown47Idle.png-1560aa45769f35a31d2d1e3b28610cf8.ctex"
+uid="uid://bme5rkwaot7ce"
+path="res://.godot/imported/Clown47Idle.png-4af2c0197417edf6c9a39eb9ab334b03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/Enemy/AK47/Clown47Idle.png"
-dest_files=["res://.godot/imported/Clown47Idle.png-1560aa45769f35a31d2d1e3b28610cf8.ctex"]
+source_file="res://assets/gfx/Enemy/47/Clown47Idle.png"
+dest_files=["res://.godot/imported/Clown47Idle.png-4af2c0197417edf6c9a39eb9ab334b03.ctex"]
 
 [params]
 

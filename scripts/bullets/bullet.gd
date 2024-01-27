@@ -9,20 +9,14 @@ var allEntities = ["ClownAK47", "Player"]
 
 func _ready():
 	velocity = direction * speed
-	var Player = get_child(0) as Node2D
-	var AK47 = get_child(1) as Node2D
+	var PlayerSp = get_child(0) as Sprite2D
+	var EnemySp = get_child(1) as Sprite2D
 	var PlayerColl = get_child(2) as CollisionShape2D
-	var AK47Coll = get_child(3) as CollisionShape2D
-	if isPlayerBullet:
-		Player.visible = true
-		AK47.visible = false
-		PlayerColl.disabled = false
-		AK47Coll.disabled = true
-	else:
-		Player.visible = false
-		AK47.visible = true
-		PlayerColl.disabled = true
-		AK47Coll.disabled = false
+	var EnemyColl = get_child(3) as CollisionShape2D
+	PlayerSp.visible = isPlayerBullet
+	EnemySp.visible = !isPlayerBullet
+	PlayerColl.disabled = !isPlayerBullet
+	EnemyColl.disabled = isPlayerBullet
 	
 func death():	
 	queue_free()
@@ -51,8 +45,4 @@ func _physics_process(delta):
 	basicbounce(delta)
 	
 
-
-
-
-	
 
