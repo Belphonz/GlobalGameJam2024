@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2ivxp7d03k0i"]
+[gd_scene load_steps=4 format=3 uid="uid://d2ivxp7d03k0i"]
 
 [ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_28vv7"]
-[ext_resource type="Texture2D" uid="uid://eo5c73n2bwte" path="res://assets/gfx/Menu/Death.jpg" id="2_ngq6x"]
+[ext_resource type="Texture2D" uid="uid://bgox1nmwjs8yx" path="res://assets/gfx/Menu/DeathScreen.png" id="2_tjup3"]
+[ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_cbjd4"]
 
 [node name="DeathScreen" type="Node2D"]
 script = ExtResource("1_28vv7")
@@ -9,7 +10,7 @@ script = ExtResource("1_28vv7")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(1.06667, 0.796069)
-texture = ExtResource("2_ngq6x")
+texture = ExtResource("2_tjup3")
 
 [node name="Quit" type="Button" parent="."]
 offset_left = 331.0
@@ -17,6 +18,7 @@ offset_top = 501.0
 offset_right = 404.0
 offset_bottom = 569.0
 scale = Vector2(6.8, 1.2)
+theme_override_fonts/font = ExtResource("3_cbjd4")
 text = "Quit
 "
 icon_alignment = 1
@@ -27,6 +29,7 @@ offset_top = 440.0
 offset_right = 453.0
 offset_bottom = 471.0
 scale = Vector2(3.56368, 1.79937)
+theme_override_fonts/font = ExtResource("3_cbjd4")
 text = "Save to Leaderboard"
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
