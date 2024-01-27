@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cebe2rgnx6oug"
-path="res://.godot/imported/tempHazardTEMP.png-70cfb74d2e33e1053f00d51f78ba8a23.ctex"
+uid="uid://dc532ivf2mdwo"
+path="res://.godot/imported/JesterBack.PNG-3f7b3cd46aec08c9dbae5c716bb24641.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/tempHazardTEMP.png"
-dest_files=["res://.godot/imported/tempHazardTEMP.png-70cfb74d2e33e1053f00d51f78ba8a23.ctex"]
+source_file="res://assets/gfx/Enemy/jester/JesterBack.PNG"
+dest_files=["res://.godot/imported/JesterBack.PNG-3f7b3cd46aec08c9dbae5c716bb24641.ctex"]
 
 [params]
 

@@ -65,6 +65,7 @@ func attack(delta):
 	
 func move(delta):
 	super.move(delta)
+	var sprite = get_child(0) as Node2D
 	
 	var angle:float=zigzagAngle * (-1 if zigLeft else 1)
 	
@@ -75,6 +76,10 @@ func move(delta):
 	
 	velocity = moveDirection * moveSpeed
 	move_and_slide()
+	
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	if (sprite as AnimatedSprite2D).animation == "Default":
+		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
 	
 	zigzagTimer+=delta	#Swa
 	if(zigzagTimer>zigTime):

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
-[ext_resource type="Texture2D" uid="uid://bv1e7k4gxybau" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
-[ext_resource type="Texture2D" uid="uid://bxurawrulxbmt" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]

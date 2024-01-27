@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var HP:int = 6
-@export var MAX_HP:float = 100.0
+@export var MAX_HP:float = 6.0
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_SPEED:float = 400.0
@@ -23,7 +23,7 @@ var isLeft : bool = false
 var rotationFrame : int
 
 
-func Controller():
+func Controller(delta):
 	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_direction * MOVEMENT_SPEED
 	var leftDirection = [0,1,7]
@@ -32,6 +32,7 @@ func Controller():
 	animation.frame = rotationFrame
 	
 	if move_direction:
+		Bounce(delta)
 		rotationFrame = roundi(((move_direction.angle() + PI) * 4)/ PI);
 		if rotationFrame > 7:
 			rotationFrame -= 8
@@ -39,6 +40,8 @@ func Controller():
 			isLeft = true
 		else:
 			isLeft = false
+	else:
+		animation.rotation = 0
 	animation.flip_h = isLeft
 	animation.play("Default",0,false)
 	move_and_slide()
@@ -97,8 +100,8 @@ func Death():
 		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
 func _physics_process(delta):
-	Controller()
-	Bounce(delta)
+	Controller(delta)
+	
 	
 	if(iFramesActive):
 		iFramesTimer+=delta
