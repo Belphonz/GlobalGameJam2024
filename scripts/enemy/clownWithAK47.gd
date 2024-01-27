@@ -177,4 +177,7 @@ func onDeath():
 func _on_area_2d_area_entered(area):
 	if "PlBullet" in area.owner.name:
 		HP -= 1
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()
+		
 
