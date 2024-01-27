@@ -16,14 +16,31 @@ var bulletID = 0
 @export var iFrameTime:float=2.0
 
 var usingController:bool=false
-
 var iFramesActive:bool=false
 var iFramesTimer:float=0
 
+var isLeft : bool = false
+var rotationFrame : int
+
 
 func Controller():
-	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_direction * MOVEMENT_SPEED
+	var leftDirection = [0,1,7]
+	
+	var animation = get_child(0) as AnimatedSprite2D
+	animation.frame = rotationFrame
+	
+	if move_direction:
+		rotationFrame = roundi(((move_direction.angle() + PI) * 4)/ PI);
+		if rotationFrame > 7:
+			rotationFrame -= 8
+		if rotationFrame in leftDirection:
+			isLeft = true
+		else:
+			isLeft = false
+	animation.flip_h = isLeft
+	animation.play("Default",0,false)
 	move_and_slide()
 	
 func Shoot(delta):
