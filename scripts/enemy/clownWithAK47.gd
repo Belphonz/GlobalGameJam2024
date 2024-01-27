@@ -161,7 +161,10 @@ func move(delta):
 	var facingDirection = ((Player.global_position - global_position).normalized())
 	if (sprite as AnimatedSprite2D).animation == "Idle":
 		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
-	
+		if EnemySpin(facingDirection) in leftDirection:
+			(sprite as AnimatedSprite2D).flip_h = true
+		else:
+			(sprite as AnimatedSprite2D).flip_h = false
 	
 	var direction:int=sign(distFromPlayer-firingRange)
 	if weaponActive == false:

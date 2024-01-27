@@ -105,6 +105,10 @@ func move(delta):
 			var facingDirection = ((Player.global_position - global_position).normalized())
 			if sprite.animation == "Idle":
 				sprite.frame = EnemySpin(facingDirection) 
+				if EnemySpin(facingDirection) in leftDirection:
+					sprite .flip_h = true
+				else:
+					sprite.flip_h = false
 			sprite.play("Idle",0,false)
 			
 		if attacking == true:

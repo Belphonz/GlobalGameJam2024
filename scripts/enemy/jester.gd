@@ -80,6 +80,11 @@ func move(delta):
 	var facingDirection = ((Player.global_position - global_position).normalized())
 	if (sprite as AnimatedSprite2D).animation == "Default":
 		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
+		if EnemySpin(facingDirection) in leftDirection:
+			(sprite as AnimatedSprite2D).flip_h = false
+		else:
+			(sprite as AnimatedSprite2D).flip_h = true
+	
 	
 	zigzagTimer+=delta	#Swa
 	if(zigzagTimer>zigTime):
@@ -90,6 +95,7 @@ func move(delta):
 
 
 func _on_enemy_collider_area_entered(area):
+	#Fix imortality
 	if "PlBullet" in area.owner.name:
 		HP -= 1
 		var Bullet:Node2D=area.get_parent()
