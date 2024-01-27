@@ -3,6 +3,7 @@ extends Node
 var Player: Node2D
 
 var cAK47 = preload("res://elements/enemies/ClownWithAK47.tscn")
+var jester=preload("res://elements/enemies/jester.tscn")
 
 @export
 var CAK47MoveSpeed:float
@@ -17,6 +18,12 @@ func _ready():
 	
 func spawnClownAK47(position:Vector2):
 	var enemyInstanceNode=cAK47.instantiate()
+	enemyInstanceNode.set_global_position(position)
+	enemyInstanceNode.start(Player,1)
+	add_child(enemyInstanceNode)
+
+func spawnJester(position:Vector2):
+	var enemyInstanceNode=jester.instantiate()
 	enemyInstanceNode.set_global_position(position)
 	enemyInstanceNode.start(Player,1)
 	add_child(enemyInstanceNode)
