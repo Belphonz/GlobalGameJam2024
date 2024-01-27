@@ -45,11 +45,9 @@ animations = [{
 }]
 
 [node name="Ringmaster" type="CharacterBody2D"]
-position = Vector2(0, -34)
 script = ExtResource("1_pbvv3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 28)
 scale = Vector2(0.0496582, 0.0496582)
 sprite_frames = SubResource("SpriteFrames_p0x08")
 animation = &"Spin"
@@ -57,25 +55,26 @@ frame_progress = 0.994196
 offset = Vector2(-40.2753, -483.304)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-3, 2)
+position = Vector2(-2.70737, -26.9858)
 rotation = 2.76872
 polygon = PackedVector2Array(-57.2158, -18.5029, 10.5444, -34.5516, 45.3408, 26.6873, -10.3812, 15.2391)
 
 [node name="SpinAudio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0.292633, -28.9858)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_rr0ia")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(7.10543e-15, 30)
 scale = Vector2(0.0341688, 0.0341688)
 sprite_frames = SubResource("SpriteFrames_tj3t0")
 animation = &"Idle"
-offset = Vector2(58.5329, -848.727)
+offset = Vector2(67.0972, -731.245)
 
 [node name="EnemyCollider" type="Area2D" parent="."]
+position = Vector2(0.292633, -28.9858)
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="EnemyCollider"]
-position = Vector2(0, 12)
+position = Vector2(-0.292633, 13.9858)
 shape = SubResource("CapsuleShape2D_rr0ia")
