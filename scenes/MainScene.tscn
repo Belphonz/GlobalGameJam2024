@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjbyx4hiq874j"]
+
+[ext_resource type="PackedScene" uid="uid://bce50lylylis" path="res://scenes/Stage.tscn" id="1_eong5"]
+[ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
+[ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
+
+[node name="Stage" parent="." instance=ExtResource("1_eong5")]

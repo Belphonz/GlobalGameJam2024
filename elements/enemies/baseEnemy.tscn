@@ -2,7 +2,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4liuj"]
 
-[node name="Enemy2" type="CharacterBody2D"]
+[node name="BaseEnemy" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
