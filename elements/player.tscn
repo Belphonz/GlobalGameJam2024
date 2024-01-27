@@ -7,11 +7,16 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_anuxd")
+FIRE_RATE = 0.2
 
 [node name="PlayerCollider" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
 shape = SubResource("RectangleShape2D_fy414")
+
+[node name="BulletPoint" type="Node2D" parent="."]
+position = Vector2(15, 0)
+scale = Vector2(-2.33479e+06, -0.0146739)
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8.9407e-08)

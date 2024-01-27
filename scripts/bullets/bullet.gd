@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-@export var speed : float = 200
-@export var maxBounceCount : int = 10
+var speed : float = 200
+var maxBounceCount : int = 10
 var bounceCount : int = 0
 var direction
 
 func _ready():
-	direction = Vector2(1,0)
 	velocity = direction * speed
 
 func _physics_process(delta):
