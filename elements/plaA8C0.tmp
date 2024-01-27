@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqwi7ki8bncgk"]
+[gd_scene load_steps=5 format=3 uid="uid://dqwi7ki8bncgk"]
 
-[ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
+[ext_resource type="Script" path="res://scripts/CharacterController.gd" id="1_anuxd"]
 [ext_resource type="Texture2D" uid="uid://eo1fi6tj10li" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy414"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_weqyt"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_anuxd")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_fy414")
 
 [node name="PlayerCollider" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
 shape = SubResource("RectangleShape2D_fy414")
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_weqyt")
+
+[node name="Download" type="Sprite2D" parent="."]
 position = Vector2(0, -8.9407e-08)
 scale = Vector2(0.0836111, 0.0852778)
 texture = ExtResource("2_744xh")
@@ -22,6 +32,3 @@ texture = ExtResource("2_744xh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fy414")
-
-[node name="PivotPoint" type="Node2D" parent="."]
-position = Vector2(0, 10)
