@@ -20,3 +20,10 @@ shape = SubResource("CircleShape2D_dg0dc")
 position = Vector2(-1.19209e-07, -5.96046e-08)
 scale = Vector2(0.304688, 0.296875)
 texture = ExtResource("1_tqecn")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+shape = SubResource("CircleShape2D_dg0dc")
+
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
