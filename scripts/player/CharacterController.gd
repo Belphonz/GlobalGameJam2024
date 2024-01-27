@@ -31,7 +31,7 @@ func Shoot(delta):
 			
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
-		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 20)
+		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 50)
 		get_parent().add_child(bulletInstance)
 		CURRENT_FIRE_RATE = 0
 	
