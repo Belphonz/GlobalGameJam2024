@@ -19,6 +19,8 @@ func _ready():
 	rm = preload("res://elements/enemies/ClownWithAK47.tscn")
 	jester=preload("res://elements/enemies/jester.tscn")
 	Player=get_node("../Player")
+	#spawnClownAK47(Vector2(100,100))
+	spawnRingmaster(Vector2(100,100))
 
 	spawnJester(Vector2(100,100))
 
@@ -35,8 +37,8 @@ func spawnClownAK47(position:Vector2):
 func spawnRingmaster(position:Vector2):
 	var enemyInstanceNode:CharacterBody2D = rm.instantiate()
 	enemyInstanceNode.set_global_position(position)
-	enemyInstanceNode.start(Player,1)
 	EnemyID += 1
+	enemyInstanceNode.Start(Player,1, EnemyID)
 	enemyInstanceNode.name = "Enemy Ringmaster" + str(EnemyID)
 	add_child(enemyInstanceNode)
 

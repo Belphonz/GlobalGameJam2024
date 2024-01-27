@@ -1,10 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://khln3p7tfa1i"]
+[gd_scene load_steps=8 format=3 uid="uid://khln3p7tfa1i"]
 
 [ext_resource type="Script" path="res://scripts/enemy/ringmaster.gd" id="1_pbvv3"]
-[ext_resource type="Texture2D" uid="uid://r0cqw2c3jkq3" path="res://assets/gfx/Enemy/ringmaster/ringmasterIdle.png" id="2_5cy76"]
-[ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="3_7qgde"]
+[ext_resource type="Texture2D" uid="uid://b0gowbgedveg8" path="res://assets/gfx/Enemy/ringmaster/ringmasterIdle.png" id="2_5cy76"]
+[ext_resource type="Texture2D" uid="uid://bs3o3tegwepbr" path="res://assets/gfx/Enemy/ringmaster/ringmasterSpin1.png" id="3_x2ua5"]
+[ext_resource type="Texture2D" uid="uid://cb5hssqljbswb" path="res://assets/gfx/Enemy/ringmaster/ringmasterSpin2.png" id="4_i32bu"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fxvai"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0x08"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x2ua5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i32bu")
+}],
+"loop": true,
+"name": &"Spin",
+"speed": 14.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Stun",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr0ia"]
+radius = 11.0
+height = 46.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj3t0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -14,43 +38,44 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_7qgde")
-}],
-"loop": true,
-"name": &"Spin",
-"speed": 5.0
-}, {
 "frames": [],
 "loop": true,
 "name": &"Stun",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pistn"]
-radius = 63.0079
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr0ia"]
-radius = 27.0
-height = 72.0
-
 [node name="Ringmaster" type="CharacterBody2D"]
+position = Vector2(0, -34)
 script = ExtResource("1_pbvv3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 30)
+position = Vector2(0, 28)
 scale = Vector2(0.0496582, 0.0496582)
-sprite_frames = SubResource("SpriteFrames_fxvai")
-animation = &"Idle"
-offset = Vector2(0, -604.13)
+sprite_frames = SubResource("SpriteFrames_p0x08")
+animation = &"Spin"
+frame_progress = 0.994196
+offset = Vector2(-40.2753, -483.304)
 
-[node name="SpinMoveCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
-shape = SubResource("CircleShape2D_pistn")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3, 2)
+rotation = 2.76872
+polygon = PackedVector2Array(-57.2158, -18.5029, 10.5444, -34.5516, 45.3408, 26.6873, -10.3812, 15.2391)
 
 [node name="SpinAudio" type="AudioStreamPlayer2D" parent="."]
 
-[node name="BodyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_rr0ia")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.10543e-15, 30)
+scale = Vector2(0.0341688, 0.0341688)
+sprite_frames = SubResource("SpriteFrames_tj3t0")
+animation = &"Idle"
+offset = Vector2(58.5329, -848.727)
+
+[node name="EnemyCollider" type="Area2D" parent="."]
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="EnemyCollider"]
+position = Vector2(0, 12)
 shape = SubResource("CapsuleShape2D_rr0ia")

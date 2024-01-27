@@ -46,10 +46,10 @@ script = ExtResource("2_ud5t6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0113801, 0.0104875)
 sprite_frames = SubResource("SpriteFrames_spym8")
-animation = &"Idle"
+animation = &"Aim"
 
 [node name="ShootPoint" type="Node2D" parent="."]
-position = Vector2(0, 1.92112)
+position = Vector2(0, 2.16126)
 scale = Vector2(0.0113801, 0.0104875)
 
 [node name="TakeAim" type="AudioStreamPlayer2D" parent="."]

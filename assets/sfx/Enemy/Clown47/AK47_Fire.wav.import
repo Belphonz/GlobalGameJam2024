@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://du3hond3kuvx4"
-path="res://.godot/imported/AK47_Fire.wav-d647b56916bcfc2b6df83fd195a08cd2.sample"
+path="res://.godot/imported/AK47_Fire.wav-0806fb972affac1948219c421ef07635.sample"
 
 [deps]
 
-source_file="res://assets/sfx/Enemy/AK47_Fire.wav"
-dest_files=["res://.godot/imported/AK47_Fire.wav-d647b56916bcfc2b6df83fd195a08cd2.sample"]
+source_file="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav"
+dest_files=["res://.godot/imported/AK47_Fire.wav-0806fb972affac1948219c421ef07635.sample"]
 
 [params]
 
