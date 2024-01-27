@@ -49,7 +49,11 @@ sprite_frames = SubResource("SpriteFrames_spym8")
 animation = &"Fire"
 
 [node name="ShootPoint" type="Node2D" parent="."]
+<<<<<<< Updated upstream
 position = Vector2(0, 1.92112)
+=======
+position = Vector2(0, 2.16126)
+>>>>>>> Stashed changes
 scale = Vector2(0.0113801, 0.0104875)
 
 [node name="TakeAim" type="AudioStreamPlayer2D" parent="."]

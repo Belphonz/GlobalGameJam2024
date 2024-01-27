@@ -7,6 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq4ye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dg4m4"]
+radius = 4.8625
+height = 29.175
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw8v3"]
 radius = 6.03848
@@ -18,20 +20,27 @@ scale = Vector2(0.1, -0.1)
 script = ExtResource("1_smo80")
 
 [node name="Player" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.414198, 0.414198)
 texture = ExtResource("2_hk06q")
 
 [node name="AK47" type="Sprite2D" parent="."]
+<<<<<<< Updated upstream
 scale = Vector2(0.120156, 0.120156)
 texture = ExtResource("2_7u3m2")
+=======
+scale = Vector2(0.147127, 0.147127)
+texture = ExtResource("3_qavso")
+>>>>>>> Stashed changes
 
 [node name="PlayerColl" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(4.36496, 4.36496)
 shape = SubResource("CircleShape2D_xq4ye")
 one_way_collision_margin = 3.5
 
 [node name="AK47Coll" type="CollisionShape2D" parent="."]
-scale = Vector2(0.120156, 0.120156)
+scale = Vector2(8.22622, 8.22622)
 shape = SubResource("CapsuleShape2D_dg4m4")
 
 [node name="Area2D" type="Area2D" parent="."]
