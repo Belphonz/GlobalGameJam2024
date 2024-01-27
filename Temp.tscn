@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjbyx4hiq874j"]
+[gd_scene load_steps=3 format=3 uid="uid://cjbyx4hiq874j"]
 
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="1_tctef"]
+[ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="2_3reb6"]
 
 [node name="Temp" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_tctef")]
+
+[node name="Node2D" parent="." instance=ExtResource("2_3reb6")]
