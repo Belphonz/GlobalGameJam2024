@@ -5,18 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://eo1fi6tj10li" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvbos"]
-radius = 7.0
-height = 18.2005
+radius = 6.06683
+height = 17.1893
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.97797, 1.97797)
 script = ExtResource("1_anuxd")
+BOUNCEPOWER = 0.8
+DEGREES = 12
+BOUNCEY = 0.3
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -1.51671)
+position = Vector2(0, -1.01114)
 scale = Vector2(0.0105119, 0.0107214)
 texture = ExtResource("2_71bxx")
-offset = Vector2(4.85879, -808.277)
+offset = Vector2(4.85879, -855.432)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -30,8 +33,8 @@ shape = SubResource("CapsuleShape2D_uvbos")
 [node name="PlayerSprite2" type="Sprite2D" parent="PlayerCollider"]
 visible = false
 modulate = Color(0.568627, 0, 0.509804, 1)
-position = Vector2(-0.665385, 9.44534)
-scale = Vector2(0.0533333, 0.0675)
+position = Vector2(-0.66827, 8.90068)
+scale = Vector2(0.0539273, 0.0675)
 texture = ExtResource("2_744xh")
 offset = Vector2(4.85879, -110.301)
 
