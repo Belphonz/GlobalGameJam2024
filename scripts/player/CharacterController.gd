@@ -8,7 +8,7 @@ var HP:float = 100.0
 @export var FIRE_RATE:float = 1
 var CURRENT_FIRE_RATE = 0
 var move_direction
-@export var BOUNCEPOWER = 2
+@export var BOUNCEPOWER = 1.5
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
@@ -41,14 +41,12 @@ func Bounce(delta):
 	# rotates only sprite and flips if over the limit
 	sprite.rotate(BOUNCEPOWER * (PI/180))
 	if sprite.rotation_degrees >= DEGREES or sprite.rotation_degrees <= -DEGREES:
-		print("flip")
 		BOUNCEPOWER = BOUNCEPOWER * -1
 		rotate(BOUNCEPOWER * (PI/180))
 	sprite.move_local_y(BOUNCEY, false)
 	if sprite.position.y >= BOUNCEHEIGHT or sprite.position.y <= -BOUNCEHEIGHT:
 		BOUNCEY = BOUNCEY * -1
 		sprite.move_local_y(BOUNCEY, false)
-	print(sprite.position)
 	
 	#look_at(Pivot.position)
 
