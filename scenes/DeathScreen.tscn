@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ivxp7d03k0i"]
 
-[ext_resource type="Script" path="res://DeathScreen.gd" id="1_28vv7"]
+[ext_resource type="Script" path="res://scripts/DeathScreen.gd" id="1_28vv7"]
 [ext_resource type="Texture2D" uid="uid://eo5c73n2bwte" path="res://assets/gfx/Menu/Death.jpg" id="2_ngq6x"]
 
 [node name="DeathScreen" type="Node2D"]
@@ -20,5 +20,13 @@ scale = Vector2(6.8, 1.2)
 text = "Quit
 "
 icon_alignment = 1
+
+[node name="SaveToLeaderbaord" type="Button" parent="."]
+offset_left = 285.0
+offset_top = 440.0
+offset_right = 453.0
+offset_bottom = 471.0
+scale = Vector2(3.56368, 1.79937)
+text = "Save to Leaderboard"
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
