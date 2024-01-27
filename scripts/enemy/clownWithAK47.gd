@@ -52,8 +52,9 @@ func _process(delta):
 		animation.play("Bloodsplatter", 3,false)
 		Dying = true
 	onDeath()
-	var facingDirection = ((Player.global_position - global_position).normalized())
-	print(EnemySpin(facingDirection))
+	
+	
+	
 
 
 
@@ -157,6 +158,13 @@ func bounce():
 func move(delta):
 	var sprite = get_child(0) as Node2D
 	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	if (sprite as AnimatedSprite2D).animation == "Idle":
+		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
+		if EnemySpin(facingDirection) in leftDirection:
+			(sprite as AnimatedSprite2D).flip_h = true
+		else:
+			(sprite as AnimatedSprite2D).flip_h = false
 	
 	var direction:int=sign(distFromPlayer-firingRange)
 	if weaponActive == false:

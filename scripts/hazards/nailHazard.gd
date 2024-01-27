@@ -16,7 +16,8 @@ func _ready():
 
 func throw(start:Vector2, location:Vector2):
 	active=false
-	startThrow=start
+	startThrow = start
+	global_position=start
 	endThrow=location
 
 func _process(delta):
