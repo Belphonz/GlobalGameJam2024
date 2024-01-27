@@ -13,7 +13,9 @@ var bulletID = 0
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
-
+var scoretimer = 0
+var score = 0
+var alive = true
 
 func Controller():
 	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -62,14 +64,25 @@ func Bounce(delta):
 func Death():
 	if HP == 0:
 		visible = false
+		alive = false
+		
 
+func Scorecounter(delta):
+	if alive:
+		scoretimer += delta
+		score = floor(scoretimer) * 10
+	else:
+		var highscore : Label = get_node("../HighscoreManager").get_child(0)
+		highscore.text = score.to_string()
+	
 func _physics_process(delta):
 	Controller()
 	Bounce(delta)
 	Shoot(delta)
-	Death()
+	Scorecounter(delta)
 
 
 func _on_player_collider_area_entered(area):
 	if "Bullet" in area.owner.name:
 		HP -= 1
+	Death()
