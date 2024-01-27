@@ -8,6 +8,7 @@ var HP:float = 100.0
 @export var FIRE_RATE:float = 1
 var CURRENT_FIRE_RATE = 0
 var move_direction
+var bulletID = 0
 @export var BOUNCEPOWER = 1.5
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
@@ -25,11 +26,16 @@ func Shoot(delta):
 	var facingdirection = (get_global_mouse_position() - global_position).normalized()
 	shootPoint.rotation = facingdirection.angle()
 	if Input.is_action_pressed("shoot") and CURRENT_FIRE_RATE > FIRE_RATE:
+		
 		var bulletInstance:CharacterBody2D = preload("res://elements/bullets/bullet.tscn").instantiate()
 		bulletInstance.speed = BULLET_SPEED
 		bulletInstance.direction = facingdirection
+		bulletInstance.isPlayerBullet = true
 			
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
+		
+		bulletID += 1
+		bulletInstance.name = "Bullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 50)
 		get_parent().add_child(bulletInstance)
