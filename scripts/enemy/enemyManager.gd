@@ -59,6 +59,7 @@ func spawnLionTamer(position:Vector2):
 	enemyInstanceNode.name="Enemy Lion Tamer" + str(EnemyID)
 	EnemyID+=1	#One for the lion
 	add_child(enemyInstanceNode)
+	enemyInstanceNode.addLion(EnemyID)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

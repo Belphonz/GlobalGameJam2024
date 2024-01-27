@@ -7,11 +7,14 @@ var backToSideSpeedMult:float=0.25
 @export
 var pounceMult:float=1.5
 
+@export
+var pounceDist:float = 60
+
 @export 
-var minDist:float = 80
+var minDist:float = 120
 
 @export
-var maxDist:float = 120
+var maxDist:float = 150
 
 @export
 var LionSideOffset:Vector2 = Vector2(-50,0)
@@ -22,6 +25,7 @@ func setTamer(Tamer:Node2D):
 	LionTamer=Tamer
 
 func start(_Player, _maxHealth):
+	super.start(_Player,_maxHealth)
 	moveSpeed=_moveSpeed
 
 func _process(delta):
@@ -39,6 +43,15 @@ func move(delta):
 		areaToReach=get_global_position().direction_to(Player.get_global_position())*minDist + LionTamer.get_global_position()
 	else:	#Lion can reach player
 		areaToReach=Player.get_global_position()
+		
+	if(get_global_position().distance_to(Player.get_global_position())):	#If lion should pounce
+		finalMoveSpeed *= pounceMult
+		
+	var directionToMove:Vector2 = get_global_position().direction_to(areaToReach)
+	velocity=directionToMove * finalMoveSpeed
+	
+	move_and_slide()
+		
 	
 func attack(delta):
 	pass
