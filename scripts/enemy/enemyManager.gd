@@ -17,7 +17,7 @@ var EnemyID = 0
 func _ready():
 	cAK47 = preload("res://elements/enemies/ClownWithAK47.tscn")
 	rm = preload("res://elements/enemies/ClownWithAK47.tscn")
-	jester==preload("res://elements/enemies/jester.tscn")
+	jester=preload("res://elements/enemies/jester.tscn")
 	Player=get_node("../Player")
 
 	spawnJester(Vector2(100,100))

@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddvjdlrsw7l8d"]
+[gd_scene load_steps=9 format=3 uid="uid://ddvjdlrsw7l8d"]
 
-[ext_resource type="Texture2D" uid="uid://ggjso3uj7m6n" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_kckv0"]
+[ext_resource type="Texture2D" uid="uid://ggjso3uj7m6n" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_f2ou5"]
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
-[ext_resource type="Texture2D" uid="uid://coa24dgqhpbt7" path="res://assets/gfx/Enemy/clown47/Clown47Fire.png" id="3_gbe3u"]
-[ext_resource type="Texture2D" uid="uid://bme5rkwaot7ce" path="res://assets/gfx/Enemy/clown47/Clown47Idle.png" id="4_agu3x"]
+[ext_resource type="Texture2D" uid="uid://coa24dgqhpbt7" path="res://assets/gfx/Enemy/clown47/Clown47Fire.png" id="3_mntk8"]
+[ext_resource type="Texture2D" uid="uid://bme5rkwaot7ce" path="res://assets/gfx/Enemy/clown47/Clown47Idle.png" id="4_e0bth"]
 [ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/AK47_Cocking_Cue.wav" id="5_2uwhe"]
 [ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/AK47_Fire.wav" id="6_hjr3r"]
 
@@ -11,7 +11,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kckv0")
+"texture": ExtResource("2_f2ou5")
 }],
 "loop": true,
 "name": &"Aim",
@@ -19,7 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gbe3u")
+"texture": ExtResource("3_mntk8")
 }],
 "loop": true,
 "name": &"Fire",
@@ -27,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_agu3x")
+"texture": ExtResource("4_e0bth")
 }],
 "loop": true,
 "name": &"Idle",
@@ -37,8 +37,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vb0ry"]
 radius = 8.39662
 height = 17.6791
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5s8v7"]
 
 [node name="Clown47" type="CharacterBody2D"]
 position = Vector2(0, -41)
@@ -61,15 +59,7 @@ stream = ExtResource("5_2uwhe")
 scale = Vector2(0.897727, 0.897727)
 stream = ExtResource("6_hjr3r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="EnemyCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 scale = Vector2(0.952765, 1.01815)
 shape = SubResource("CapsuleShape2D_vb0ry")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.24014, 2.4014)
-shape = SubResource("CircleShape2D_5s8v7")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

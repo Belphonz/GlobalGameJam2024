@@ -33,6 +33,9 @@ func start(_Player, _maxHealth):
 
 func _process(delta):
 	super._process(delta)
+	
+	if(HP<=0):
+		onDeath()
 
 func attack(delta):
 	super.attack(delta)
@@ -47,6 +50,7 @@ func attack(delta):
 			NailHazard.throw(get_global_position(),get_global_position()+throwDirection*nailThrowDistance)
 			get_parent().get_parent().add_child(NailHazard)
 		else:
+			
 			#Throw bell
 			print("Throw bell")
 	

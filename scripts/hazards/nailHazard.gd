@@ -21,7 +21,6 @@ func throw(start:Vector2, location:Vector2):
 
 func _process(delta):
 	if(!active):	#Being thrown
-		
 		timeInAir+=delta	
 		if(timeInAir>airTime):	#Landed
 			active=true
@@ -43,10 +42,16 @@ func destroy():
 	super.destroy()
 
 func collide(colliding:Node2D):
+	if(!active):
+		return
 	super.collide(colliding)
+	print(colliding.name)
 	if(colliding.name=="PlayerCollider"):
 		var Player:Node2D=colliding.get_parent()
 		Player.HP-=1
+	if(colliding.name=="EnemyCollider"):
+		var Enemy:Node2D = colliding.get_parent()
+		Enemy.HP-=1
 
 
 func _on_area_entered(area):

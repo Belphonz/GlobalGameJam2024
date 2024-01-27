@@ -7,9 +7,12 @@
 [node name="Enemy" instance=ExtResource("1_akicf")]
 script = ExtResource("2_s703p")
 _moveSpeed = 80.0
+zigzagAngle = null
 zigTime = 0.2
+attackSpeed = null
+nailChance = null
+nailThrowDistance = null
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(-7.7486e-07, 0)
-scale = Vector2(0.0888889, 0.0888889)
+scale = Vector2(0.177778, 0.16)
 texture = ExtResource("3_02aun")
