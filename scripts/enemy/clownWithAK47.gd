@@ -34,7 +34,7 @@ var bulletID = 0
 var playerPos:Vector2 = Vector2(0,0)
 
 @export var BULLET_BOUNCE_COUNT:int = 1
-@export var BULLET_SPEED:float = 100.0
+@export var BULLET_SPEED:float = 450.0
 
 var animTimer:float = 0
 
