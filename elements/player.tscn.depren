@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqwi7ki8bncgk"]
+
+[ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
+[ext_resource type="Texture2D" uid="uid://3855er8h7283" path="res://assets/gfx/Player/ClownTEMP.png" id="2_71bxx"]
+[ext_resource type="Texture2D" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
+[ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player_Fire_1.wav" id="4_oo884"]
+[ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player_Fire_2.wav" id="5_ftle7"]
+[ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player_Fire_3.wav" id="6_4equ1"]
+[ext_resource type="AudioStream" uid="uid://b8lkjuv8hbcvl" path="res://assets/sfx/Player_Fire_NoShot.wav" id="7_n2m8u"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_78hek"]
+resource_local_to_scene = true
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("4_oo884")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_ftle7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_4equ1")
+stream_2/weight = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvbos"]
+radius = 6.06683
+height = 17.1893
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.97797, 1.97797)
+script = ExtResource("1_anuxd")
+BOUNCEPOWER = 0.8
+DEGREES = 12
+BOUNCEY = 0.3
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -1.01114)
+scale = Vector2(0.0105119, 0.0107214)
+texture = ExtResource("2_71bxx")
+offset = Vector2(4.85879, -855.432)
+
+[node name="BulletPoint" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(0, -8.0891)
+scale = Vector2(0.003, 0.003)
+texture = ExtResource("2_744xh")
+offset = Vector2(12000, 2696.37)
+
+[node name="AudioShoot" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_78hek")
+
+[node name="AudioNoShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_n2m8u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerCollider" type="Area2D" parent="."]
+position = Vector2(0.406249, -9.40625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
+position = Vector2(-0.406249, 1.40625)
+shape = SubResource("CapsuleShape2D_uvbos")
+
+[node name="PlayerSprite2" type="Sprite2D" parent="PlayerCollider"]
+visible = false
+modulate = Color(0.568627, 0, 0.509804, 1)
+position = Vector2(-0.66827, 8.90068)
+scale = Vector2(0.0539273, 0.0675)
+texture = ExtResource("2_744xh")
+offset = Vector2(4.85879, -110.301)
+
+[node name="PlayerSprite2" type="Sprite2D" parent="."]
+position = Vector2(0, -8.9407e-08)
+scale = Vector2(0.0836111, 0.0852778)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.0891)
+shape = SubResource("CapsuleShape2D_uvbos")
+
+[connection signal="area_entered" from="PlayerCollider" to="." method="_on_player_collider_area_entered"]

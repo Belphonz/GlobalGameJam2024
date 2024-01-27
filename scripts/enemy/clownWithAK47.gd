@@ -4,7 +4,6 @@ var Bullet:Node2D
 @export
 var attackSpeed:float=0.1
 @export
-var _moveSpeed:float = 0.5
 var firingTime:float=2.5
 @export 
 var cooldownTime:float = 4.0
@@ -16,9 +15,9 @@ var fireCone:float = 10 * PI/180
 var fireChangeRate:float = 1/32.0 * PI
 
 @export
-var firingRange:float=200.0
+var firingRange:float=100.0
 @export
-var rangeRange:float=80.0
+var rangeRange:float=40.0
 
 var offset:float=0
 var fireChange=fireChangeRate
@@ -47,16 +46,10 @@ func start(_Player, _maxHealth):
 	moveSpeed=_moveSpeed
 	
 func attack(delta):	#Function called every frame
-	attackTimer+=delta
-	if(attackTimer>=attackSpeed):
-		
-	
-=======
 	var shootPoint = get_child(1) as Node2D
 	var aimAudio = get_child(2) as AudioStreamPlayer2D
 	var shootAudio = get_child(3) as AudioStreamPlayer2D
 	var animation = get_child(0) as AnimatedSprite2D
->>>>>>> Stashed changes
 	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
 	
 	if(!weaponActive):	#If weapon is cooling down, handle cooldown timer, done before checking range as weapon will cooldown when 
@@ -76,8 +69,7 @@ func attack(delta):	#Function called every frame
 	attackTimer+=delta	#Update timers
 	attackingTimer+=delta;
 	
-<<<<<<< Updated upstream
-	if(attackTimer>=attackSpeed && weaponActive):
+	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
 		aimAudio.play()
 		animation.play("Aim",0,false)
 		await aimAudio.finished
@@ -94,7 +86,6 @@ func attack(delta):	#Function called every frame
 		animTimer = 0
 	
 	if(attackTimer>=attackSpeed && weaponActive && takeAim == false):
-	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
 		var cosOffset:float=cos(offset)	#Get fire direction with offset
 		var sinOffset:float=sin(offset)
 		var attackDirection:Vector2=Vector2(cosOffset*playerDirection.x-sinOffset*playerDirection.y,sinOffset*playerDirection.x+cosOffset*playerDirection.y)
@@ -106,13 +97,6 @@ func attack(delta):	#Function called every frame
 			offset+=fireChange
 		
 		attackTimer=0
-<<<<<<< Updated upstream
-		print(offset)		#TODO: Add shooting bullet
-=======
-		print("offsetFIRE")		#TODO: Add shooting bullet
-		
-	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
-		weaponActive=false
 		var bulletInstance:CharacterBody2D = preload("res://elements/bullets/bullet.tscn").instantiate()
 		bulletInstance.speed = BULLET_SPEED
 		bulletInstance.direction = attackDirection
@@ -122,7 +106,7 @@ func attack(delta):	#Function called every frame
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
 		bulletID += 1
-		bulletInstance.name = "EnBullet " + str(bulletID)
+		bulletInstance.name = "En Bullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 60)
 		get_parent().get_parent().add_child(bulletInstance)
@@ -148,7 +132,6 @@ func bounce():
 	if sprite.position.y >= BOUNCEHEIGHT or sprite.position.y <= -BOUNCEHEIGHT:
 		BOUNCEY = BOUNCEY * -1
 		sprite.move_local_y(BOUNCEY, false)
->>>>>>> Stashed changes
 
 func move(delta):
 	
