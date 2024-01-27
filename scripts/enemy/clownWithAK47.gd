@@ -23,6 +23,11 @@ var rangeRange:float=40.0
 =======
 <<<<<<< Updated upstream
 =======
+@export
+var firingRange:float=400.0
+@export
+var rangeRange:float=100.0
+
 >>>>>>> Stashed changes
 >>>>>>> ClownWithAK47
 var offset:float=0
@@ -46,10 +51,14 @@ func start(_Player, _maxHealth):
 func attack(delta):	#Function called every frame
 <<<<<<< HEAD
 	
+	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
 	
+	if(!weaponActive):	#If weapon is cooling down, handle cooldown timer, done before checking range as weapon will cooldown when 
 		
 =======
 <<<<<<< Updated upstream
+	attackTimer+=delta
+	if(attackTimer>=attackSpeed):
 		
 =======
 	
@@ -76,7 +85,10 @@ func attack(delta):	#Function called every frame
 	attackingTimer+=delta;
 	if(attackTimer>=attackSpeed):
 =======
+	attackTimer+=delta	#Update timers
+	attackingTimer+=delta;
 	
+	if(attackTimer>=attackSpeed && weaponActive):
 >>>>>>> Stashed changes
 >>>>>>> ClownWithAK47
 		var cosOffset:float=cos(offset)	#Get fire direction with offset
@@ -94,8 +106,11 @@ func attack(delta):	#Function called every frame
 		print(offset)		#TODO: Add shooting bullet
 <<<<<<< HEAD
 		
+	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
+		weaponActive=false
 =======
 =======
+		print("offsetFIRE")		#TODO: Add shooting bullet
 		
 	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
 		weaponActive=false
@@ -104,7 +119,12 @@ func attack(delta):	#Function called every frame
 
 func move(delta):
 	
+	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
 	
+	if(abs(distFromPlayer-firingRange)<rangeRange):	##Enemy is at optimal range, don't move
+		return
 		
+	var direction:int=sign(distFromPlayer-firingRange)
 	
+	velocity=playerDirection * moveSpeed * direction
 	move_and_slide()
