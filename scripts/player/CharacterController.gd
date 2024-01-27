@@ -13,12 +13,19 @@ var bulletID = 0
 @export var DEGREES = 15
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
+@export var iFrameTime:float=2.0
 var scoretimer = 0
 var score = 0
 var alive = true
 
+var usingController:bool=false
+
+var iFramesActive:bool=false
+var iFramesTimer:float=0
+
+
 func Controller():
-	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_direction * MOVEMENT_SPEED
 	move_and_slide()
 	
@@ -28,7 +35,17 @@ func Shoot(delta):
 	var audioNoShoot = get_child(3) as AudioStreamPlayer2D
 	
 	CURRENT_FIRE_RATE += delta
-	var facingdirection = (get_global_mouse_position() - global_position).normalized()
+	
+	var facingdirection:Vector2	#Get direction to fire
+	if(Input.get_connected_joypads().size() > 0):	#Using controller
+		facingdirection=Vector2(Input.get_joy_axis(0,JOY_AXIS_RIGHT_X),Input.get_joy_axis(0,JOY_AXIS_RIGHT_Y))
+		if(facingdirection.dot(facingdirection)<0.1):	#If aiming no-where
+			facingdirection=Vector2(1,0)
+		else:
+			facingdirection=facingdirection.normalized()	#Normalize facing direction so it's not affecting bullet velocity	
+	else:					#Using mouse
+		facingdirection = (get_global_mouse_position() - global_position).normalized()
+		
 	shootPoint.rotation = facingdirection.angle()
 	if Input.is_action_just_pressed("shoot") and CURRENT_FIRE_RATE < FIRE_RATE:
 		audioNoShoot.play()
@@ -42,7 +59,7 @@ func Shoot(delta):
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
 		bulletID += 1
-		bulletInstance.name = "Bullet " + str(bulletID)
+		bulletInstance.name = "PlBullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 50)
 		get_parent().add_child(bulletInstance)
@@ -63,9 +80,8 @@ func Bounce(delta):
 	
 func Death():
 	if HP == 0:
-		visible = false
+		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 		alive = false
-		
 
 func Scorecounter(delta):
 	if alive:
@@ -78,11 +94,24 @@ func Scorecounter(delta):
 func _physics_process(delta):
 	Controller()
 	Bounce(delta)
+	
+	if(iFramesActive):
+		iFramesTimer+=delta
+		if(iFramesTimer>iFrameTime):
+			iFramesTimer=0
+			iFramesActive=false
+			
+	
 	Shoot(delta)
 	Scorecounter(delta)
 
 
 func _on_player_collider_area_entered(area):
-	if "Bullet" in area.owner.name:
+	if "Bullet" in area.owner.name && !iFramesActive:
 		HP -= 1
+		iFramesActive=true
+	if "Enemy" in area.owner.name && !iFramesActive:
+		HP-=1
+		iFramesActive=true
+		
 	Death()

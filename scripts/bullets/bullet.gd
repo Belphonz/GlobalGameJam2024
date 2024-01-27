@@ -6,6 +6,7 @@ var bounceCount : int = 0
 var isPlayerBullet : bool 
 var direction
 var allEntities = ["ClownAK47", "Player"]
+var allHazards = ["NailHazard"]
 
 func _ready():
 	velocity = direction * speed
@@ -33,7 +34,9 @@ func basicbounce(delta):
 		else:
 			if collision_info.get_collider().name == "Player":
 				death()
-		if not "Bullet" in collision_info.get_collider().name :
+		if "Bouncy" in collision_info.get_collider().name:
+			bouncemethod(collision_info.get_normal())
+		elif not "Bullet" in collision_info.get_collider().name and not "Enemy" in collision_info.get_collider().name:
 			bounceCount += 1
 			bouncemethod(collision_info.get_normal())
 		else:

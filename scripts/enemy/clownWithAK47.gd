@@ -2,20 +2,20 @@ extends "res://scripts/enemy/baseEnemy.gd"
 
 var Bullet:Node2D
 @export
-var attackSpeed:float=0.1
+var attackSpeed:float=0.07
 @export
 var firingTime:float=2.5
 @export 
 var cooldownTime:float = 4.0
 @export
-var _moveSpeed:float = 60
+var _moveSpeed:float = 120
 @export
-var fireCone:float = 10 * PI/180
+var fireCone:float = 35 
 @export
-var fireChangeRate:float = 1/32.0 * PI
+var fireChangeRate:float = 16.0
 
 @export
-var firingRange:float=200.0
+var firingRange:float=120.0
 @export
 var rangeRange:float=80.0
 
@@ -31,19 +31,37 @@ var cooldownTimer:float=0
 
 var bulletID = 0
 
+var playerPos:Vector2 = Vector2(0,0)
+
 @export var BULLET_BOUNCE_COUNT:int = 1
-@export var BULLET_SPEED:float = 100.0
+@export var BULLET_SPEED:float = 450.0
 
 var animTimer:float = 0
+
+var Dying : bool = false
+var DeathTimer:float = 0
+var DeathTimerLength:float = 0.45
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
-	
+	if Dying:
+		DeathTimer += delta
+	if HP <= 0:
+		var animation = get_child(0) as AnimatedSprite2D
+		animation.play("Bloodsplatter", 3,false)
+		Dying = true
+	onDeath()
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	print(EnemySpin(facingDirection))
+
+
 
 func start(_Player, _maxHealth):
 	super.start(_Player,_maxHealth)
 	moveSpeed=_moveSpeed
+	fireCone *= PI/180
+	fireChange = 1/fireChangeRate * PI
 	
 func attack(delta):	#Function called every frame
 	var shootPoint = get_child(1) as Node2D
@@ -69,10 +87,12 @@ func attack(delta):	#Function called every frame
 	attackTimer+=delta	#Update timers
 	attackingTimer+=delta;
 	
-	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
+	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true and not Dying):
 		aimAudio.play()
 		animation.play("Aim",0,false)
 		await aimAudio.finished
+		
+		playerPos = playerDirection
 		takeAim = false
 		shootAudio.play()
 			
@@ -85,10 +105,10 @@ func attack(delta):	#Function called every frame
 			animation.play("Aim",0,false)
 		animTimer = 0
 	
-	if(attackTimer>=attackSpeed && weaponActive && takeAim == false):
+	if(attackTimer>=attackSpeed && weaponActive && takeAim == false and not Dying):
 		var cosOffset:float=cos(offset)	#Get fire direction with offset
 		var sinOffset:float=sin(offset)
-		var attackDirection:Vector2=Vector2(cosOffset*playerDirection.x-sinOffset*playerDirection.y,sinOffset*playerDirection.x+cosOffset*playerDirection.y)
+		var attackDirection:Vector2=Vector2(cosOffset*playerPos.x-sinOffset*playerPos.y,sinOffset*playerPos.x+cosOffset*playerPos.y)
 		shootPoint.rotation = attackDirection.angle()
 		offset+=fireChange#Adjust offset
 		
@@ -108,10 +128,11 @@ func attack(delta):	#Function called every frame
 		bulletID += 1
 		bulletInstance.name = "EnBullet " + str(bulletID)
 		
-		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 60)
-		get_parent().get_parent().add_child(bulletInstance)
+		bulletInstance.global_position = shootPoint.global_position + (attackDirection * 30)
+		get_node("../../BulletObject").add_child(bulletInstance)	#Does same as before, but gets BulletObject
+		#get_parent().get_parent().add_child(bulletInstance)
 		
-	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
+	if(attackingTimer>=firingTime and not Dying):	#Weapon deactivates after firing for too long
 		weaponActive = false
 		takeAim = true
 		animation.play("Idle",0,false)		
@@ -134,18 +155,31 @@ func bounce():
 		sprite.move_local_y(BOUNCEY, false)
 
 func move(delta):
-	
+	var sprite = get_child(0) as Node2D
 	var distFromPlayer:float=(Player.get_global_position().distance_to(get_global_position()))
 	
 	var direction:int=sign(distFromPlayer-firingRange)
 	if weaponActive == false:
 		if(abs(distFromPlayer-firingRange)<rangeRange):	##Enemy is at optimal range, don't move
-			bounce()
+			sprite.rotation = 0
 			return
 		velocity=playerDirection * moveSpeed * direction
 		move_and_slide()
 		bounce()
 	if weaponActive == true:
-		var sprite = get_child(0) as Node2D
 		sprite.rotation = 0
 		
+func onDeath():
+	var animation = get_child(0) as AnimatedSprite2D
+	if (animation.animation == "Bloodsplatter" and DeathTimer > DeathTimerLength):
+		queue_free()		
+
+
+
+func _on_area_2d_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()
+		
+

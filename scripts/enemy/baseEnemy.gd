@@ -11,6 +11,7 @@ var moveSpeed: float
 func start(_Player, _maxHealth):	#When enemy is created, add all 
 	Player=_Player
 	maxHealth=_maxHealth
+	HP = maxHealth
 	
 	
 func move(delta):	#Overwrite to add specific enemy movement
@@ -24,9 +25,19 @@ func _process(delta):
 	
 	attack(delta)
 	move(delta)
+	
+func EnemySpin(facingDirection : Vector2):
+	var rotationFrame : int = roundi(((facingDirection.angle() + PI) * 4)/ PI);
+	if rotationFrame > 7:
+		rotationFrame -= 8
+	return rotationFrame
+	
 
 func GetHurt(damage:int):
 	pass
 
 func onDeath():
-	pass
+	queue_free()
+
+
+
