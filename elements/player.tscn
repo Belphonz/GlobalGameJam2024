@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uvbos"]
 radius = 7.0
-height = 18.0
+height = 18.2005
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.97797, 1.97797)
@@ -28,7 +28,6 @@ position = Vector2(-0.406249, 1.40625)
 shape = SubResource("CapsuleShape2D_uvbos")
 
 [node name="PlayerSprite2" type="Sprite2D" parent="PlayerCollider"]
-visible = false
 modulate = Color(0.568627, 0, 0.509804, 1)
 position = Vector2(-0.665385, 9.44534)
 scale = Vector2(0.0533333, 0.0675)
