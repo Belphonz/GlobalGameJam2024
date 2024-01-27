@@ -85,7 +85,6 @@ func _physics_process(delta):
 	
 	if(iFramesActive):
 		iFramesTimer+=delta
-		print("IFrames")
 		if(iFramesTimer>iFrameTime):
 			iFramesTimer=0
 			iFramesActive=false
@@ -98,5 +97,8 @@ func _physics_process(delta):
 func _on_player_collider_area_entered(area):
 	if "Bullet" in area.owner.name && !iFramesActive:
 		HP -= 1
+		iFramesActive=true
+	if "Enemy" in area.owner.name && !iFramesActive:
+		HP-=1
 		iFramesActive=true
 		
