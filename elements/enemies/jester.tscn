@@ -6,6 +6,8 @@
 
 [node name="Enemy" instance=ExtResource("1_akicf")]
 script = ExtResource("2_s703p")
+_moveSpeed = 80.0
+zigTime = 0.2
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.177778, 0.16)
