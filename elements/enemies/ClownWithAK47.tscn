@@ -81,7 +81,7 @@ script = ExtResource("2_ud5t6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0113801, 0.0104875)
 sprite_frames = SubResource("SpriteFrames_spym8")
-animation = &"Aim"
+animation = &"Idle"
 
 [node name="ShootPoint" type="Node2D" parent="."]
 position = Vector2(0, 1.92112)
@@ -99,10 +99,10 @@ position = Vector2(0, 2)
 scale = Vector2(0.952765, 1.01815)
 shape = SubResource("CapsuleShape2D_vb0ry")
 
-[node name="EnemyCollider" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.24014, 2.4014)
 shape = SubResource("CircleShape2D_5s8v7")
 
-[connection signal="area_entered" from="EnemyCollider" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
