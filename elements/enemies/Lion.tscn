@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://fffebu6pnppa"]
+
+[ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_h66lx"]
+[ext_resource type="Script" path="res://scripts/enemy/Lion.gd" id="2_0kqpx"]
+[ext_resource type="Texture2D" uid="uid://63ahe6fxrocd" path="res://assets/gfx/Enemy/Lion/Lion1.png" id="2_n0qla"]
+
+[node name="BaseEnemy" instance=ExtResource("1_h66lx")]
+script = ExtResource("2_0kqpx")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_n0qla")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" parent="EnemyCollider" index="0"]
+scale = Vector2(3, 3)
