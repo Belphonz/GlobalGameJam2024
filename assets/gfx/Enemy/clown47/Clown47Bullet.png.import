@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq3ihq82vku8y"
-path="res://.godot/imported/Clown47AimTEMP.png-ae5e57940e6975485b88e2d11972005d.ctex"
+uid="uid://bi7v2ies02tq7"
+path="res://.godot/imported/Clown47Bullet.png-40530d98f0b0609eaf3371ec1f7fb7e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/Enemy/47/Clown47AimTEMP.png"
-dest_files=["res://.godot/imported/Clown47AimTEMP.png-ae5e57940e6975485b88e2d11972005d.ctex"]
+source_file="res://assets/gfx/Enemy/clown47/Clown47Bullet.png"
+dest_files=["res://.godot/imported/Clown47Bullet.png-40530d98f0b0609eaf3371ec1f7fb7e6.ctex"]
 
 [params]
 

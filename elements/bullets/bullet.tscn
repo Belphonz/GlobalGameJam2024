@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://5r5oq3pr8bb7"]
 
 [ext_resource type="Script" path="res://scripts/bullets/bullet.gd" id="1_smo80"]
-[ext_resource type="Texture2D" uid="uid://bi7v2ies02tq7" path="res://assets/gfx/Enemy/47/Clown47Bullet.png" id="2_7u3m2"]
 [ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="2_hk06q"]
+[ext_resource type="Texture2D" uid="uid://bi7v2ies02tq7" path="res://assets/gfx/Enemy/clown47/Clown47Bullet.png" id="3_qavso"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq4ye"]
 
@@ -23,7 +23,7 @@ texture = ExtResource("2_hk06q")
 
 [node name="AK47" type="Sprite2D" parent="."]
 scale = Vector2(0.120156, 0.120156)
-texture = ExtResource("2_7u3m2")
+texture = ExtResource("3_qavso")
 
 [node name="PlayerColl" type="CollisionShape2D" parent="."]
 scale = Vector2(4.36496, 4.36496)
