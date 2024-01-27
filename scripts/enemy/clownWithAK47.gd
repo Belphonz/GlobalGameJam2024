@@ -48,6 +48,8 @@ func _process(delta):
 	if Dying:
 		DeathTimer += delta
 	onDeath()
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	print(EnemySpin(facingDirection))
 
 
 

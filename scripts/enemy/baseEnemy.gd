@@ -26,6 +26,12 @@ func _process(delta):
 	attack(delta)
 	move(delta)
 	
+func EnemySpin(facingDirection : Vector2):
+	var rotationFrame : int = roundi(((facingDirection.angle() + PI) * 4)/ PI);
+	if rotationFrame > 7:
+		rotationFrame -= 8
+	return rotationFrame
+	
 
 func GetHurt(damage:int):
 	pass
