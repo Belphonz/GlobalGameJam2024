@@ -11,10 +11,10 @@ height = 17.1893
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.97797, 1.97797)
 script = ExtResource("1_anuxd")
+FIRE_RATE = 0.2
 BOUNCEPOWER = 0.8
 DEGREES = 12
 BOUNCEY = 0.3
-FIRE_RATE = 0.2
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -1.01114)

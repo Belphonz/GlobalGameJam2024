@@ -1,2 +1,0 @@
-extends DampedSpringJoint2D
-
