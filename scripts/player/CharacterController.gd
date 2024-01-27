@@ -21,15 +21,18 @@ func Controller():
 	
 func Shoot(delta):
 	var shootPoint = get_child(1) as Node2D
-	var audio = get_child(2) as AudioStreamPlayer2D
+	var audioShoot = get_child(2) as AudioStreamPlayer2D
+	var audioNoShoot = get_child(3) as AudioStreamPlayer2D
 	
 	CURRENT_FIRE_RATE += delta
 	var facingdirection = (get_global_mouse_position() - global_position).normalized()
 	shootPoint.rotation = facingdirection.angle()
+	if Input.is_action_just_pressed("shoot") and CURRENT_FIRE_RATE < FIRE_RATE:
+		audioNoShoot.play()
 	if Input.is_action_pressed("shoot") and CURRENT_FIRE_RATE > FIRE_RATE:
 		print(CURRENT_FIRE_RATE)
 		print(FIRE_RATE)
-		audio.play()
+		audioShoot.play()
 		var bulletInstance:CharacterBody2D = preload("res://elements/bullets/bullet.tscn").instantiate()
 		bulletInstance.speed = BULLET_SPEED
 		bulletInstance.direction = facingdirection

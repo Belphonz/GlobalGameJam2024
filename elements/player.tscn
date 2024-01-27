@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqwi7ki8bncgk"]
+[gd_scene load_steps=10 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
 [ext_resource type="Texture2D" uid="uid://3855er8h7283" path="res://assets/gfx/ClownTEMP.png" id="2_71bxx"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player_Fire_3.wav" id="6_4equ1"]
+[ext_resource type="AudioStream" uid="uid://b8lkjuv8hbcvl" path="res://assets/sfx/Player_Fire_NoShot.wav" id="7_n2m8u"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_78hek"]
 resource_local_to_scene = true
@@ -42,8 +43,11 @@ scale = Vector2(0.003, 0.003)
 texture = ExtResource("2_744xh")
 offset = Vector2(12000, 2696.37)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioShoot" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_78hek")
+
+[node name="AudioNoShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_n2m8u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
