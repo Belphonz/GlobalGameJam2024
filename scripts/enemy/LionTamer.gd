@@ -6,7 +6,7 @@ var _moveSpeed:float=40
 @export
 var lionMaxHealth=1
 
-var Lion:Node2D=null
+var Lion:Node2D=null #TODO:When lion dies, find a way to signal lion, and de-reference Lion
 
 func Start(_Player,_maxHealth,enemyID):
 	super.start(_Player,_maxHealth)
@@ -14,16 +14,19 @@ func Start(_Player,_maxHealth,enemyID):
 	
 	Lion = preload("res://elements/enemies/Lion.tscn").instantiate()
 	Lion.set_global_position(get_global_position()-Vector2(50,0))
-	Lion.name="Enemy Lion"+(enemyID+1)
 	Lion.start(_Player,lionMaxHealth)
+	Lion.setTamer(self)
+	Lion.name="Enemy Lion"+(enemyID+1).to_string()
+	get_parent().add_child(Lion)	#Add Lion to enemy manager
 
 func _process(delta):
 	super._process(delta)
 	
 	
 func move(delta):
-	velocity=moveSpeed * playerDirection
+	velocity+=moveSpeed * playerDirection
 	move_and_slide()
+	velocity=Vector2(0,0)
 	
 func attack(delta):
 	pass
