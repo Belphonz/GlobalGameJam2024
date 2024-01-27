@@ -10,7 +10,7 @@ var zigTime:float=1	#How often it swaps between zig zag direction
 
 var zigLeft:bool=false	#Jester moves in a zig zag, are they zigging or zagging
 
-var zigzagTimer:float=0	#Track how often zigLeft should swap
+var zigzagTimer:float=0.5	#Track how often zigLeft should swap
 
 func start(_Player, _maxHealth):
 	super.start(_Player,_maxHealth)
