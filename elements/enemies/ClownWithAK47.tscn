@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddvjdlrsw7l8d"]
+[gd_scene load_steps=17 format=3 uid="uid://ddvjdlrsw7l8d"]
 
 [ext_resource type="Texture2D" uid="uid://3g4yfu0qgflf" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_g7kfc"]
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
-[ext_resource type="Texture2D" uid="uid://dirfv01xyjf40" path="res://assets/gfx/Enemy/clown47/Clown47Fire.png" id="3_0lp7e"]
-[ext_resource type="Texture2D" uid="uid://bme5rkwaot7ce" path="res://assets/gfx/Enemy/clown47/Clown47Idle.png" id="4_xwua1"]
-[ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/Clown47/AK47_Cocking_Cue.wav" id="5_cwfb6"]
-[ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav" id="6_6r331"]
+[ext_resource type="Texture2D" uid="uid://coa24dgqhpbt7" path="res://assets/gfx/Enemy/clown47/Clown47Fire.png" id="3_gbe3u"]
+[ext_resource type="Texture2D" uid="uid://do8fk4sxppdul" path="res://assets/gfx/Enemy/Bloodsplatter/frame_1.png" id="3_jxy1b"]
+[ext_resource type="Texture2D" uid="uid://bme5rkwaot7ce" path="res://assets/gfx/Enemy/clown47/Clown47Idle.png" id="4_agu3x"]
+[ext_resource type="Texture2D" uid="uid://b35hf2gygjet0" path="res://assets/gfx/Enemy/Bloodsplatter/frame_2.png" id="4_cqflb"]
+[ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/AK47_Cocking_Cue.wav" id="5_2uwhe"]
+[ext_resource type="Texture2D" uid="uid://d1m1hy8bevffc" path="res://assets/gfx/Enemy/Bloodsplatter/frame_3.png" id="5_cftww"]
+[ext_resource type="Texture2D" uid="uid://br0c0dmcgspli" path="res://assets/gfx/Enemy/Bloodsplatter/frame_4.png" id="6_djn8w"]
+[ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/AK47_Fire.wav" id="6_hjr3r"]
+[ext_resource type="Texture2D" uid="uid://c85b3bu6s64p5" path="res://assets/gfx/Enemy/Bloodsplatter/frame_5.png" id="7_1bfio"]
+[ext_resource type="Texture2D" uid="uid://dbukgbai8mqtp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_7.png" id="9_twqvo"]
+[ext_resource type="Texture2D" uid="uid://db4xt2ycnxlnp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_9.png" id="11_48k1l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spym8"]
 animations = [{
@@ -19,7 +26,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_0lp7e")
+"texture": ExtResource("3_jxy1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cqflb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cftww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_djn8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1bfio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_twqvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_48k1l")
+}],
+"loop": true,
+"name": &"Bloodsplatter",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gbe3u")
 }],
 "loop": true,
 "name": &"Fire",
