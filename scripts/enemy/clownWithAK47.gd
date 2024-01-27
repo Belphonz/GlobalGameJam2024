@@ -34,7 +34,7 @@ var bulletID = 0
 var playerPos:Vector2 = Vector2(0,0)
 
 @export var BULLET_BOUNCE_COUNT:int = 1
-@export var BULLET_SPEED:float = 100.0
+@export var BULLET_SPEED:float = 450.0
 
 var animTimer:float = 0
 
@@ -155,3 +155,10 @@ func move(delta):
 		sprite.rotation = 0
 		
 		
+
+
+func _on_area_2d_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+	if HP == 0:
+		onDeath()

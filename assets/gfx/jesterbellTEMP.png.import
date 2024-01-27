@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcolg5mnmsxfr"
-path="res://.godot/imported/PlayerSpriteTEMP.png-344a3608f0d957e15b20942201d09d2e.ctex"
+uid="uid://pwtfbxxys6s8"
+path="res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/PlayerSpriteTEMP.png"
-dest_files=["res://.godot/imported/PlayerSpriteTEMP.png-344a3608f0d957e15b20942201d09d2e.ctex"]
+source_file="res://assets/gfx/jesterbellTEMP.png"
+dest_files=["res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"]
 
 [params]
 

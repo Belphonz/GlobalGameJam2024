@@ -52,7 +52,7 @@ func Shoot(delta):
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
 		bulletID += 1
-		bulletInstance.name = "Bullet " + str(bulletID)
+		bulletInstance.name = "PlBullet " + str(bulletID)
 		
 		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 50)
 		get_parent().add_child(bulletInstance)
@@ -73,11 +73,12 @@ func Bounce(delta):
 	
 func Death():
 	if HP == 0:
-		visible = false
+		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
 func _physics_process(delta):
 	Controller()
 	Bounce(delta)
+	
 	Shoot(delta)
 	Death()
 

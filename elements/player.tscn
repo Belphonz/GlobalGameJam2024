@@ -45,7 +45,6 @@ stream = SubResource("AudioStreamRandomizer_78hek")
 stream = ExtResource("7_n2m8u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="PlayerCollider" type="Area2D" parent="."]
 position = Vector2(0.406249, -9.40625)

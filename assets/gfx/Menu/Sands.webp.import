@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcolg5mnmsxfr"
-path="res://.godot/imported/PlayerSpriteTEMP.png-344a3608f0d957e15b20942201d09d2e.ctex"
+uid="uid://n42lmt3h6fai"
+path="res://.godot/imported/Sands.webp-51f15a5557a9aa8a5aedd602068f3930.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/PlayerSpriteTEMP.png"
-dest_files=["res://.godot/imported/PlayerSpriteTEMP.png-344a3608f0d957e15b20942201d09d2e.ctex"]
+source_file="res://assets/gfx/Menu/Sands.webp"
+dest_files=["res://.godot/imported/Sands.webp-51f15a5557a9aa8a5aedd602068f3930.ctex"]
 
 [params]
 
