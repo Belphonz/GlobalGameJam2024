@@ -46,7 +46,7 @@ script = ExtResource("2_ud5t6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0113801, 0.0104875)
 sprite_frames = SubResource("SpriteFrames_spym8")
-animation = &"Fire"
+animation = &"Idle"
 
 [node name="ShootPoint" type="Node2D" parent="."]
 position = Vector2(0, 1.92112)

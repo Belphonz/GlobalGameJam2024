@@ -15,7 +15,7 @@ var fireCone:float = 10 * PI/180
 var fireChangeRate:float = 1/32.0 * PI
 
 @export
-var firingRange:float=200.0
+var firingRange:float=150.0
 @export
 var rangeRange:float=80.0
 
@@ -32,7 +32,7 @@ var cooldownTimer:float=0
 var bulletID = 0
 
 @export var BULLET_BOUNCE_COUNT:int = 1
-@export var BULLET_SPEED:float = 100.0
+@export var BULLET_SPEED:float = 450.0
 
 var animTimer:float = 0
 
