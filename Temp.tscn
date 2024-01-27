@@ -1,5 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://n5odvcru1nr8"]
-[gd_scene load_steps=3 format=3 uid="uid://cjbyx4hiq874j"]
+[gd_scene load_steps=4 format=3 uid="uid://cjbyx4hiq874j"]
 
 [ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="1_b6lhf"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="1_tctef"]
@@ -27,6 +26,6 @@ texture = ExtResource("1_b6lhf")
 
 [node name="Player" parent="." instance=ExtResource("1_tctef")]
 
-[connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
-
 [node name="Node2D" parent="." instance=ExtResource("2_3reb6")]
+
+[connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
