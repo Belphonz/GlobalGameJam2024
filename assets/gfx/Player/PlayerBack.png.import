@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pwtfbxxys6s8"
-path="res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"
+uid="uid://bv1e7k4gxybau"
+path="res://.godot/imported/PlayerBack.png-47f83e49f31e1aeaa5ba8ee43e02caa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/jesterbellTEMP.png"
-dest_files=["res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"]
+source_file="res://assets/gfx/Player/PlayerBack.png"
+dest_files=["res://.godot/imported/PlayerBack.png-47f83e49f31e1aeaa5ba8ee43e02caa2.ctex"]
 
 [params]
 

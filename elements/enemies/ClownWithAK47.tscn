@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddvjdlrsw7l8d"]
+[gd_scene load_steps=18 format=3 uid="uid://ddvjdlrsw7l8d"]
 
 [ext_resource type="Texture2D" uid="uid://ggjso3uj7m6n" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_kckv0"]
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbukgbai8mqtp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_7.png" id="9_twqvo"]
 [ext_resource type="Texture2D" uid="uid://db4xt2ycnxlnp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_9.png" id="11_48k1l"]
 [ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/Clown47/AK47_Cocking_Cue.wav" id="12_467cs"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/clown47/Clown47Ass.png" id="12_vuckx"]
 [ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav" id="13_vtfan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spym8"]
@@ -61,6 +62,27 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
 }],
 "loop": true,
 "name": &"Idle",
@@ -75,13 +97,13 @@ height = 17.6791
 
 [node name="Clown47" type="CharacterBody2D"]
 position = Vector2(0, -41)
-scale = Vector2(4.16424, 4.16424)
+scale = Vector2(3.123, 3.123)
 script = ExtResource("2_ud5t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0113801, 0.0104875)
 sprite_frames = SubResource("SpriteFrames_spym8")
-animation = &"Aim"
+animation = &"Idle"
 
 [node name="ShootPoint" type="Node2D" parent="."]
 position = Vector2(0, 1.92112)
@@ -99,10 +121,10 @@ position = Vector2(0, 2)
 scale = Vector2(0.952765, 1.01815)
 shape = SubResource("CapsuleShape2D_vb0ry")
 
-[node name="EnemyCollider" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCollider"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.24014, 2.4014)
 shape = SubResource("CircleShape2D_5s8v7")
 
-[connection signal="area_entered" from="EnemyCollider" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

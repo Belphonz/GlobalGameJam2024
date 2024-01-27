@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3855er8h7283"
-path="res://.godot/imported/ClownTEMP.png-ca602b5203a345f1505a2e348c79b041.ctex"
+uid="uid://sxth5ss8q8cu"
+path="res://.godot/imported/Clown47Ass.png-d5a0a69b7565dd72b3b7448728ae1301.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/ClownTEMP.png"
-dest_files=["res://.godot/imported/ClownTEMP.png-ca602b5203a345f1505a2e348c79b041.ctex"]
+source_file="res://assets/gfx/Enemy/clown47/Clown47Ass.png"
+dest_files=["res://.godot/imported/Clown47Ass.png-d5a0a69b7565dd72b3b7448728ae1301.ctex"]
 
 [params]
 

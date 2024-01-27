@@ -25,6 +25,7 @@ func _ready():
 	#spawnJester(Vector2(100,100))
 	spawnLionTamer(Vector2(100,100))
 
+
 	
 func spawnClownAK47(position:Vector2):
 	var enemyInstanceNode:CharacterBody2D = cAK47.instantiate()
