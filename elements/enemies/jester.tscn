@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/enemy/jester.gd" id="2_s703p"]
 [ext_resource type="Texture2D" uid="uid://bcolg5mnmsxfr" path="res://assets/gfx/PlayerSpriteTEMP.png" id="3_02aun"]
 
-[node name="Enemy" instance=ExtResource("1_akicf")]
+[node name="Jester" instance=ExtResource("1_akicf")]
 script = ExtResource("2_s703p")
 _moveSpeed = 80.0
 zigTime = 0.2
@@ -13,3 +13,11 @@ zigTime = 0.2
 position = Vector2(-7.7486e-07, 0)
 scale = Vector2(0.0888889, 0.0888889)
 texture = ExtResource("3_02aun")
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.865, 0.865)
+
+[node name="CollisionShape2D" parent="EnemyCollider" index="0"]
+scale = Vector2(1.005, 1.005)
+
+[connection signal="area_entered" from="EnemyCollider" to="." method="_on_enemy_collider_area_entered"]
