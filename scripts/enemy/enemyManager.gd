@@ -20,8 +20,8 @@ func _ready():
 	jester=preload("res://elements/enemies/jester.tscn")
 	Player=get_node("../Player")
 	spawnClownAK47(Vector2(100,100))
-	#spawnRingmaster(Vector2(100,100))
-	spawnJester(Vector2(100,100))
+	spawnRingmaster(Vector2(100,100))
+	#spawnJester(Vector2(100,100))
 
 
 	
