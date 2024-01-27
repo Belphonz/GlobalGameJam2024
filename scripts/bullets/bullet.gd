@@ -34,7 +34,8 @@ func basicbounce(delta):
 		else:
 			if collision_info.get_collider().name == "Player":
 				death()
-		if not "Bullet" in collision_info.get_collider().name and not collision_info.get_collider().name in allHazards:
+
+		if not "Bullet" in collision_info.get_collider().name and not "Enemy" in collision_info.get_collider().name and not collision_info.get_collider().name in allHazards:
 			bounceCount += 1
 			bouncemethod(collision_info.get_normal())
 		else:
