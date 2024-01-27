@@ -39,3 +39,13 @@ func _process(delta):
 			position.y+=yOffset
 			
 			set_global_position(position)
+			return
+
+	
+func _on_area_2d_area_entered(area):
+	if(!active):
+		return
+	if(area.name=="PlayerCollider"):
+		var Player:Node2D=area.get_parent()
+		Player.HP-=1
+		

@@ -45,7 +45,6 @@ func collide(colliding:Node2D):
 	if(!active):
 		return
 	super.collide(colliding)
-	print(colliding.name)
 	if(colliding.name=="PlayerCollider"):
 		var Player:Node2D=colliding.get_parent()
 		if(!Player.iFramesActive):
@@ -53,7 +52,9 @@ func collide(colliding:Node2D):
 			Player.iFramesActive=true
 	if(colliding.name=="EnemyCollider"):
 		var Enemy:Node2D = colliding.get_parent()
-		Enemy.HP-=1
+		print(Enemy.name)
+		if !("Jester" in Enemy.name):
+			Enemy.HP-=1
 
 
 func _on_area_entered(area):
