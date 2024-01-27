@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
 [ext_resource type="Texture2D" uid="uid://dirfv01xyjf40" path="res://assets/gfx/Enemy/clown47/Clown47Fire.png" id="3_0lp7e"]
 [ext_resource type="Texture2D" uid="uid://bme5rkwaot7ce" path="res://assets/gfx/Enemy/clown47/Clown47Idle.png" id="4_xwua1"]
-[ext_resource type="AudioStream" path="res://assets/sfx/Enemy/AK47_Cocking_Cue.wav" id="5_2uwhe"]
-[ext_resource type="AudioStream" path="res://assets/sfx/Enemy/AK47_Fire.wav" id="6_hjr3r"]
+[ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/Clown47/AK47_Cocking_Cue.wav" id="5_cwfb6"]
+[ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav" id="6_6r331"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spym8"]
 animations = [{
@@ -53,11 +53,11 @@ position = Vector2(0, 2.16126)
 scale = Vector2(0.0113801, 0.0104875)
 
 [node name="TakeAim" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_2uwhe")
+stream = ExtResource("5_cwfb6")
 
 [node name="ShootAudio" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.897727, 0.897727)
-stream = ExtResource("6_hjr3r")
+stream = ExtResource("6_6r331")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
