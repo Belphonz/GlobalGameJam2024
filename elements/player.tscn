@@ -14,9 +14,11 @@ FIRE_RATE = 0.2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
 shape = SubResource("RectangleShape2D_fy414")
 
-[node name="BulletPoint" type="Node2D" parent="."]
-position = Vector2(15, 0)
-scale = Vector2(-2.33479e+06, -0.0146739)
+[node name="BulletPoint" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.003, 0.003)
+texture = ExtResource("2_744xh")
+offset = Vector2(12000, -0.00012207)
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8.9407e-08)
