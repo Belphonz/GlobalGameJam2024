@@ -38,3 +38,20 @@ func _physics_process(delta):
 	
 
 
+
+	var Player = get_child(0) as Node2D
+	var AK47 = get_child(1) as Node2D
+	var AK47Coll = get_child(3) as CollisionShape2D
+	var PlayerColl = get_child(2) as CollisionShape2D
+	
+		Player.visible = true
+	if isPlayerBullet:
+		AK47.visible = false
+		PlayerColl.disabled = false
+		
+		AK47Coll.disabled = true
+	else:
+		Player.visible = false
+		AK47.visible = true
+		AK47Coll.disabled = false
+		PlayerColl.disabled = true
