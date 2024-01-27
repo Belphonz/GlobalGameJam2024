@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr1e2s3j2uwgy"]
+[gd_scene load_steps=4 format=3 uid="uid://dr1e2s3j2uwgy"]
 
+[ext_resource type="Script" path="res://scripts/bullets/jesterBell.gd" id="1_3yc2c"]
 [ext_resource type="Texture2D" uid="uid://pwtfbxxys6s8" path="res://assets/gfx/jesterbellTEMP.png" id="1_tqecn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dg0dc"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3yc2c")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(0.25, 0.25)
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_dg0dc")

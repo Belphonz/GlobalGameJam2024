@@ -1,6 +1,7 @@
 extends "res://scripts/enemy/baseEnemy.gd"
 
-var nailHazard=preload("res://elements/hazards/nailHazard.tscn")
+var nailHazard
+var bellBullet
 
 @export
 var _moveSpeed:float = 60
@@ -17,6 +18,8 @@ var nailChance:float=0.15
 
 @export
 var nailThrowDistance:float=128
+@export
+var bellThrowDistance:float=128
 
 
 var zigLeft:bool=false	#Jester moves in a zig zag, are they zigging or zagging
@@ -30,6 +33,8 @@ var rng=RandomNumberGenerator.new()
 func start(_Player, _maxHealth):
 	super.start(_Player,_maxHealth)
 	moveSpeed=_moveSpeed
+	nailHazard=preload("res://elements/hazards/nailHazard.tscn")
+	bellBullet=preload("res://elements/bullets/jesterBell.tscn")
 
 func _process(delta):
 	super._process(delta)
@@ -42,17 +47,19 @@ func attack(delta):
 	attackTimer+=delta
 	if(attackTimer>attackSpeed):
 		attackTimer=0
+		var throwAngle:float=rng.randf()*2*PI
+		var throwDirection:Vector2=Vector2(cos(throwAngle),sin(throwAngle))
 		if(rng.randf()<0.15):
 			#Throw trap
-			var throwAngle:float=rng.randf()*2*PI
-			var throwDirection:Vector2=Vector2(cos(throwAngle),sin(throwAngle))
 			var NailHazard=nailHazard.instantiate()
 			NailHazard.throw(get_global_position(),get_global_position()+throwDirection*nailThrowDistance)
 			get_parent().get_parent().add_child(NailHazard)
 		else:
 			
 			#Throw bell
-			print("Throw bell")
+			var Bell=bellBullet.instantiate()
+			Bell.throw(get_global_position(),get_global_position()+throwDirection*bellThrowDistance)
+			get_parent().get_parent().add_child(Bell)
 	
 	
 func move(delta):

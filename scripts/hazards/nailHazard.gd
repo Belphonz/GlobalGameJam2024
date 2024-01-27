@@ -1,7 +1,7 @@
 extends "res://scripts/hazards/baseHazard.gd"
 
 @export 
-var airTime:float=0.4	#how lon gobject is thrown for
+var airTime:float=0.4	#how long object is thrown for
 
 @export
 var maxCurveHeight=10
