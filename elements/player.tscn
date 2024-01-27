@@ -11,6 +11,7 @@ height = 18.2005
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.97797, 1.97797)
 script = ExtResource("1_anuxd")
+FIRE_RATE = 0.2
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -1.51671)
@@ -27,6 +28,15 @@ position = Vector2(0.406249, -9.40625)
 position = Vector2(-0.406249, 1.40625)
 shape = SubResource("CapsuleShape2D_uvbos")
 
+[node name="BulletPoint" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.003, 0.003)
+texture = ExtResource("2_744xh")
+offset = Vector2(12000, -0.00012207)
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8.9407e-08)
+scale = Vector2(0.0836111, 0.0852778)
 [node name="PlayerSprite2" type="Sprite2D" parent="PlayerCollider"]
 visible = false
 modulate = Color(0.568627, 0, 0.509804, 1)
