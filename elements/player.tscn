@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7qiueofvn0m0"]
+[gd_scene load_steps=10 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
 [ext_resource type="Texture2D" uid="uid://3855er8h7283" path="res://assets/gfx/ClownTEMP.png" id="2_71bxx"]
-[ext_resource type="Texture2D" uid="uid://bcolg5mnmsxfr" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
+[ext_resource type="Texture2D" uid="uid://eo1fi6tj10li" path="res://assets/gfx/PlayerSpriteTEMP.png" id="2_744xh"]
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]

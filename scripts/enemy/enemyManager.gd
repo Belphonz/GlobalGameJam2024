@@ -16,7 +16,7 @@ var EnemyID = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	cAK47 = preload("res://elements/enemies/ClownWithAK47.tscn")
-	rm = preload("res://elements/enemies/ClownWithAK47.tscn")
+	rm = preload("res://elements/enemies/ringmaster.tscn")
 	jester=preload("res://elements/enemies/jester.tscn")
 	Player=get_node("../Player")
 	#spawnClownAK47(Vector2(100,100))
