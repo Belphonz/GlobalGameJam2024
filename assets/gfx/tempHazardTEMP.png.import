@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx1asqu7073s1"
-path="res://.godot/imported/PlayerSpriteTEMP.png-c200f92cabe3a5bf60a73fd70e1bc862.ctex"
+uid="uid://cebe2rgnx6oug"
+path="res://.godot/imported/tempHazardTEMP.png-70cfb74d2e33e1053f00d51f78ba8a23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlayerSpriteTEMP.png"
-dest_files=["res://.godot/imported/PlayerSpriteTEMP.png-c200f92cabe3a5bf60a73fd70e1bc862.ctex"]
+source_file="res://assets/gfx/tempHazardTEMP.png"
+dest_files=["res://.godot/imported/tempHazardTEMP.png-70cfb74d2e33e1053f00d51f78ba8a23.ctex"]
 
 [params]
 
