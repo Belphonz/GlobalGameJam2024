@@ -155,3 +155,10 @@ func move(delta):
 		sprite.rotation = 0
 		
 		
+
+
+func _on_area_2d_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+	if HP == 0:
+		onDeath()
