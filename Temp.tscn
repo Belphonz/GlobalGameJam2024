@@ -1,7 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjbyx4hiq874j"]
+[gd_scene load_steps=3 format=3 uid="uid://n5odvcru1nr8"]
 
+[ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="1_b6lhf"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="1_tctef"]
 
 [node name="Temp" type="Node2D"]
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1, 1)
+disable_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D/StaticBody2D"]
+position = Vector2(-1.00002, -3.00002)
+scale = Vector2(2.69141, 2.69141)
+build_mode = 1
+polygon = PackedVector2Array(49, -123.6, 49, -122.3, 74, -110.3, 74, -108.9, 100, -86.9, 100, -84.7, 117, -62.7, 117, -60.3, 128, -35.4, 128, 30.8, 121.5, 54, 120.2, 54, 110.2, 74, 109, 74, 99, 88, 97.9, 88, 72.8, 111, 70.5, 111, 52.6, 122, 49.3, 122, 35.4, 128, -37, 128, -37, 126.5, -54, 121.5, -54, 120.2, -74, 110.2, -74, 108.9, -100, 86.9, -100, 84.7, -117, 62.7, -117, 60.4, -128, 32.5, -128, -34, -123.5, -49, -122.3, -49, -110.3, -74, -108.9, -74, -86.9, -100, -84.7, -100, -62.7, -117, -60.5, -117, -47.5, -124, -44.3, -124, -30.7, -128, 31, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+modulate = Color(0.180392, 0.439216, 0.254902, 1)
+position = Vector2(-1.00002, -3.00002)
+scale = Vector2(2.69141, 2.69141)
+texture = ExtResource("1_b6lhf")
+
 [node name="Player" parent="." instance=ExtResource("1_tctef")]
+
+[connection signal="area_exited" from="Area2D" to="Player" method="_on_area_2d_area_exited"]
