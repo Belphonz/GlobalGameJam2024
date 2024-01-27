@@ -44,7 +44,9 @@ func spawnRingmaster(position:Vector2):
 func spawnJester(position:Vector2):
 	var enemyInstanceNode=jester.instantiate()
 	enemyInstanceNode.set_global_position(position)
+	EnemyID+=1
 	enemyInstanceNode.start(Player,1)
+	enemyInstanceNode.name="Enemy Jester" + str(EnemyID)
 	add_child(enemyInstanceNode)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

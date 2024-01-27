@@ -47,7 +47,9 @@ func collide(colliding:Node2D):
 	super.collide(colliding)
 	if(colliding.name=="PlayerCollider"):
 		var Player:Node2D=colliding.get_parent()
-		Player.HP-=1
+		if(!Player.iFramesActive):
+			Player.HP-=1
+			Player.iFramesActive=true
 	if(colliding.name=="EnemyCollider"):
 		var Enemy:Node2D = colliding.get_parent()
 		if(Enemy.name!="Jester"):
