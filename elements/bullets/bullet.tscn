@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/bullets/bullet.gd" id="1_smo80"]
 [ext_resource type="Texture2D" uid="uid://3j7whj1v2r3q" path="res://assets/gfx/Hollow_CircleTEMP.png" id="2_hk06q"]
-[ext_resource type="Texture2D" uid="uid://cu4a2xr2p76hr" path="res://assets/gfx/Enemy/clown47/IMG_7813.png" id="3_bgs6x"]
+[ext_resource type="Texture2D" uid="uid://cu4a2xr2p76hr" path="res://assets/gfx/Enemy/clown47/IMG_7813.png" id="3_xc7yx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq4ye"]
 
@@ -23,7 +23,7 @@ texture = ExtResource("2_hk06q")
 
 [node name="AK47" type="Sprite2D" parent="."]
 scale = Vector2(0.120156, 0.120156)
-texture = ExtResource("3_bgs6x")
+texture = ExtResource("3_xc7yx")
 
 [node name="PlayerColl" type="CollisionShape2D" parent="."]
 scale = Vector2(4.36496, 4.36496)
