@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var HP:float = 100.0
+var HP:int = 6
 @export var MAX_HP:float = 100.0
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
@@ -59,9 +59,17 @@ func Bounce(delta):
 		BOUNCEY = BOUNCEY * -1
 		sprite.move_local_y(BOUNCEY, false)
 	
-	#look_at(Pivot.position)
+func Death():
+	if HP == 0:
+		visible = false
 
 func _physics_process(delta):
 	Controller()
 	Bounce(delta)
 	Shoot(delta)
+	Death()
+
+
+func _on_player_collider_area_entered(area):
+	if "Bullet" in area.owner.name:
+		HP -= 1

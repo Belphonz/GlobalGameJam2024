@@ -3,7 +3,7 @@ extends CharacterBody2D
 var Player:Node2D=null		#Node2D
 var playerDirection: Vector2
 
-var health:float
+var HP:float
 var maxHealth:float	
 
 var moveSpeed: float

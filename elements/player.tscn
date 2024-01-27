@@ -73,3 +73,5 @@ scale = Vector2(0.0836111, 0.0852778)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8.0891)
 shape = SubResource("CapsuleShape2D_uvbos")
+
+[connection signal="area_entered" from="PlayerCollider" to="." method="_on_player_collider_area_entered"]
