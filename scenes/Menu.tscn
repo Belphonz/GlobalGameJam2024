@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc7ka0053noyb"]
+[gd_scene load_steps=6 format=3 uid="uid://bc7ka0053noyb"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_s7svw"]
 [ext_resource type="Texture2D" uid="uid://5b715nokfi38" path="res://assets/gfx/Menu/BGMenuTEMP.jpg" id="2_mra1w"]
 [ext_resource type="Texture2D" uid="uid://c0la3jc5omihc" path="res://assets/gfx/Menu/TitleLogoTEMP.png" id="3_hvxcm"]
+[ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_rxeui"]
 [ext_resource type="AudioStream" uid="uid://c3tijyvbg4uo4" path="res://assets/sfx/Themes/Main_Menu_Theme.wav" id="4_put7u"]
 
 [node name="Menu" type="Node2D"]
@@ -18,6 +19,7 @@ offset_left = 408.0
 offset_top = 400.0
 offset_right = 744.0
 offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("3_rxeui")
 text = "Menu
 "
 
@@ -26,6 +28,7 @@ offset_left = 408.0
 offset_top = 272.0
 offset_right = 744.0
 offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("3_rxeui")
 text = "Play
 "
 
@@ -34,6 +37,7 @@ offset_left = 408.0
 offset_top = 528.0
 offset_right = 744.0
 offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("3_rxeui")
 text = "Quit
 "
 
