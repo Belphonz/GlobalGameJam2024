@@ -23,10 +23,6 @@ autoplay = true
 
 [node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
 
-[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
-position = Vector2(-120, -224)
-scale = Vector2(2.3, 2.3)
-
 [node name="Stage" parent="." instance=ExtResource("1_eong5")]
 scale = Vector2(1.8, 1.8)
 
@@ -34,3 +30,7 @@ scale = Vector2(1.8, 1.8)
 
 [node name="WaveManager" parent="." instance=ExtResource("7_yq4m0")]
 enemiesPerWave = [5, 8.0, 10.0]
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+position = Vector2(-120, -224)
+scale = Vector2(2.3, 2.3)
