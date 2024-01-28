@@ -16,10 +16,14 @@ func _ready():
 	var EnemySp = get_child(1) as Sprite2D
 	var PlayerColl = get_child(2) as CollisionShape2D
 	var EnemyColl = get_child(3) as CollisionShape2D
+	var EnemyArea=get_node("Area2D/EnemyArea") as CollisionShape2D
+	var PlayerArea=get_node("Area2D/PlayerArea") as CollisionShape2D
 	PlayerSp.visible = isPlayerBullet
 	EnemySp.visible = !isPlayerBullet
 	PlayerColl.disabled = !isPlayerBullet
 	EnemyColl.disabled = isPlayerBullet
+	EnemyArea.disabled=isPlayerBullet
+	PlayerArea.disabled=!isPlayerBullet
 	
 func death():	
 	queue_free()

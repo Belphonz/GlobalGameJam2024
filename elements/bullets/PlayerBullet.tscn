@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://sy44xbkurvq8"]
+
+[ext_resource type="Texture2D" uid="uid://82cnplq02336" path="res://assets/gfx/Player/Confetti_Bullet_Full.png" id="2_8ybum"]
+
+[sub_resource type="GDScript" id="GDScript_rk1du"]
+script/source = "extends CharacterBody2D
+
+@export
+var bulletSpeed:float=200
+@export
+var maxBounceCount:int=10
+
+var bounceCount:int=0
+
+#Bounce collision handled by CharacterBody2D collision
+#Everything else handled by Area2D collision
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxhj1"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_rk1du")
+
+[node name="Player" type="Sprite2D" parent="."]
+scale = Vector2(0.986982, 0.986982)
+texture = ExtResource("2_8ybum")
+
+[node name="PlayerColl" type="CollisionShape2D" parent="."]
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_cxhj1")
+one_way_collision_margin = 3.5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="PlayerColl" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(8, 8)
+shape = SubResource("CircleShape2D_cxhj1")
+one_way_collision_margin = 3.5

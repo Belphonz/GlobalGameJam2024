@@ -33,7 +33,7 @@ var isLeft : bool = false
 var rotationFrame : int
 func _ready():
 	Highscore.Player = self
-
+	HP=MAX_HP
 
 func Controller(delta):
 	if not isDashing:
