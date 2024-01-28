@@ -8,8 +8,6 @@ var cAK47
 var rm
 var lionTamer
 
-@export
-var CAK47MoveSpeed:float
 
 var EnemyID = 0
 
@@ -23,8 +21,8 @@ func _ready():
 
 	#spawnClownAK47(Vector2(100,100))
 	#spawnRingmaster(Vector2(100,100))
-	spawnJester(Vector2(100,100))
-	#spawnLionTamer(Vector2(100,100))
+	#spawnJester(Vector2(100,100))
+	spawnLionTamer(Vector2(100,100))
 
 
 
