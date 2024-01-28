@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var HP:int = 6
-@export var MAX_HP:float = 100.0
+@export var MAX_HP:float = 6.0
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_SPEED:float = 400.0
@@ -19,16 +19,36 @@ var scoretimer = 0
 var alive = true
 
 var usingController:bool=false
-
 var iFramesActive:bool=false
 var iFramesTimer:float=0
 
+var isLeft : bool = false
+var rotationFrame : int
 func _ready():
 	Highscore.Player = self
 
-func Controller():
-	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+
+func Controller(delta):
+	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	velocity = move_direction * MOVEMENT_SPEED
+	var leftDirection = [0,1,7]
+	
+	var animation = get_child(0) as AnimatedSprite2D
+	animation.frame = rotationFrame
+	
+	if move_direction:
+		Bounce(delta)
+		rotationFrame = roundi(((move_direction.angle() + PI) * 4)/ PI);
+		if rotationFrame > 7:
+			rotationFrame -= 8
+		if rotationFrame in leftDirection:
+			isLeft = true
+		else:
+			isLeft = false
+	else:
+		animation.rotation = 0
+	animation.flip_h = isLeft
+	animation.play("Default",0,false)
 	move_and_slide()
 	
 func Shoot(delta):
@@ -95,8 +115,9 @@ func Scorecounter(delta):
 		highscore.text = score.to_string()
 	
 func _physics_process(delta):
-	Controller()
-	Bounce(delta)
+	Controller(delta)
+	print(HP)
+	
 	
 	if(iFramesActive):
 		iFramesTimer+=delta
@@ -107,6 +128,8 @@ func _physics_process(delta):
 	
 	Shoot(delta)
 	Scorecounter(delta)
+	Death()
+	
 
 
 func _on_player_collider_area_entered(area):

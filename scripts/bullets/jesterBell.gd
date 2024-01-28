@@ -15,12 +15,14 @@ var active:bool=true
 
 func throw(startLocation:Vector2,endLocation:Vector2):
 	active=true
-	startThrow=startLocation
+	global_position=startLocation
+	startThrow = startLocation
 	endThrow=endLocation
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rotation = randf_range(-180,180)
 	pass # Replace with function body.
 
 
@@ -31,6 +33,7 @@ func _process(delta):
 			if(timeInAir>airTime):
 				active=false
 				set_global_position(endThrow)
+				
 				return
 			var pointInCurve:float = timeInAir/airTime
 			var position:Vector2 = lerp(startThrow,endThrow,pointInCurve)

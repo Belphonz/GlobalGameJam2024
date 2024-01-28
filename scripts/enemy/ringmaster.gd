@@ -100,9 +100,16 @@ func move(delta):
 	if stunned == false:
 		if attacking == false:
 			moveSpeed = 60
-			sprite.play("Idle",0,false)
 			sprite.visible = true
 			animation.visible = false
+			var facingDirection = ((Player.global_position - global_position).normalized())
+			if sprite.animation == "Idle":
+				sprite.frame = EnemySpin(facingDirection) 
+				if EnemySpin(facingDirection) in leftDirection:
+					sprite .flip_h = true
+				else:
+					sprite.flip_h = false
+			sprite.play("Idle",0,false)
 			
 		if attacking == true:
 			moveSpeed = 90

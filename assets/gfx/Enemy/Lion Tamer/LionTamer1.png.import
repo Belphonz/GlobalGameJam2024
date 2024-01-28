@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pwtfbxxys6s8"
-path="res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"
+uid="uid://cmtd5suen1l8y"
+path="res://.godot/imported/LionTamer1.png-e70586e7dc0c65dad1388c5717268da2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/jesterbellTEMP.png"
-dest_files=["res://.godot/imported/jesterbellTEMP.png-7f29b6efc5ccba6297af1bad2c33c66a.ctex"]
+source_file="res://assets/gfx/Enemy/Lion Tamer/LionTamer1.png"
+dest_files=["res://.godot/imported/LionTamer1.png-e70586e7dc0c65dad1388c5717268da2.ctex"]
 
 [params]
 

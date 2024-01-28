@@ -18,9 +18,9 @@ autoplay = true
 position = Vector2(-120, -224)
 scale = Vector2(2.3, 2.3)
 
-[node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
-
 [node name="BulletObject" type="Node2D" parent="."]
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
 
 [node name="Stage" parent="." instance=ExtResource("1_eong5")]
 scale = Vector2(1.8, 1.8)

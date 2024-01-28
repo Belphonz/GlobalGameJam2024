@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddvjdlrsw7l8d"]
+[gd_scene load_steps=18 format=3 uid="uid://ddvjdlrsw7l8d"]
 
 [ext_resource type="Texture2D" uid="uid://ggjso3uj7m6n" path="res://assets/gfx/Enemy/clown47/Clown47Aim.png" id="2_kckv0"]
 [ext_resource type="Script" path="res://scripts/enemy/clownWithAK47.gd" id="2_ud5t6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbukgbai8mqtp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_7.png" id="9_twqvo"]
 [ext_resource type="Texture2D" uid="uid://db4xt2ycnxlnp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_9.png" id="11_48k1l"]
 [ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/Clown47/AK47_Cocking_Cue.wav" id="12_467cs"]
+[ext_resource type="Texture2D" uid="uid://sxth5ss8q8cu" path="res://assets/gfx/Enemy/clown47/Clown47Ass.png" id="12_vuckx"]
 [ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav" id="13_vtfan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spym8"]
@@ -61,6 +62,27 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vuckx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agu3x")
 }],
 "loop": true,
 "name": &"Idle",
@@ -75,7 +97,7 @@ height = 17.6791
 
 [node name="Clown47" type="CharacterBody2D"]
 position = Vector2(0, -41)
-scale = Vector2(4.16424, 4.16424)
+scale = Vector2(3.123, 3.123)
 script = ExtResource("2_ud5t6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
