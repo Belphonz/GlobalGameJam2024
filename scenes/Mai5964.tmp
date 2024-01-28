@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bolxcixlhgykv"]
+
+[ext_resource type="PackedScene" path="res://scenes/Stage.tscn" id="1_eong5"]
+[ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_we28v"]
+[ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
+[ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
+[ext_resource type="AudioStream" uid="uid://ck86rgpyvyfgx" path="res://assets/sfx/Themes/Game_Theme.wav" id="4_kkpkc"]
+[ext_resource type="PackedScene" uid="uid://btjbvawyjpsqa" path="res://scenes/highscore.tscn" id="5_pfcbs"]
+[ext_resource type="Script" path="res://scripts/enemy/waveGenerator.gd" id="7_vdkfd"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_we28v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kkpkc")
+autoplay = true
+
+[node name="BloodsplatterNode" type="Node2D" parent="."]
+
+[node name="BulletObject" type="Node2D" parent="."]
+
+[node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+position = Vector2(-120, -224)
+scale = Vector2(2.3, 2.3)
+
+[node name="Stage" parent="." instance=ExtResource("1_eong5")]
+scale = Vector2(1.8, 1.8)
+
+[node name="HighscoreManager" parent="." instance=ExtResource("5_pfcbs")]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("7_vdkfd")

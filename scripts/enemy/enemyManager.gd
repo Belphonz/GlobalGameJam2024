@@ -26,9 +26,8 @@ func _ready():
 	#spawnLionTamer(Vector2(100,100))
 	#spawnClown(Vector2(100,100))
 
-func _process(delta):
-	print(get_child_count())
-
+func getEnemyCount():
+	return get_child_count()
 	
 func spawnClownAK47(position:Vector2):
 	var enemyInstanceNode:CharacterBody2D = cAK47.instantiate()
@@ -72,7 +71,3 @@ func spawnClown(position:Vector2):
 	enemyInstanceNode.name="Enemy Clown" + str(EnemyID)
 	add_child(enemyInstanceNode)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

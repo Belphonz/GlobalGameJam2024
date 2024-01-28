@@ -21,12 +21,15 @@ var ringSize:float=520
 @export	#How many enemies per wave
 var enemiesPerWave:float=5
 
+@export 
+var enemySpawnTime:float=0.4
+var enemySpawnTimer:float=0
+
+var enemiesToSpawn:int=0
+
 var EnemyManager:Node2D
 
 var rng=RandomNumberGenerator.new()	#rng
-
-var timer:float
-var maxTimer:float=5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,13 +44,19 @@ func _ready():
 	for i in 5:	#Make the chance ranges for each enemy
 		for j in 5-i:
 			chanceRanges[i+j]+=chanceArray[i]
+	
+	spawnWave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	timer+=delta
-	if(timer>maxTimer):
-		timer=0
+	if(enemiesToSpawn>0):
+		enemySpawnTimer+=delta
+		if(enemySpawnTimer>enemySpawnTime):
+			enemySpawnTimer=0
+			enemiesToSpawn-=1
+			spawnEnemy()
+	if(EnemyManager.getEnemyCount()==0 && enemiesToSpawn == 0):
 		spawnWave()
 
 func spawnEnemy():
@@ -68,5 +77,4 @@ func spawnEnemy():
 		EnemyManager.spawnRingmaster(spawnPosition)
 	
 func spawnWave():
-	for i in enemiesPerWave:
-		spawnEnemy()
+	enemiesToSpawn+=enemiesPerWave
