@@ -1,15 +1,16 @@
 extends Node
 
-@export	#Variables to do with picking an enemy to spawn
-var clownAK47Chance:float=1
+@export	#Chances for enemy
+var clownAK47Chances:Array=[1]
 @export
-var clownChance:float=1
+var clownChances:Array=[1]
 @export
-var jesterChance:float=1
+var jesterChances:Array=[1]
 @export
-var LionTamerChance:float=1
+var lionTamerChances:Array=[1]
 @export
-var ringMasterChance:float=1
+var ringMasterChances:Array=[1]
+var waveCount:int=0
 
 var sumChances:float
 
@@ -33,17 +34,11 @@ var rng=RandomNumberGenerator.new()	#rng
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sumChances=clownAK47Chance+clownChance+jesterChance+LionTamerChance+ringMasterChance
 	EnemyManager=get_parent().get_node("EnemyManager")
 	
-	for i in 5:
-		chanceRanges.append(0.0)
 	
-	var chanceArray:Array=[clownAK47Chance,clownChance,jesterChance,LionTamerChance,ringMasterChance]	#Put data into array to make it iterable
 	
-	for i in 5:	#Make the chance ranges for each enemy
-		for j in 5-i:
-			chanceRanges[i+j]+=chanceArray[i]
+
 	
 	spawnWave()
 
@@ -77,4 +72,24 @@ func spawnEnemy():
 		EnemyManager.spawnRingmaster(spawnPosition)
 	
 func spawnWave():
+	var clownAK47Chance:float=clownAK47Chances[min(waveCount,clownAK47Chances.size()-1)]
+	var clownChance:float=clownChances[min(waveCount,clownChances.size()-1)]
+	var jesterChance:float=jesterChances[min(waveCount,jesterChances.size()-1)]
+	var LionTamerChance:float=lionTamerChances[min(waveCount,lionTamerChances.size()-1)]
+	var ringMasterChance:float=ringMasterChances[min(waveCount,ringMasterChances.size()-1)]
+	
+	sumChances=clownAK47Chance+clownChance+jesterChance+LionTamerChance+ringMasterChance	#Calculate chances
+	
+	var chanceArray:Array=[clownAK47Chance,clownChance,jesterChance,LionTamerChance,ringMasterChance]	#Put data into array to make it iterable
+	
+	print(sumChances)
+	
+	for i in 5:
+		chanceRanges.append(0.0)
+	
+	for i in 5:	#Make the chance ranges for each enemy
+		for j in 5-i:
+			chanceRanges[i+j]+=chanceArray[i]
+	
 	enemiesToSpawn+=enemiesPerWave
+	waveCount+=1
