@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _on_controls_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/ControlsMenu.tscn")
 
 
 func _on_start_button_pressed():
