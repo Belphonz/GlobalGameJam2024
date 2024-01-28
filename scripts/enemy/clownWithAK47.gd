@@ -124,6 +124,7 @@ func attack(delta):	#Function called every frame
 		bulletInstance.direction = attackDirection
 		bulletInstance.isPlayerBullet = false
 		bulletInstance.rotation_degrees = shootPoint.rotation_degrees-90
+		bulletInstance.damage=BOMB_DAMAGE
 			
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		

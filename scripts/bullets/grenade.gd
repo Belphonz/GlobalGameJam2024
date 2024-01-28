@@ -17,7 +17,7 @@ var maxCurveHeight:float=20
 var fuseTime:float=3
 
 @export
-var explosionLifeTime:float=0.5
+var explosionLifeTime:float=1.17
 
 @export
 var explosionSpriteSize:Vector2
@@ -37,6 +37,9 @@ enum state{throw,fuse,explode}
 
 var bombState:state=state.throw
 
+var explosionSound:AudioStreamPlayer2D
+
+
 func throw(start:Vector2, end:Vector2):
 	startThrow=start
 	endThrow=end
@@ -53,6 +56,8 @@ func _ready():
 	var explosionSprite:Node2D=get_node("explosion")
 	var explosionSize=Vector2(explodeRadius / explosionSpriteSize.x,explodeRadius / explosionSpriteSize.y)
 	explosionSprite.scale=explosionSize
+	
+	explosionSound=get_node("Explosion")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -77,8 +82,9 @@ func _process(delta):
 			explode()
 			get_node("explosion").visible = true #TODO: Add actual explosion animation
 	if(bombState==state.explode):
+		explosionSound.play()
 		explosionTime+=delta
-		if(explosionTime>explosionLifeTime):
+		if(explosionTime>=explosionLifeTime):
 			queue_free()
 	
 

@@ -71,6 +71,7 @@ animations = [{
 
 [node name="BaseEnemy4" instance=ExtResource("1_h66lx")]
 script = ExtResource("2_0kqpx")
+PHYSICAL_DAMAGE = 1.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.08, 0.08)
