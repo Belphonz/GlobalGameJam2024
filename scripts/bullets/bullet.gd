@@ -7,6 +7,8 @@ var isPlayerBullet : bool
 var direction
 var allEntities = ["ClownAK47", "Player"]
 var allHazards = ["NailHazard"]
+var confettitimer : float = 0
+var confettifrequency : float = 0.05
 
 func _ready():
 	velocity = direction * speed
@@ -44,8 +46,17 @@ func basicbounce(delta):
 	if bounceCount == maxBounceCount:
 		death()
 
+func createtrail(delta):
+	if confettitimer > confettifrequency and isPlayerBullet:
+		var trail : Node2D = preload("res://elements/confettitrail.tscn").instantiate()
+		trail.global_position = global_position
+		get_parent().get_node("BloodsplatterNode").add_child(trail)
+		confettitimer = 0
+
 func _physics_process(delta):
 	basicbounce(delta)
+	createtrail(delta)
+	confettitimer += delta
 	
 
 
