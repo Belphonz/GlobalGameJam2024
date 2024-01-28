@@ -144,7 +144,6 @@ func move(delta):
 
 func _on_enemy_collider_area_entered(area):
 	if "PlBullet" in area.owner.name:
-		print("Pain")
 		HP -= 1
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()

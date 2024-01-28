@@ -91,11 +91,15 @@ func move(delta):
 		zigLeft=!zigLeft
 		zigzagTimer=0
 	
+func onDeath():
+	var Blood : Node2D = BloodSplat.instantiate()
+	Blood.global_position = global_position
+	get_parent().get_parent().get_node("BloodsplatterNode").add_child(Blood)
+	queue_free()
 	
 
 
 func _on_enemy_collider_area_entered(area):
-	#Fix imortality
 	if "PlBullet" in area.owner.name:
 		HP -= 1
 		var Bullet:Node2D=area.get_parent()
