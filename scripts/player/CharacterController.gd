@@ -8,6 +8,7 @@ var HP:int = 6
 @export var FIRE_RATE:float = 0.4
 var CURRENT_FIRE_RATE = 0.0
 var move_direction
+var lastsaved_move_direction
 var bulletID = 0
 @export var BOUNCEPOWER = 1.5
 @export var DEGREES = 15
@@ -17,6 +18,12 @@ var bulletID = 0
 var scoretimer = 0
 @export var score = 0
 var alive = true
+
+
+@export var DashSpeedmultiplier : float = 4
+@export var Dashduration : float = 0.3
+var currentDashduration : float = 0
+var isDashing : bool
 
 var usingController:bool=false
 var iFramesActive:bool=false
@@ -29,8 +36,22 @@ func _ready():
 
 
 func Controller(delta):
-	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	velocity = move_direction * MOVEMENT_SPEED
+	if not isDashing:
+		move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+		lastsaved_move_direction = move_direction
+	
+	if Input.is_action_just_pressed("dash") and not isDashing:
+		isDashing = true
+	if isDashing:
+		velocity = lastsaved_move_direction * MOVEMENT_SPEED * DashSpeedmultiplier
+	else:
+		velocity = move_direction * MOVEMENT_SPEED
+	
+	if isDashing:
+		currentDashduration += delta
+	if currentDashduration > Dashduration: 
+		currentDashduration = 0
+		isDashing = false
 	var leftDirection = [0,1,7]
 	
 	var animation = get_child(0) as AnimatedSprite2D
