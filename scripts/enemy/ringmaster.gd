@@ -6,6 +6,8 @@ var attacking:bool = false
 var stunned:bool = false
 var willAttack:bool = false
 
+@export var PHYSICAL_DAMAGE:float = 3
+
 var downtimeTimer:float = 0
 var attackTimer:float = 0
 var stunTimer:float = 0

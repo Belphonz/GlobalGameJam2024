@@ -41,6 +41,9 @@ animations = [{
 scale = Vector2(0.275, 0.275)
 script = ExtResource("2_s703p")
 _moveSpeed = 80.0
+NAIL_DAMAGE = 0.0
+BELL_DAMAGE = 0.0
+PHYSICAL_DAMAGE = 0.0
 zigTime = 0.2
 
 [node name="Sprite2D" parent="." index="0"]

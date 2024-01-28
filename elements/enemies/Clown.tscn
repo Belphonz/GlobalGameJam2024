@@ -49,6 +49,7 @@ animations = [{
 [node name="BaseEnemy3" instance=ExtResource("1_0b1j0")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_54rru")
+BOMB_DAMAGE = 0.0
 _moveSpeed = 150.0
 throwDistance = 128.0
 BOUNCEPOWER = 0.75

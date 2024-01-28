@@ -7,6 +7,8 @@ var backToSideSpeedMult:float=0.25
 @export
 var pounceMult:float=1.5
 
+@export var PHYSICAL_DAMAGE:float
+
 @export
 var pounceDist:float = 60
 
@@ -121,6 +123,6 @@ func onDeath():
 
 func _on_enemy_collider_area_entered(area):
 	if "PlBullet" in area.owner.name:
-		HP -= 1
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		HP -= Bullet.damage

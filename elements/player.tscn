@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqwi7ki8bncgk"]
+[gd_scene load_steps=13 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
 [ext_resource type="Texture2D" uid="uid://bv1e7k4gxybau" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
 [ext_resource type="Texture2D" uid="uid://bxurawrulxbmt" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
+[ext_resource type="Texture2D" uid="uid://c186mn8diba3x" path="res://assets/gfx/Player/ChrArrow.png" id="4_mbf58"]
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]
 [ext_resource type="AudioStream" uid="uid://b8lkjuv8hbcvl" path="res://assets/sfx/Player/Player_Fire_NoShot.wav" id="7_n2m8u"]
+[ext_resource type="PackedScene" path="res://elements/healthBar.tscn" id="9_5hpmp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jcc5"]
 animations = [{
@@ -58,7 +60,9 @@ height = 17.1893
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.97797, 1.97797)
 script = ExtResource("1_anuxd")
+MAX_HP = 1
 MOVEMENT_SPEED = 150.0
+BULLET_DAMAGE = 1.0
 BOUNCEPOWER = 0.8
 DEGREES = 12
 BOUNCEY = 0.3
@@ -70,8 +74,11 @@ sprite_frames = SubResource("SpriteFrames_8jcc5")
 animation = &"Default"
 offset = Vector2(4.85879, -855.432)
 
-[node name="ShootPoint" type="Node2D" parent="."]
-position = Vector2(0, -8.0891)
+[node name="ShootPoint" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -8.0891)
+scale = Vector2(0.0289946, 0.0289946)
+texture = ExtResource("4_mbf58")
+offset = Vector2(393.796, 1.15002)
 
 [node name="AudioShoot" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -8.0891)
@@ -99,7 +106,11 @@ offset = Vector2(4.85879, -110.301)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.98023e-08, -8.0891)
-scale = Vector2(0.817994, 0.793036)
+scale = Vector2(0.676434, 0.793036)
 shape = SubResource("CapsuleShape2D_uvbos")
+
+[node name="HealthBar" parent="." instance=ExtResource("9_5hpmp")]
+position = Vector2(-105.158, -83.4189)
+scale = Vector2(0.1, 0.1)
 
 [connection signal="area_entered" from="PlayerCollider" to="." method="_on_player_collider_area_entered"]

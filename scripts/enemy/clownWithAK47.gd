@@ -3,6 +3,8 @@ extends "res://scripts/enemy/baseEnemy.gd"
 var Bullet:Node2D
 @export
 var attackSpeed:float=0.07
+@export var BOMB_DAMAGE:float = 3
+@export var PHYSICAL_DAMAGE:float = 3
 @export
 var firingTime:float=2.5
 @export 
@@ -73,17 +75,21 @@ func attack(delta):	#Function called every frame
 			attackingTimer=0
 			weaponActive=true
 			
-	if(abs(distFromPlayer-firingRange)>rangeRange):	#If player is outside of firing range, don't attack
-		if(weaponActive):
-			attackingTimer=0
-			weaponActive = false
-			return
-	
+	if(abs(distFromPlayer-firingRange)>rangeRange):	#
+		attackTimer=0
+		attackingTimer=0
+		movingToRange=true
+		takeAim=true
+		animation.play("Idle",0,false)	
+	else:
+		movingToRange=false
+		print(weaponActive)
+			
 	
 	attackTimer+=delta	#Update timers
 	attackingTimer+=delta;
 	
-	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
+	if (attackTimer >= attackSpeed && weaponActive && !movingToRange && aimAudio.playing == false && takeAim == true):
 		aimAudio.play()
 		animation.play("Aim",0,false)
 		await aimAudio.finished
@@ -101,7 +107,7 @@ func attack(delta):	#Function called every frame
 			animation.play("Aim",0,false)
 		animTimer = 0
 	
-	if(attackTimer>=attackSpeed && weaponActive && takeAim == false):
+	if(attackTimer>=attackSpeed && weaponActive && !movingToRange && takeAim == false):
 		var cosOffset:float=cos(offset)	#Get fire direction with offset
 		var sinOffset:float=sin(offset)
 		var attackDirection:Vector2=Vector2(cosOffset*playerPos.x-sinOffset*playerPos.y,sinOffset*playerPos.x+cosOffset*playerPos.y)
@@ -162,7 +168,7 @@ func move(delta):
 			(sprite as AnimatedSprite2D).flip_h = false
 	
 	var direction:int=sign(distFromPlayer-firingRange)
-	if weaponActive == false:
+	if weaponActive == false || movingToRange:
 		if(abs(distFromPlayer-firingRange)<rangeRange):	##Enemy is at optimal range, don't move
 			sprite.rotation = 0
 			return
@@ -183,8 +189,8 @@ func onDeath():
 
 func _on_area_2d_area_entered(area):
 	if "PlBullet" in area.owner.name:
-		HP -= 1
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		HP -= Bullet.damage
 		
 
