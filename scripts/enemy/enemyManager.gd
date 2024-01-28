@@ -26,7 +26,8 @@ func _ready():
 	#spawnLionTamer(Vector2(100,100))
 	#spawnClown(Vector2(100,100))
 
-
+func _process(delta):
+	print(get_child_count())
 
 	
 func spawnClownAK47(position:Vector2):
