@@ -33,6 +33,8 @@ func _process(delta):
 	
 	
 func move(delta):
+	if(!lionAlive):
+		return
 	velocity+=moveSpeed * playerDirection
 	move_and_slide()
 	velocity=Vector2(0,0)
