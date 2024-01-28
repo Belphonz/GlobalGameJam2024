@@ -14,6 +14,9 @@ var bulletID = 0
 @export var BOUNCEHEIGHT = 1.5
 @export var BOUNCEY = 0.4
 @export var iFrameTime:float=2.0
+var scoretimer = 0
+@export var score = 0
+var alive = true
 
 var usingController:bool=false
 var iFramesActive:bool=false
@@ -21,6 +24,8 @@ var iFramesTimer:float=0
 
 var isLeft : bool = false
 var rotationFrame : int
+func _ready():
+	Highscore.Player = self
 
 
 func Controller(delta):
@@ -97,8 +102,18 @@ func Bounce(delta):
 	
 func Death():
 	if HP == 0:
+		score = floor(scoretimer) * 10
+		Highscore.runscore = score
+		alive = false
 		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
+func Scorecounter(delta):
+	if alive:
+		scoretimer += delta
+	else:
+		var highscore : Label = get_node("../HighscoreManager").get_child(0)
+		highscore.text = score.to_string()
+	
 func _physics_process(delta):
 	Controller(delta)
 
@@ -112,6 +127,7 @@ func _physics_process(delta):
 			
 	
 	Shoot(delta)
+	Scorecounter(delta)
 	Death()
 	
 
@@ -124,3 +140,4 @@ func _on_player_collider_area_entered(area):
 		HP-=1
 		iFramesActive=true
 		
+	Death()
