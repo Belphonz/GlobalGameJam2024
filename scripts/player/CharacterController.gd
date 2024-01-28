@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var HP:int = 6
+var HP:int = 1
 @export var MAX_HP:int = 6
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
@@ -104,7 +104,7 @@ func Shoot(delta):
 		bulletID += 1
 		bulletInstance.name = "PlBullet " + str(bulletID)
 		
-		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 50)
+		bulletInstance.global_position = shootPoint.global_position + (facingdirection * 30)
 		get_parent().add_child(bulletInstance)
 		CURRENT_FIRE_RATE = 0
 	
@@ -154,6 +154,8 @@ func _on_player_collider_area_entered(area):
 	if "Bullet" in area.owner.name && !iFramesActive:
 		HP -= 1
 		iFramesActive=true
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()
 	if "Enemy" in area.owner.name && !iFramesActive:
 		HP-=1
 		iFramesActive=true
