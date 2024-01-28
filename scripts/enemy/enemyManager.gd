@@ -20,7 +20,7 @@ func _ready():
 	clown=preload("res://elements/enemies/Clown.tscn")
 	Player=get_node("../Player")
 
-	#spawnClownAK47(Vector2(100,100))
+	spawnClownAK47(Vector2(100,100))
 	#spawnRingmaster(Vector2(100,100))
 	#spawnJester(Vector2(100,100))
 	#spawnLionTamer(Vector2(100,100))
@@ -42,7 +42,7 @@ func spawnRingmaster(position:Vector2):
 	enemyInstanceNode.set_global_position(position)
 	EnemyID += 1
 	enemyInstanceNode.Start(Player,1, EnemyID)
-	enemyInstanceNode.name = "Enemy Ringmaster " + str(EnemyID)
+	enemyInstanceNode.name = "Enemy Ringmaster" + str(EnemyID)
 	add_child(enemyInstanceNode)
 
 func spawnJester(position:Vector2):
