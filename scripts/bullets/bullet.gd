@@ -8,7 +8,7 @@ var direction
 var allEntities = ["ClownAK47", "Player"]
 var allHazards = ["NailHazard"]
 var confettitimer : float = 0
-var confettifrequency : float = 0.05
+var confettifrequency : float = 0.03
 
 func _ready():
 	velocity = direction * speed
