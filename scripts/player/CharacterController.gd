@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var HP:int = 6
-@export var MAX_HP:float = 6.0
+@export var MAX_HP:int = 6
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_SPEED:float = 400.0
@@ -101,7 +101,7 @@ func Death():
 
 func _physics_process(delta):
 	Controller(delta)
-	print(HP)
+
 	
 	
 	if(iFramesActive):
