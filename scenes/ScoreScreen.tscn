@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6facwmkvjlju"]
+[gd_scene load_steps=13 format=3 uid="uid://t1s1qp1nrblc"]
 
 [ext_resource type="Script" path="res://scripts/ScoreScreen.gd" id="1_0h8f4"]
 [ext_resource type="Texture2D" uid="uid://bgox1nmwjs8yx" path="res://assets/gfx/Menu/DeathScreen.png" id="1_xn208"]
 [ext_resource type="AudioStream" uid="uid://c62kcomkvbgs3" path="res://assets/sfx/Themes/Button_Click.wav" id="2_cdh2e"]
 [ext_resource type="AudioStream" uid="uid://c3tijyvbg4uo4" path="res://assets/sfx/Themes/Main_Menu_Theme.wav" id="3_e7vpf"]
 [ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_h6xbi"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButton.png" id="4_0vukb"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButtonW.png" id="5_p6dyf"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Menu/Menu.png" id="5_rh1v5"]
+[ext_resource type="Texture2D" uid="uid://c6djw28bv7dkx" path="res://assets/gfx/Menu/NextButton.png" id="4_0vukb"]
+[ext_resource type="Texture2D" uid="uid://dakr3j5as8abu" path="res://assets/gfx/Menu/NextButtonW.png" id="5_p6dyf"]
+[ext_resource type="Texture2D" uid="uid://dsp0iaadsbv0f" path="res://assets/gfx/Menu/Menu.png" id="5_rh1v5"]
 [ext_resource type="Texture2D" uid="uid://cpgjbm3cxgfcs" path="res://assets/gfx/Menu/MenuWS.png" id="8_c1shu"]
 [ext_resource type="Texture2D" uid="uid://7qcr3fki2vr7" path="res://assets/gfx/Menu/MenuW.png" id="9_l8f86"]
 

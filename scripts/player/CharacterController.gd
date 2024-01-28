@@ -19,6 +19,7 @@ var bulletID = 0
 var scoretimer = 0
 @export var score = 0
 var alive = true
+var LastHitBy : String
 
 
 @export var DashSpeedmultiplier : float = 4

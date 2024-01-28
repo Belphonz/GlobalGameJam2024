@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-highscore.json
+highscores.json
+jester.tscn
+jester.gd
