@@ -73,10 +73,11 @@ func attack(delta):	#Function called every frame
 			attackingTimer=0
 			weaponActive=true
 			
-	#if(abs(distFromPlayer-firingRange)>rangeRange):	#If player is outside of firing range, don't attack
-		#if(weaponActive):
-			#attackingTimer=0
-		#return
+	if(abs(distFromPlayer-firingRange)>rangeRange):	#If player is outside of firing range, don't attack
+		if(weaponActive):
+			attackingTimer=0
+			weaponActive = false
+			return
 	
 	
 	attackTimer+=delta	#Update timers

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://diokg6804xyhq"]
+[gd_scene load_steps=7 format=3 uid="uid://bibxffa0rsva4"]
 
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_0b1j0"]
 [ext_resource type="Script" path="res://scripts/enemy/Clown.gd" id="2_54rru"]
@@ -49,7 +49,10 @@ animations = [{
 [node name="BaseEnemy3" instance=ExtResource("1_0b1j0")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_54rru")
+_moveSpeed = 150.0
 throwDistance = 128.0
+BOUNCEPOWER = 0.75
+DEGREES = 8
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.13, 0.13)
