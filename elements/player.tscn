@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
+[ext_resource type="Texture2D" uid="uid://bv1e7k4gxybau" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
+[ext_resource type="Texture2D" uid="uid://bxurawrulxbmt" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]
@@ -38,6 +38,11 @@ animations = [{
 "loop": true,
 "name": &"Default",
 "speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_78hek"]
@@ -66,7 +71,7 @@ BOUNCEY = 0.3
 position = Vector2(0, -1.01114)
 scale = Vector2(0.0105119, 0.0107214)
 sprite_frames = SubResource("SpriteFrames_8jcc5")
-animation = &"Default"
+animation = &"new_animation"
 offset = Vector2(4.85879, -855.432)
 
 [node name="ShootPoint" type="Node2D" parent="."]
