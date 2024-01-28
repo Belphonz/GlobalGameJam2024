@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbp7l4j83yvaf"]
+[gd_scene load_steps=6 format=3 uid="uid://bbp7l4j83yvaf"]
 
 [ext_resource type="Texture2D" uid="uid://b03qic2hjhak8" path="res://assets/gfx/Enemy/Clown/Bomb/BombFaceKaboom.png" id="1_e7kvm"]
 [ext_resource type="Script" path="res://scripts/bullets/grenade.gd" id="1_m0s6d"]
+[ext_resource type="Texture2D" uid="uid://bajgjr44hu0rm" path="res://assets/gfx/explosionTEMP.png" id="3_a53gt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f5jp1"]
 
@@ -9,6 +10,8 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_m0s6d")
+explodeRadius = 100.0
+explosionSpriteSize = Vector2(64, 64)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.21875, -4.21876)
@@ -24,3 +27,7 @@ shape = SubResource("CircleShape2D_f5jp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 shape = SubResource("CircleShape2D_jnsx6")
+
+[node name="explosion" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_a53gt")

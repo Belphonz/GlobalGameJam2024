@@ -1,5 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dch3k3367j4wg"]
+[gd_scene load_steps=5 format=3 uid="uid://dch3k3367j4wg"]
 
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_0b1j0"]
+[ext_resource type="Script" path="res://scripts/enemy/Clown.gd" id="2_54rru"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xxoa7"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rhj3f"]
+noise = SubResource("FastNoiseLite_xxoa7")
 
 [node name="BaseEnemy" instance=ExtResource("1_0b1j0")]
+script = ExtResource("2_54rru")
+throwDistance = 128.0
+
+[node name="tempSpriteTEST" type="Sprite2D" parent="." index="1"]
+scale = Vector2(0.181641, 0.21875)
+texture = SubResource("NoiseTexture2D_rhj3f")

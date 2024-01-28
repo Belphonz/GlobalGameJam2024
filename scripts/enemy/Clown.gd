@@ -55,10 +55,10 @@ func move(delta):
 func attack(delta):
 	attackTimer+=delta
 	if(attackTimer>attackSpeed):
-		
+		attackTimer=0
 		var throwAngle:float=rng.randf()*2*PI	#Get throw direction
 		var throwDirection:Vector2=Vector2(cos(throwAngle),sin(throwAngle))
 		
 		var grenadeI:Node2D=grenade.instantiate()
-		grenadeI.throw(get_global_position(),get_global_position())
+		grenadeI.throw(get_global_position(),get_global_position()+throwDirection*throwDistance)
 		get_node("../../BulletObject").add_child(grenadeI)

@@ -15,6 +15,12 @@ var maxCurveHeight:float=20
 @export
 var fuseTime:float=3
 
+@export
+var explosionLifeTime:float=0.5
+
+@export
+var explosionSpriteSize:Vector2
+
 var timeInAir:float=0
 
 var startThrow:Vector2
@@ -23,6 +29,8 @@ var endThrow:Vector2
 var fuseTimer:float=0
 
 var explosionArea:Area2D
+
+var explosionTime:float=0
 
 enum state{throw,fuse,explode}
 
@@ -36,12 +44,14 @@ func throw(start:Vector2, end:Vector2):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var explosionArea=get_node("ExplosionArea")
+	explosionArea=get_node("ExplosionArea")
 	
 	var CollisionShapeSize=explodeRadius / 10	#Set the size of the explosion area
 	explosionArea.get_child(0).scale=Vector2(CollisionShapeSize,CollisionShapeSize)
 	
-	
+	var explosionSprite:Node2D=get_node("explosion")
+	var explosionSize=Vector2(explodeRadius / explosionSpriteSize.x,explodeRadius / explosionSpriteSize.y)
+	explosionSprite.scale=explosionSize
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -64,14 +74,22 @@ func _process(delta):
 		if(fuseTimer>fuseTime):
 			bombState=state.explode
 			explode()
-	#TODO:Add explosion animation
+			get_node("explosion").visible = true #TODO: Add actual explosion animation
+	if(bombState==state.explode):
+		explosionTime+=delta
+		if(explosionTime>explosionLifeTime):
+			queue_free()
+	
 
 func explode():
 	var allArea2Ds:Array=explosionArea.get_overlapping_areas()
 	for area in allArea2Ds:
 		if(area.name=="EnemyCollider" && damageEnemies):	#Hit enemy
-			area.get_child().HP-=1
+			area.get_parent().HP-=1
+			print("Hurt enemy")
 		if(area.name=="PlayerCollider"):	#Hit player
-			if(!area.get_child().iFramesActive):
-				area.get_child().HP-=1
-				area.get_child().iFramesActive=true
+			if(!area.get_parent().iFramesActive):
+				area.get_parent().HP-=1
+				area.get_parent().iFramesActive=true
+				print("Hurt player")
+	
