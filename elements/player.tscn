@@ -99,7 +99,7 @@ offset = Vector2(4.85879, -110.301)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.98023e-08, -8.0891)
-scale = Vector2(0.817994, 0.793036)
+scale = Vector2(0.676434, 0.793036)
 shape = SubResource("CapsuleShape2D_uvbos")
 
 [connection signal="area_entered" from="PlayerCollider" to="." method="_on_player_collider_area_entered"]

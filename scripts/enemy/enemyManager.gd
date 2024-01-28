@@ -42,7 +42,7 @@ func spawnRingmaster(position:Vector2):
 	enemyInstanceNode.set_global_position(position)
 	EnemyID += 1
 	enemyInstanceNode.Start(Player,1, EnemyID)
-	enemyInstanceNode.name = "Enemy Ringmaster" + str(EnemyID)
+	enemyInstanceNode.name = "Enemy Ringmaster " + str(EnemyID)
 	add_child(enemyInstanceNode)
 
 func spawnJester(position:Vector2):

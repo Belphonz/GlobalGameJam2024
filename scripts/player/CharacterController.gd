@@ -16,8 +16,9 @@ var bulletID = 0
 @export var BOUNCEY = 0.4
 @export var iFrameTime:float=2.0
 var scoretimer = 0
-@export var score = 0
+@export var score : float= 0
 var alive = true
+var LastHitBy : String
 
 
 @export var DashSpeedmultiplier : float = 4
@@ -125,14 +126,27 @@ func Death():
 	score = floor(scoretimer) * 10
 	Highscore.runscore = score
 	alive = false
-	get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
+	ProcessDeath()
+	var DeathScreen : Node2D = preload("res://scenes/DeathScreen.tscn").instantiate()
+	(DeathScreen.get_node("Deathmessasage") as Label).text = LastHitBy
+	get_tree().root.add_child(DeathScreen)
+	get_tree().root.remove_child(get_tree().root.get_child(0))
+	
+func ProcessDeath():
+	if "PlBullet" in LastHitBy :
+		LastHitBy = "YOURSELF, IDIOT !"
+	elif "EnBullet" in LastHitBy :
+		LastHitBy = "THE AK CLOWN's NONSTOP SPRAY!"
+	elif "ClownAK47" in LastHitBy :
+		LastHitBy = "THE AK CLOWN's BELLYFLOP!"
+	elif "Ringmaster" in LastHitBy :
+		LastHitBy = "THE RINGMASTER's BELLYFLOP!"
 
 func Scorecounter(delta):
 	if alive:
 		scoretimer += delta
 	else:
 		var highscore : Label = get_node("../HighscoreManager").get_child(0)
-		highscore.text = score.to_string()
 	
 func _physics_process(delta):
 	Controller(delta)
@@ -152,12 +166,15 @@ func _physics_process(delta):
 
 func _on_player_collider_area_entered(area):
 	if "Bullet" in area.owner.name && !iFramesActive:
+		LastHitBy = area.owner.name
 		HP -= 1
 		iFramesActive=true
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
 	if "Enemy" in area.owner.name && !iFramesActive:
+		LastHitBy = area.owner.name
 		HP-=1
 		iFramesActive=true
+		
 		
 	
