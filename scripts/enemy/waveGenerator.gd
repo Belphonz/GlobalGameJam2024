@@ -36,10 +36,8 @@ var rng=RandomNumberGenerator.new()	#rng
 func _ready():
 	EnemyManager=get_parent().get_node("EnemyManager")
 	
-	
-	
-
-	
+	for i in 5:
+		chanceRanges.append(0.0)
 	spawnWave()
 
 
@@ -58,6 +56,7 @@ func spawnEnemy():
 	var randomAngle:float=rng.randf() * PI * 2
 	var spawnPosition:Vector2=Vector2(cos(randomAngle),sin(randomAngle))*(ringSize-15)
 	
+	print(sumChances)
 	var enemyFloat=rng.randf()*sumChances
 	
 	if(enemyFloat<chanceRanges[0]):
@@ -83,7 +82,7 @@ func spawnWave():
 	var chanceArray:Array=[clownAK47Chance,clownChance,jesterChance,LionTamerChance,ringMasterChance]	#Put data into array to make it iterable
 	
 	for i in 5:
-		chanceRanges.append(0.0)
+		chanceRanges[i]=0
 	
 	for i in 5:	#Make the chance ranges for each enemy
 		for j in 5-i:
