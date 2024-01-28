@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var damage : float
 var speed : float = 200
 var maxBounceCount : int = 10
 var bounceCount : int = 0

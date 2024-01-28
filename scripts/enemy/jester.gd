@@ -6,6 +6,11 @@ var bellBullet
 @export
 var _moveSpeed:float = 60
 
+@export var NAIL_DAMAGE:float = 3
+@export var BELL_DAMAGE:float = 3
+@export var PHYSICAL_DAMAGE:float = 3
+
+
 @export
 var zigzagAngle:float=1.0/6.0 * PI  	#1/6PI radians (30 degrees)
 @export 
@@ -51,13 +56,15 @@ func attack(delta):
 		var throwDirection:Vector2=Vector2(cos(throwAngle),sin(throwAngle))
 		if(rng.randf()<0.15):
 			#Throw trap
-			var NailHazard=nailHazard.instantiate()
+			var NailHazard =nailHazard.instantiate()
+			NailHazard.damage = NAIL_DAMAGE
 			NailHazard.throw(get_global_position(),get_global_position()+throwDirection*nailThrowDistance)
 			get_node("../../SpikeNode").add_child(NailHazard)
 		else:
 			
 			#Throw bell
 			var Bell=bellBullet.instantiate()
+			Bell.damage = BELL_DAMAGE
 			Bell.throw(get_global_position(),get_global_position()+throwDirection*bellThrowDistance)
 			get_node("../../BulletObject").add_child(Bell)
 			#get_parent().get_parent().get_child("BulletObject").add_child(Bell)
@@ -101,6 +108,6 @@ func onDeath():
 
 func _on_enemy_collider_area_entered(area):
 	if "PlBullet" in area.owner.name:
-		HP -= 1
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		HP -= Bullet.damage

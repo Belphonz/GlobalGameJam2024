@@ -3,6 +3,8 @@ extends "res://scripts/hazards/baseHazard.gd"
 @export 
 var airTime:float=0.4	#how long object is thrown for
 
+
+var damage:float = 3
 @export
 var maxCurveHeight=10
 
@@ -49,12 +51,12 @@ func collide(colliding:Node2D):
 	if(colliding.name=="PlayerCollider"):
 		var Player:Node2D=colliding.get_parent()
 		if(!Player.iFramesActive):
-			Player.HP-=1
+			Player.HP-= damage
 			Player.iFramesActive=true
 	if(colliding.name=="EnemyCollider"):
 		var Enemy:Node2D = colliding.get_parent()
 		if !("Jester" in Enemy.name):
-			Enemy.HP-=1
+			Enemy.HP-= damage
 
 
 func _on_area_entered(area):
