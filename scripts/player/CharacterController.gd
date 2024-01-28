@@ -101,6 +101,7 @@ func Death():
 
 func _physics_process(delta):
 	Controller(delta)
+	print(HP)
 	
 	
 	if(iFramesActive):
@@ -112,6 +113,7 @@ func _physics_process(delta):
 	
 	Shoot(delta)
 	Death()
+	
 
 
 func _on_player_collider_area_entered(area):
