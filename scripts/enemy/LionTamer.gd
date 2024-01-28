@@ -34,9 +34,19 @@ func _process(delta):
 	
 	
 func move(delta):
+	var sprite = get_child(0) as Node2D
 	if(!lionAlive):
+		(sprite as AnimatedSprite2D).play("Sad",0,false)
 		return
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	if (sprite as AnimatedSprite2D).animation == "Idle":
+		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
+		if EnemySpin(facingDirection) in leftDirection:
+			(sprite as AnimatedSprite2D).flip_h = true
+		else:
+			(sprite as AnimatedSprite2D).flip_h = false
 	velocity+=moveSpeed * playerDirection
+	(sprite as AnimatedSprite2D).play("Idle",0,false)
 	move_and_slide()
 	velocity=Vector2(0,0)
 	
