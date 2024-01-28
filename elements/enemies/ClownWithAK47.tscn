@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbukgbai8mqtp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_7.png" id="9_twqvo"]
 [ext_resource type="Texture2D" uid="uid://db4xt2ycnxlnp" path="res://assets/gfx/Enemy/Bloodsplatter/frame_9.png" id="11_48k1l"]
 [ext_resource type="AudioStream" uid="uid://dd3a30kc3npg2" path="res://assets/sfx/Enemy/Clown47/AK47_Cocking_Cue.wav" id="12_467cs"]
-[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/clown47/Clown47Ass.png" id="12_vuckx"]
+[ext_resource type="Texture2D" uid="uid://sxth5ss8q8cu" path="res://assets/gfx/Enemy/clown47/Clown47Ass.png" id="12_vuckx"]
 [ext_resource type="AudioStream" uid="uid://du3hond3kuvx4" path="res://assets/sfx/Enemy/Clown47/AK47_Fire.wav" id="13_vtfan"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spym8"]
