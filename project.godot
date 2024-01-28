@@ -15,14 +15,14 @@ run/main_scene="res://scenes/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Highscore="*res://Node2D.gd"
+
 [display]
 
 window/size/resizable=false
 window/stretch/mode="canvas_items"
-
-[autoload]
-
-Highscore="*res://Node2D.gd"
 
 [dotnet]
 
