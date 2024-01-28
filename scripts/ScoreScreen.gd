@@ -6,8 +6,11 @@ var texty : Label
 var liner : LineEdit
 var fow : Button
 var bac : Button
+var deathmessage : Label
 
 func _on_line_edit_ready():
+	get_tree().root.remove_child(get_tree().root.get_child(1))
+	deathmessage =  get_child(1)
 	fow = get_child(4)
 	bac = get_child(5)
 	liner = get_child(2)
@@ -18,6 +21,7 @@ func _on_line_edit_ready():
 
 
 func _on_line_edit_text_submitted(nam):
+	
 	if nam.length() == 3:
 		nam = nam.to_upper()
 		FinalArray = Highscore.fileArray
@@ -27,14 +31,17 @@ func _on_line_edit_text_submitted(nam):
 		FinalArray.sort_custom(func(a, b): return a[2] > b[2])
 		displayPage()
 		liner.visible = false
+		
 	
 func _on_forward_pressed():
-	page += 1
-	displayPage()
+	if FinalArray :
+		page += 1
+		displayPage()
 
 func _on_back_pressed():
-	page -= 1
-	displayPage()
+	if FinalArray :
+		page -= 1
+		displayPage()
 
 func _on_mainbutton_pressed():
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
