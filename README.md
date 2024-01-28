@@ -16,5 +16,6 @@
 ### - Emily Wilkins (Artist Lead)
 ### - Eden Dunbar
 ### - Ellie Powell
+### - Jenna Black
 ### - [Rebecca Taylor](https://github.com/Azaersyss)
 :3
