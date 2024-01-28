@@ -20,11 +20,11 @@ func _ready():
 	clown=preload("res://elements/enemies/Clown.tscn")
 	Player=get_node("../Player")
 
-	spawnClownAK47(Vector2(100,100))
-	spawnRingmaster(Vector2(100,100))
-	spawnJester(Vector2(100,100))
-	spawnLionTamer(Vector2(100,100))
-	spawnClown(Vector2(100,100))
+	#spawnClownAK47(Vector2(100,100))
+	#spawnRingmaster(Vector2(100,100))
+	#spawnJester(Vector2(100,100))
+	#spawnLionTamer(Vector2(100,100))
+	#spawnClown(Vector2(100,100))
 
 
 
@@ -67,7 +67,6 @@ func spawnClown(position:Vector2):
 	var enemyInstanceNode=clown.instantiate()
 	enemyInstanceNode.set_global_position(position)
 	EnemyID+=1
-	print(enemyInstanceNode.name)
 	enemyInstanceNode.start(Player,1)
 	enemyInstanceNode.name="Enemy Clown" + str(EnemyID)
 	add_child(enemyInstanceNode)
