@@ -1,21 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcws0l7ar0pcw"]
+[gd_scene load_steps=9 format=3 uid="uid://b50swrpximy16"]
 
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_h66lx"]
 [ext_resource type="Script" path="res://scripts/enemy/Lion.gd" id="2_0kqpx"]
 [ext_resource type="Texture2D" uid="uid://63ahe6fxrocd" path="res://assets/gfx/Enemy/Lion/Lion1.png" id="2_n0qla"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack1.png" id="3_2y0w7"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack2.png" id="4_cf22p"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack3.png" id="5_a3rbr"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/Lion2.png" id="7_vcn2l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vn5ji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2y0w7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cf22p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3rbr")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n0qla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vcn2l")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [node name="BaseEnemy" instance=ExtResource("1_h66lx")]
 script = ExtResource("2_0kqpx")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.155, 0.155)
-
-[node name="testSpriteTEMP" type="Sprite2D" parent="." index="1"]
 scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_n0qla")
+sprite_frames = SubResource("SpriteFrames_vn5ji")
+animation = &"Idle"
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 scale = Vector2(0.18, 0.18)
 
 [node name="CollisionShape2D" parent="EnemyCollider" index="0"]
 scale = Vector2(0.18, 0.18)
+
+[connection signal="area_entered" from="EnemyCollider" to="." method="_on_enemy_collider_area_entered"]

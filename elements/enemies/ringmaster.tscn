@@ -26,8 +26,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr0ia"]
-radius = 11.0
-height = 46.0
+radius = 14.0
+height = 54.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tj3t0"]
 animations = [{
@@ -85,6 +85,7 @@ position = Vector2(0.292633, -28.9858)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
+scale = Vector2(0.9, 0.9)
 shape = SubResource("CapsuleShape2D_rr0ia")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -95,7 +96,10 @@ offset = Vector2(67.0972, -731.245)
 
 [node name="EnemyCollider" type="Area2D" parent="."]
 position = Vector2(0.292633, -28.9858)
+scale = Vector2(1.37282, 1.08813)
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="EnemyCollider"]
 position = Vector2(-0.292633, 13.9858)
 shape = SubResource("CapsuleShape2D_rr0ia")
+
+[connection signal="area_entered" from="EnemyCollider" to="." method="_on_enemy_collider_area_entered"]
