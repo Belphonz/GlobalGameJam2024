@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_h66lx"]
 [ext_resource type="Script" path="res://scripts/enemy/Lion.gd" id="2_0kqpx"]
 [ext_resource type="Texture2D" uid="uid://63ahe6fxrocd" path="res://assets/gfx/Enemy/Lion/Lion1.png" id="2_n0qla"]
-[ext_resource type="Texture2D" uid="uid://b8d4jbc0xdpep" path="res://assets/gfx/Enemy/Lion/LionAttack1.png" id="3_2y0w7"]
-[ext_resource type="Texture2D" uid="uid://iuqfvxo40gga" path="res://assets/gfx/Enemy/Lion/LionAttack2.png" id="4_cf22p"]
-[ext_resource type="Texture2D" uid="uid://bjyuj0ha635dh" path="res://assets/gfx/Enemy/Lion/LionAttack3.png" id="5_a3rbr"]
-[ext_resource type="Texture2D" uid="uid://4b50p6dtyg8b" path="res://assets/gfx/Enemy/Lion/Lion2.png" id="7_vcn2l"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack1.png" id="3_2y0w7"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack2.png" id="4_cf22p"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/LionAttack3.png" id="5_a3rbr"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Lion/Lion2.png" id="7_vcn2l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vn5ji"]
 animations = [{
