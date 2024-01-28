@@ -25,7 +25,7 @@ func _on_line_edit_text_submitted(nam):
 		Highscore.ID = FinalArray[-1][0]
 		print (FinalArray)
 		Highscore.save(FinalArray)
-		
+		FinalArray.sort_custom(func(a, b): return a[2] > b[2])
 		displayPage()
 		liner.visible = false
 	
