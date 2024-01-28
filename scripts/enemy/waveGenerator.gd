@@ -82,8 +82,6 @@ func spawnWave():
 	
 	var chanceArray:Array=[clownAK47Chance,clownChance,jesterChance,LionTamerChance,ringMasterChance]	#Put data into array to make it iterable
 	
-	print(sumChances)
-	
 	for i in 5:
 		chanceRanges.append(0.0)
 	
