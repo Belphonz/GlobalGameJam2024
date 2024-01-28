@@ -130,7 +130,7 @@ func Death():
 	var DeathScreen : Node2D = preload("res://scenes/DeathScreen.tscn").instantiate()
 	(DeathScreen.get_node("Deathmessasage") as Label).text = LastHitBy
 	get_tree().root.add_child(DeathScreen)
-	get_tree().root.remove_child(get_tree().root.get_child(0))
+	get_tree().root.remove_child(get_tree().root.get_child(1))
 	
 func ProcessDeath():
 	if "PlBullet" in LastHitBy :

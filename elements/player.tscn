@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqwi7ki8bncgk"]
+[gd_scene load_steps=12 format=3 uid="uid://dqwi7ki8bncgk"]
 
 [ext_resource type="Script" path="res://scripts/player/CharacterController.gd" id="1_anuxd"]
 [ext_resource type="Texture2D" uid="uid://bv1e7k4gxybau" path="res://assets/gfx/Player/PlayerBack.png" id="2_okg1n"]
 [ext_resource type="Texture2D" uid="uid://bxurawrulxbmt" path="res://assets/gfx/Player/PlayerFront.png" id="3_ntk08"]
+[ext_resource type="Texture2D" uid="uid://c186mn8diba3x" path="res://assets/gfx/Player/ChrArrow.png" id="4_mbf58"]
 [ext_resource type="AudioStream" uid="uid://cg8a2olvhcvsa" path="res://assets/sfx/Player/Player_Fire_1.wav" id="4_oo884"]
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]
@@ -70,8 +71,11 @@ sprite_frames = SubResource("SpriteFrames_8jcc5")
 animation = &"Default"
 offset = Vector2(4.85879, -855.432)
 
-[node name="ShootPoint" type="Node2D" parent="."]
-position = Vector2(0, -8.0891)
+[node name="ShootPoint" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -8.0891)
+scale = Vector2(0.0289946, 0.0289946)
+texture = ExtResource("4_mbf58")
+offset = Vector2(393.796, 1.15002)
 
 [node name="AudioShoot" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -8.0891)

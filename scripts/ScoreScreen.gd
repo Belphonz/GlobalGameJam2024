@@ -9,6 +9,7 @@ var bac : Button
 var deathmessage : Label
 
 func _on_line_edit_ready():
+	get_tree().root.remove_child(get_tree().root.get_child(1))
 	deathmessage =  get_child(1)
 	fow = get_child(4)
 	bac = get_child(5)
