@@ -32,15 +32,15 @@ func _ready():
 	else:
 		print("Parse eror")
 	
-func save():
+func save(fileh):
 	var file = FileAccess.open("res://highscores.json", FileAccess.WRITE)
 	file.flush()
-	file.store_line(JSON.stringify(file_data))
+	file.store_line(JSON.stringify(fileh))
 
 func loadScores():
 	var file
 	if not FileAccess.file_exists("res://highscores.json"):
-		save()
+		save(file_data)
 		return
 	file = FileAccess.open("res://highscores.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
