@@ -21,7 +21,8 @@ var attackTimer:float=0
 
 var changeDirectionTimer:float=0
 var moveDirection:Vector2
-
+var attackanim : float = 0
+var attacking : bool = false
 var rng=RandomNumberGenerator.new()
 
 func start(_Player, _maxHealth):
@@ -35,6 +36,8 @@ func start(_Player, _maxHealth):
 	
 func _process(delta):
 	super._process(delta)
+	if attacking:
+		attackanim += delta
 	
 	
 func move(delta):
@@ -48,11 +51,22 @@ func move(delta):
 		moveDirection=Vector2(cosAngle*moveDirection.x-sinAngle*moveDirection.y,sinAngle*moveDirection.x+cosAngle*moveDirection.y)	#Rotate move direction
 	
 	velocity=moveDirection*moveSpeed
-	
+	var animation = get_child(0) as AnimatedSprite2D
+	if(attacking and attackanim > 0.2):
+		animation.frame = EnemySpin(moveDirection) 
+		if EnemySpin(moveDirection) in leftDirection:
+			animation .flip_h = true
+		else:
+			animation.flip_h = false
+		animation.play("Idle",0,false)
+		attacking = false
+		attackanim = 0
+	bounce()
 	move_and_slide()
 	super.move(delta)
 	
 func attack(delta):
+	var animation = get_child(0) as AnimatedSprite2D
 	attackTimer+=delta
 	if(attackTimer>attackSpeed):
 		attackTimer=0
@@ -62,3 +76,22 @@ func attack(delta):
 		var grenadeI:Node2D=grenade.instantiate()
 		grenadeI.throw(get_global_position(),get_global_position()+throwDirection*throwDistance)
 		get_node("../../BulletObject").add_child(grenadeI)
+		animation.play("Attack",0,false)
+		attacking = true
+		
+@export var BOUNCEPOWER = 0.5
+@export var DEGREES = 10
+@export var BOUNCEHEIGHT = 1.5
+@export var BOUNCEY = 0.2
+
+func bounce():
+	var sprite = get_child(0) as Node2D
+	# rotates only sprite and flips if over the limit
+	sprite.rotate(BOUNCEPOWER * (PI/180))
+	if sprite.rotation_degrees >= DEGREES or sprite.rotation_degrees <= -DEGREES:
+		BOUNCEPOWER = BOUNCEPOWER * -1
+		rotate(BOUNCEPOWER * (PI/180))
+	sprite.move_local_y(BOUNCEY, false)
+	if sprite.position.y >= BOUNCEHEIGHT or sprite.position.y <= -BOUNCEHEIGHT:
+		BOUNCEY = BOUNCEY * -1
+		sprite.move_local_y(BOUNCEY, false)
