@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
 [ext_resource type="AudioStream" uid="uid://ck86rgpyvyfgx" path="res://assets/sfx/Themes/Game_Theme.wav" id="4_kkpkc"]
 [ext_resource type="PackedScene" uid="uid://btjbvawyjpsqa" path="res://scenes/highscore.tscn" id="5_pfcbs"]
-[ext_resource type="Script" path="res://scripts/enemy/waveGenerator.gd" id="7_vdkfd"]
+[ext_resource type="PackedScene" uid="uid://drbqja0xtoviq" path="res://elements/enemies/wave_manager.tscn" id="7_yq4m0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_we28v")
@@ -30,6 +30,5 @@ scale = Vector2(1.8, 1.8)
 
 [node name="HighscoreManager" parent="." instance=ExtResource("5_pfcbs")]
 
-[node name="WaveManager" type="Node2D" parent="."]
-script = ExtResource("7_vdkfd")
-clownChances = [1.0, 0.5]
+[node name="WaveManager" parent="." instance=ExtResource("7_yq4m0")]
+enemiesPerWave = [5, 8.0, 10.0]

@@ -19,8 +19,8 @@ var chanceRanges:Array
 @export	#Size of the ring
 var ringSize:float=520
 
-@export	#How many enemies per wave
-var enemiesPerWave:float=5
+@export
+var enemiesPerWave:Array=[5]
 
 @export 
 var enemySpawnTime:float=0.4
@@ -56,7 +56,6 @@ func spawnEnemy():
 	var randomAngle:float=rng.randf() * PI * 2
 	var spawnPosition:Vector2=Vector2(cos(randomAngle),sin(randomAngle))*(ringSize-15)
 	
-	print(sumChances)
 	var enemyFloat=rng.randf()*sumChances
 	
 	if(enemyFloat<chanceRanges[0]):
@@ -88,5 +87,5 @@ func spawnWave():
 		for j in 5-i:
 			chanceRanges[i+j]+=chanceArray[i]
 	
-	enemiesToSpawn+=enemiesPerWave
+	enemiesToSpawn+=enemiesPerWave[min(waveCount,enemiesPerWave.size()-1)]
 	waveCount+=1
