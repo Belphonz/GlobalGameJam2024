@@ -66,7 +66,11 @@ height = 17.6791
 position = Vector2(0, -41)
 scale = Vector2(3.123, 3.123)
 script = ExtResource("2_ud5t6")
+<<<<<<< Updated upstream
 rangeRange = 0.0
+=======
+firingRange = 175.0
+>>>>>>> Stashed changes
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0113801, 0.0104875)

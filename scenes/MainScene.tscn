@@ -37,5 +37,10 @@ scale = Vector2(1.8, 1.8)
 [node name="HighscoreManager" parent="." instance=ExtResource("5_pfcbs")]
 
 [node name="WaveManager" parent="." instance=ExtResource("7_yq4m0")]
+clownAK47Chances = [0, 0.0, 1.0, 1.0, 0.0]
+clownChances = [1.0, 2.0, 2.0, 0.0, 1.0]
+jesterChances = [0, 0.0, 0.0, 1.0, 2.0]
+lionTamerChances = [0, 1.0, 2.0, 2.0, 0.0]
+ringMasterChances = [0, 0.0, 0.0, 0.0, 1.0]
 enemiesPerWave = [5, 8.0, 10.0]
 enemySpawnTime = 0.25
