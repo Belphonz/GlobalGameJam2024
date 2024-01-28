@@ -8,14 +8,14 @@ var firingTime:float=2.5
 @export 
 var cooldownTime:float = 4.0
 @export
-var _moveSpeed:float = 120
+var _moveSpeed:float = 80
 @export
 var fireCone:float = 35 
 @export
 var fireChangeRate:float = 16.0
 
 @export
-var firingRange:float=120.0
+var firingRange:float=100.0
 @export
 var rangeRange:float=80.0
 
@@ -83,13 +83,14 @@ func attack(delta):	#Function called every frame
 	attackingTimer+=delta;
 	
 	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
-		aimAudio.play()
+		if aimAudio.playing == false or shootAudio.playing == false:
+			aimAudio.play()
 		animation.play("Aim",0,false)
 		await aimAudio.finished
 		
+		shootAudio.play()
 		playerPos = playerDirection
 		takeAim = false
-		shootAudio.play()
 			
 	
 	animTimer += delta
@@ -127,10 +128,12 @@ func attack(delta):	#Function called every frame
 		get_node("../../BulletObject").add_child(bulletInstance)	#Does same as before, but gets BulletObject
 		#get_parent().get_parent().add_child(bulletInstance)
 		
-	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
-		weaponActive = false
-		takeAim = true
-		animation.play("Idle",0,false)		
+		if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
+			weaponActive = false
+			takeAim = true
+			animation.play("Idle",0,false)		
+			cooldownTimer=0
+			attackingTimer = 0
 
 @export var BOUNCEPOWER = 0.5
 @export var DEGREES = 10

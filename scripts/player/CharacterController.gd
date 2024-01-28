@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var HP:int = 1
-@export var MAX_HP:int = 6
+var HP:int = 100
+@export var MAX_HP:int = 100
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_SPEED:float = 400.0
@@ -136,12 +136,15 @@ func Scorecounter(delta):
 	
 func _physics_process(delta):
 	Controller(delta)
-
+	var animation = get_child(0) as CanvasItem
+	
 	if(iFramesActive):
 		iFramesTimer+=delta
+		animation.modulate = "7b7b7b"
 		if(iFramesTimer>iFrameTime):
 			iFramesTimer=0
 			iFramesActive=false	
+			animation.modulate = "ffffff"
 	
 	Shoot(delta)
 	Scorecounter(delta)
@@ -151,11 +154,14 @@ func _physics_process(delta):
 
 
 func _on_player_collider_area_entered(area):
+	var hitsound = get_child(4) as AudioStreamPlayer2D
 	if "Bullet" in area.owner.name && !iFramesActive:
 		HP -= 1
 		iFramesActive=true
+		hitsound.play()
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		
 	if "Enemy" in area.owner.name && !iFramesActive:
 		HP-=1
 		iFramesActive=true

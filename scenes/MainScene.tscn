@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://shkw5ab00lsl" path="res://scenes/Stage.tscn" id="1_eong5"]
 [ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_we28v"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
+[ext_resource type="AudioStream" uid="uid://diycbj6x2itq8" path="res://assets/sfx/Themes/Combat_Theme.wav" id="2_y1ju5"]
 [ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
-[ext_resource type="AudioStream" uid="uid://ck86rgpyvyfgx" path="res://assets/sfx/Themes/Game_Theme.wav" id="4_kkpkc"]
-[ext_resource type="PackedScene" uid="uid://btjbvawyjpsqa" path="res://scenes/highscore.tscn" id="5_pfcbs"]
+[ext_resource type="PackedScene" uid="uid://geainwjqgq6c" path="res://scenes/highscore.tscn" id="5_pfcbs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_we28v")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_kkpkc")
+stream = ExtResource("2_y1ju5")
 autoplay = true
 
 [node name="BloodsplatterNode" type="Node2D" parent="."]

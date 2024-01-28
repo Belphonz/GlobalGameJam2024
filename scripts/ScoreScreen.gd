@@ -4,8 +4,8 @@ var FinalArray
 var page = 0
 var texty : Label
 var liner : LineEdit
-var fow : Button
-var bac : Button
+var fow : TextureButton
+var bac : TextureButton
 
 func _on_line_edit_ready():
 	fow = get_child(4)
@@ -14,10 +14,13 @@ func _on_line_edit_ready():
 	$LineEdit.grab_focus()
 	texty = get_child(1)
 	texty.text = "Score: " + str(Highscore.runscore) + "\nEnter Name"
+	bac.visible = false
+	fow.visible = false
 
 
 
 func _on_line_edit_text_submitted(nam):
+		
 	if nam.length() == 3:
 		nam = nam.to_upper()
 		FinalArray = Highscore.fileArray
@@ -42,6 +45,7 @@ func _on_mainbutton_pressed():
 
 func displayPage():
 	texty.text = ""
+	
 	if page == 0:
 		bac.visible = false
 	else:

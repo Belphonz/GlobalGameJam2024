@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cggavxmpbiyae"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_kbbe1"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Enemy/Seal/Seal.png" id="2_14pom"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5ntr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_14pom")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqnjo"]
+radius = 89.0
+height = 218.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(1, -89)
+script = ExtResource("1_kbbe1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 89)
+scale = Vector2(0.424853, 0.417189)
+sprite_frames = SubResource("SpriteFrames_p5ntr")
+animation = &"Idle"
+offset = Vector2(2.35375, -213.333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jqnjo")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
