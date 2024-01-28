@@ -42,6 +42,7 @@ func Controller(delta):
 	
 	if Input.is_action_just_pressed("dash") and not isDashing:
 		isDashing = true
+		get_child(5).play()
 	if isDashing:
 		velocity = lastsaved_move_direction * MOVEMENT_SPEED * DashSpeedmultiplier
 	else:

@@ -136,6 +136,7 @@ func move(delta):
 		sprite.visible = true
 		animation.visible = false
 		
+		animation.rotation_degrees = 0
 		sprite.rotation_degrees = 0
 	
 	

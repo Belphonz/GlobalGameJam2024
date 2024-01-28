@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6facwmkvjlju"]
+[gd_scene load_steps=13 format=3 uid="uid://b6facwmkvjlju"]
 
 [ext_resource type="Script" path="res://scripts/ScoreScreen.gd" id="1_0h8f4"]
 [ext_resource type="Texture2D" uid="uid://bgox1nmwjs8yx" path="res://assets/gfx/Menu/DeathScreen.png" id="1_xn208"]
+[ext_resource type="AudioStream" uid="uid://c62kcomkvbgs3" path="res://assets/sfx/Themes/Button_Click.wav" id="2_cdh2e"]
+[ext_resource type="AudioStream" uid="uid://c3tijyvbg4uo4" path="res://assets/sfx/Themes/Main_Menu_Theme.wav" id="3_e7vpf"]
 [ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_h6xbi"]
-[ext_resource type="Texture2D" uid="uid://c6djw28bv7dkx" path="res://assets/gfx/Menu/NextButton.png" id="4_0vukb"]
-[ext_resource type="Texture2D" uid="uid://dakr3j5as8abu" path="res://assets/gfx/Menu/NextButtonW.png" id="5_p6dyf"]
-[ext_resource type="Texture2D" uid="uid://dsp0iaadsbv0f" path="res://assets/gfx/Menu/Menu.png" id="5_rh1v5"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButton.png" id="4_0vukb"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButtonW.png" id="5_p6dyf"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/Menu.png" id="5_rh1v5"]
+[ext_resource type="Texture2D" uid="uid://cpgjbm3cxgfcs" path="res://assets/gfx/Menu/MenuWS.png" id="8_c1shu"]
+[ext_resource type="Texture2D" uid="uid://7qcr3fki2vr7" path="res://assets/gfx/Menu/MenuW.png" id="9_l8f86"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2dt0"]
 
@@ -88,8 +92,23 @@ offset_right = 1972.0
 offset_bottom = 1116.0
 scale = Vector2(0.177091, 0.177091)
 texture_normal = ExtResource("5_rh1v5")
+texture_pressed = ExtResource("8_c1shu")
+texture_hover = ExtResource("9_l8f86")
 ignore_texture_size = true
 stretch_mode = 3
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(64, 496)
+scale = Vector2(0.260221, 0.260221)
+stream = ExtResource("2_cdh2e")
+volume_db = 6.199
+
+[node name="Theme" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(64, 496)
+scale = Vector2(0.260221, 0.260221)
+stream = ExtResource("3_e7vpf")
+volume_db = -9.369
+autoplay = true
 
 [connection signal="ready" from="LineEdit" to="." method="_on_line_edit_ready"]
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

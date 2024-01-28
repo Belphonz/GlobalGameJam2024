@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://shkw5ab00lsl" path="res://scenes/Stage.tscn" id="1_eong5"]
 [ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_we28v"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
-[ext_resource type="AudioStream" uid="uid://diycbj6x2itq8" path="res://assets/sfx/Themes/Combat_Theme.wav" id="2_y1ju5"]
+[ext_resource type="AudioStream" path="res://assets/sfx/Themes/Combat_Theme.wav" id="2_y1ju5"]
 [ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
 [ext_resource type="PackedScene" uid="uid://geainwjqgq6c" path="res://scenes/highscore.tscn" id="5_pfcbs"]
 

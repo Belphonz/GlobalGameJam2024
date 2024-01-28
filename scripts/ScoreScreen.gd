@@ -20,7 +20,8 @@ func _on_line_edit_ready():
 
 
 func _on_line_edit_text_submitted(nam):
-		
+	var audio = get_child(7) as AudioStreamPlayer2D
+	audio.play()
 	if nam.length() == 3:
 		nam = nam.to_upper()
 		FinalArray = Highscore.fileArray
@@ -33,14 +34,21 @@ func _on_line_edit_text_submitted(nam):
 		liner.visible = false
 	
 func _on_forward_pressed():
+	var audio = get_child(7) as AudioStreamPlayer2D
+	audio.play()
 	page += 1
 	displayPage()
 
 func _on_back_pressed():
+	var audio = get_child(7) as AudioStreamPlayer2D
+	audio.play()
 	page -= 1
 	displayPage()
 
 func _on_mainbutton_pressed():
+	var audio = get_child(7) as AudioStreamPlayer2D
+	audio.play()
+	await audio.finished
 	get_tree().change_scene_to_file("res://scenes/Menu.tscn")
 
 func displayPage():
