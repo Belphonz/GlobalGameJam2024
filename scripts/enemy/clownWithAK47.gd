@@ -38,20 +38,12 @@ var playerPos:Vector2 = Vector2(0,0)
 
 var animTimer:float = 0
 
-var Dying : bool = false
-var DeathTimer:float = 0
-var DeathTimerLength:float = 0.45
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	super._process(delta)
-	if Dying:
-		DeathTimer += delta
 	if HP <= 0:
-		var animation = get_child(0) as AnimatedSprite2D
-		animation.play("Bloodsplatter", 3,false)
-		Dying = true
-	onDeath()
+		onDeath()
 	
 	
 	
@@ -60,6 +52,8 @@ func _process(delta):
 
 func start(_Player, _maxHealth):
 	super.start(_Player,_maxHealth)
+	var animation = get_child(0) as AnimatedSprite2D
+	animation.play("Idle",0,false)
 	moveSpeed=_moveSpeed
 	fireCone *= PI/180
 	fireChange = 1/fireChangeRate * PI
@@ -88,7 +82,7 @@ func attack(delta):	#Function called every frame
 	attackTimer+=delta	#Update timers
 	attackingTimer+=delta;
 	
-	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true and not Dying):
+	if (attackTimer >= attackSpeed && weaponActive && aimAudio.playing == false && takeAim == true):
 		aimAudio.play()
 		animation.play("Aim",0,false)
 		await aimAudio.finished
@@ -106,7 +100,7 @@ func attack(delta):	#Function called every frame
 			animation.play("Aim",0,false)
 		animTimer = 0
 	
-	if(attackTimer>=attackSpeed && weaponActive && takeAim == false and not Dying):
+	if(attackTimer>=attackSpeed && weaponActive && takeAim == false):
 		var cosOffset:float=cos(offset)	#Get fire direction with offset
 		var sinOffset:float=sin(offset)
 		var attackDirection:Vector2=Vector2(cosOffset*playerPos.x-sinOffset*playerPos.y,sinOffset*playerPos.x+cosOffset*playerPos.y)
@@ -133,7 +127,7 @@ func attack(delta):	#Function called every frame
 		get_node("../../BulletObject").add_child(bulletInstance)	#Does same as before, but gets BulletObject
 		#get_parent().get_parent().add_child(bulletInstance)
 		
-	if(attackingTimer>=firingTime and not Dying):	#Weapon deactivates after firing for too long
+	if(attackingTimer>=firingTime):	#Weapon deactivates after firing for too long
 		weaponActive = false
 		takeAim = true
 		animation.play("Idle",0,false)		
@@ -178,9 +172,11 @@ func move(delta):
 		sprite.rotation = 0
 		
 func onDeath():
-	var animation = get_child(0) as AnimatedSprite2D
-	if (animation.animation == "Bloodsplatter" and DeathTimer > DeathTimerLength):
-		queue_free()		
+	var Blood : Node2D = BloodSplat.instantiate()
+	Blood.global_position = global_position
+	get_parent().get_parent().get_node("BloodsplatterNode").add_child(Blood)
+	queue_free()
+
 
 
 

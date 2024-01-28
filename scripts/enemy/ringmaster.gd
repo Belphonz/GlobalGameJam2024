@@ -18,6 +18,14 @@ var RmId
 
 func _process(delta):
 	super._process(delta)
+	if HP <= 0:
+		onDeath()
+	
+func onDeath():
+	var Blood : Node2D = BloodSplat.instantiate()
+	Blood.global_position = global_position
+	get_parent().get_parent().get_node("BloodsplatterNode").add_child(Blood)
+	queue_free()
 	
 func Start(_Player, _maxHealth, id):
 	super.start(_Player,_maxHealth)
@@ -27,15 +35,18 @@ func Start(_Player, _maxHealth, id):
 func attack(delta):
 	var spinColl = get_child(1) as CollisionPolygon2D
 	var bodyColl = get_child(3) as CollisionShape2D
+	var bodyColldelta = get_child(5).get_child(0) as CollisionShape2D
 	if attacking == false:
 		spinColl.disabled = true
 		bodyColl.disabled = false
+		bodyColldelta.disabled = false
 		downtimeTimer+=delta
 		name = "Enemy Ringmaster" + str(RmId) 
 	if downtimeTimer >= downtimeVal && willAttack:
 		attacking = true
 		spinColl.disabled = false
 		bodyColl.disabled = true
+		bodyColldelta.disabled = true
 		attackTimer += delta
 		name = "RingmasterSpin Bouncy" + str(RmId) 
 		if attackTimer > attackLimit:
@@ -45,6 +56,7 @@ func attack(delta):
 			attackTimer = 0
 			spinColl.disabled = true
 			bodyColl.disabled = false
+			bodyColldelta.disabled = false
 			willAttack = false
 			attacking = false
 	if stunned:
@@ -116,7 +128,6 @@ func move(delta):
 			animation.play("Spin",1,false)
 			sprite.visible = false
 			animation.visible = true
-			print("SPIN MOVE")
 		velocity=playerDirection * moveSpeed
 		move_and_slide()
 		bounce()
@@ -130,3 +141,9 @@ func move(delta):
 		sprite.rotation_degrees = 0
 	
 	
+
+func _on_enemy_collider_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()

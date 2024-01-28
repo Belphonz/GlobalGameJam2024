@@ -93,7 +93,6 @@ position = Vector2(-0.406249, 1.40625)
 shape = SubResource("CapsuleShape2D_uvbos")
 
 [node name="PlayerSprite2" type="Sprite2D" parent="PlayerCollider"]
-visible = false
 modulate = Color(0.568627, 0, 0.509804, 1)
 position = Vector2(-0.66827, 8.90068)
 scale = Vector2(0.0539273, 0.0675)

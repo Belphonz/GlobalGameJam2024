@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0iranba74mqb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4liuj"]
-radius = 101.883
+radius = 102.439
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rurwp"]
-radius = 120.055
+radius = 133.796
 
-[node name="BaseEnemy" type="CharacterBody2D"]
+[node name="BaseEnemy2" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 
