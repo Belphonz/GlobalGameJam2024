@@ -3,6 +3,7 @@ extends Node2D
 @export 
 var airTime:float=0.4	#how long object is thrown for
 
+var damage:float
 @export
 var maxCurveHeight=20
 
@@ -50,5 +51,5 @@ func _on_area_2d_area_entered(area):
 		return
 	if(area.name=="PlayerCollider"):
 		var Player:Node2D=area.get_parent()
-		Player.HP-=1
+		Player.HP-= damage
 		

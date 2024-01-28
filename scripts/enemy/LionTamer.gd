@@ -3,6 +3,9 @@ extends "res://scripts/enemy/baseEnemy.gd"
 @export
 var _moveSpeed:float=40
 
+
+@export var PHYSICAL_DAMAGE:float = 3
+
 @export
 var lionMaxHealth=1
 
@@ -81,6 +84,6 @@ func onDeath():
 
 func _on_enemy_collider_area_entered(area):
 	if "PlBullet" in area.owner.name:
-		HP -= 1
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		HP -= Bullet.damage

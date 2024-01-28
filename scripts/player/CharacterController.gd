@@ -4,6 +4,7 @@ var HP:int = 1
 @export var MAX_HP:int = 6
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
+@export var BULLET_DAMAGE:float = 3
 @export var BULLET_SPEED:float = 400.0
 @export var FIRE_RATE:float = 0.4
 var CURRENT_FIRE_RATE = 0.0
@@ -99,6 +100,7 @@ func Shoot(delta):
 		bulletInstance.speed = BULLET_SPEED
 		bulletInstance.direction = facingdirection
 		bulletInstance.isPlayerBullet = true
+		bulletInstance.damage = BULLET_DAMAGE
 			
 		bulletInstance.maxBounceCount = BULLET_BOUNCE_COUNT
 		
@@ -167,14 +169,15 @@ func _physics_process(delta):
 func _on_player_collider_area_entered(area):
 	if "Bullet" in area.owner.name && !iFramesActive:
 		LastHitBy = area.owner.name
-		HP -= 1
 		iFramesActive=true
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
+		HP -= Bullet.damage
 	if "Enemy" in area.owner.name && !iFramesActive:
 		LastHitBy = area.owner.name
-		HP-=1
 		iFramesActive=true
+		var Enemy:Node2D=area.get_parent()
+		HP -= Enemy.PHYSICAL_DAMAGE
 		
 		
 	

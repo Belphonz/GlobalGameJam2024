@@ -1,5 +1,6 @@
 extends Node2D
 
+var damage : float
 @export
 var explodeRadius:float=50
 
@@ -85,9 +86,9 @@ func explode():
 	var allArea2Ds:Array=explosionArea.get_overlapping_areas()
 	for area in allArea2Ds:
 		if(area.name=="EnemyCollider" && damageEnemies):	#Hit enemy
-			area.get_parent().HP-=1
+			area.get_parent().HP-= damage
 		if(area.name=="PlayerCollider"):	#Hit player
 			if(!area.get_parent().iFramesActive):
-				area.get_parent().HP-=1
+				area.get_parent().HP-= damage
 				area.get_parent().iFramesActive=true
 	

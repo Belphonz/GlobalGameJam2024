@@ -3,6 +3,8 @@ extends "res://scripts/enemy/baseEnemy.gd"
 @export
 var _moveSpeed:float=100
 
+@export var BOMB_DAMAGE:float = 3
+@export var PHYSICAL_DAMAGE:float = 3
 @export 
 var attackSpeed:float=2.0
 
@@ -36,6 +38,7 @@ func start(_Player, _maxHealth):
 	
 func _process(delta):
 	super._process(delta)
+	print(HP)
 	if attacking:
 		attackanim += delta
 	if HP <= 0:
@@ -76,6 +79,7 @@ func attack(delta):
 		var throwDirection:Vector2=Vector2(cos(throwAngle),sin(throwAngle))
 		
 		var grenadeI:Node2D=grenade.instantiate()
+		grenadeI.damage = BOMB_DAMAGE
 		grenadeI.throw(get_global_position(),get_global_position()+throwDirection*throwDistance)
 		get_node("../../BulletObject").add_child(grenadeI)
 		animation.play("Attack",0,false)
