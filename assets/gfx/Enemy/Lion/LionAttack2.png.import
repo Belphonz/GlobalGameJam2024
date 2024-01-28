@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br7ntdde323db"
-path="res://.godot/imported/frame_6.png-5a42bf06f57825a473521344cff94fa3.ctex"
+uid="uid://iuqfvxo40gga"
+path="res://.godot/imported/LionAttack2.png-2354aaeb793c4104dd43d238134acf17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/Enemy/Bloodsplatter/frame_6.png"
-dest_files=["res://.godot/imported/frame_6.png-5a42bf06f57825a473521344cff94fa3.ctex"]
+source_file="res://assets/gfx/Enemy/Lion/LionAttack2.png"
+dest_files=["res://.godot/imported/LionAttack2.png-2354aaeb793c4104dd43d238134acf17.ctex"]
 
 [params]
 

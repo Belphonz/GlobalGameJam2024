@@ -11,13 +11,15 @@
 stream = ExtResource("4_kkpkc")
 autoplay = true
 
-[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
-position = Vector2(-120, -224)
-scale = Vector2(2.3, 2.3)
+[node name="BloodsplatterNode" type="Node2D" parent="."]
 
 [node name="BulletObject" type="Node2D" parent="."]
 
 [node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+position = Vector2(-120, -224)
+scale = Vector2(2.3, 2.3)
 
 [node name="Stage" parent="." instance=ExtResource("1_eong5")]
 scale = Vector2(1.8, 1.8)

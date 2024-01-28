@@ -13,7 +13,6 @@ var Lion:Node2D=null #TODO:When lion dies, find a way to signal lion, and de-ref
 func Start(_Player,_maxHealth,enemyID):
 	super.start(_Player,_maxHealth)
 	moveSpeed=_moveSpeed
-	
 
 
 func addLion(enemyID):
@@ -30,6 +29,8 @@ func freeTamer():	#Lion has died, do separate things for the tamer
 
 func _process(delta):
 	super._process(delta)
+	if HP <= 0:
+		onDeath()
 	
 	
 func move(delta):
@@ -42,6 +43,17 @@ func move(delta):
 func attack(delta):
 	pass
 	
-func OnDeath():
-	Lion.freeLion()
-	super.onDeath()
+func onDeath():
+	if Lion: 
+		Lion.freeLion()
+	var Blood : Node2D = BloodSplat.instantiate()
+	Blood.global_position = global_position
+	get_parent().get_parent().get_node("BloodsplatterNode").add_child(Blood)
+	queue_free()		
+
+
+func _on_enemy_collider_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()

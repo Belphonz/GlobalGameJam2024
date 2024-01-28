@@ -36,6 +36,8 @@ func freeLion():
 
 func _process(delta):
 	super._process(delta)
+	if HP <= 0:
+		onDeath()
 	
 func move(delta):
 	
@@ -62,11 +64,22 @@ func move(delta):
 	velocity=directionToMove * finalMoveSpeed
 	
 	move_and_slide()
-		
+
 	
 func attack(delta):
 	pass
 	
-func OnDeath():
-	LionTamer.freeTamer()
-	super.onDeath()
+func onDeath():
+	if LionTamer:
+		LionTamer.freeTamer()
+	var Blood : Node2D = BloodSplat.instantiate()
+	Blood.global_position = global_position
+	get_parent().get_parent().get_node("BloodsplatterNode").add_child(Blood)
+	queue_free()		
+
+
+func _on_enemy_collider_area_entered(area):
+	if "PlBullet" in area.owner.name:
+		HP -= 1
+		var Bullet:Node2D=area.get_parent()
+		Bullet.death()
