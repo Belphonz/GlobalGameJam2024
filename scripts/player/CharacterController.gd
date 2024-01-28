@@ -32,6 +32,10 @@ var iFramesTimer:float=0
 
 var isLeft : bool = false
 var rotationFrame : int
+
+var HealthBar:Node2D
+
+
 func _ready():
 	Highscore.Player = self
 	HP=MAX_HP
