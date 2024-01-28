@@ -6,6 +6,8 @@ var _moveSpeed:float=40
 @export
 var lionMaxHealth=1
 
+var lionAlive:bool=true
+
 var Lion:Node2D=null #TODO:When lion dies, find a way to signal lion, and de-reference Lion
 
 func Start(_Player,_maxHealth,enemyID):
@@ -22,6 +24,10 @@ func addLion(enemyID):
 	Lion.name="Enemy Lion"+str(enemyID)
 	get_parent().add_child(Lion)	#Add Lion to enemy manager
 
+func freeTamer():	#Lion has died, do separate things for the tamer
+	Lion=null
+	lionAlive=false
+
 func _process(delta):
 	super._process(delta)
 	
@@ -33,3 +39,7 @@ func move(delta):
 	
 func attack(delta):
 	pass
+	
+func OnDeath():
+	Lion.freeLion()
+	super.onDeath()
