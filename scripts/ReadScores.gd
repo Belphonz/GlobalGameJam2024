@@ -24,13 +24,12 @@ func _ready():
 		data_received = json.data
 		if typeof(data_received) == TYPE_ARRAY:
 			fileArray = data_received
-			print (data_received[0][1], "\t", data_received[0][2], "\n")
 			ID = data_received[-1][0]
 		else:
 			print("uh oh not array")
 			print(data_received)
 	else:
-		print("Parse eror")
+		print("Parse error")
 	
 func save(fileh):
 	var file = FileAccess.open("res://highscores.json", FileAccess.WRITE)

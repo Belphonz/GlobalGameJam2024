@@ -23,7 +23,6 @@ func _on_line_edit_text_submitted(nam):
 		FinalArray = Highscore.fileArray
 		FinalArray.push_back([Highscore.ID + 1, nam, Highscore.runscore])
 		Highscore.ID = FinalArray[-1][0]
-		print (FinalArray)
 		Highscore.save(FinalArray)
 		FinalArray.sort_custom(func(a, b): return a[2] > b[2])
 		displayPage()
@@ -53,7 +52,6 @@ func displayPage():
 	for i in 4:
 		#if FinalArray[page * 4 + i]:
 		if (4 * page) + i <= FinalArray.size() - 1:
-			print(FinalArray.size())
 			texty.text += str(FinalArray[page * 4 + i][1]) + "      " +str(FinalArray[page * 4 + i][2]) + "\n"
 		else:
 			texty.text += "---      ---- \n"

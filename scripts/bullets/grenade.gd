@@ -86,10 +86,8 @@ func explode():
 	for area in allArea2Ds:
 		if(area.name=="EnemyCollider" && damageEnemies):	#Hit enemy
 			area.get_parent().HP-=1
-			print("Hurt enemy")
 		if(area.name=="PlayerCollider"):	#Hit player
 			if(!area.get_parent().iFramesActive):
 				area.get_parent().HP-=1
 				area.get_parent().iFramesActive=true
-				print("Hurt player")
 	

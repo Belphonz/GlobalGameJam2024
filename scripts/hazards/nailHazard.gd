@@ -53,7 +53,6 @@ func collide(colliding:Node2D):
 			Player.iFramesActive=true
 	if(colliding.name=="EnemyCollider"):
 		var Enemy:Node2D = colliding.get_parent()
-		print(Enemy.name)
 		if !("Jester" in Enemy.name):
 			Enemy.HP-=1
 
