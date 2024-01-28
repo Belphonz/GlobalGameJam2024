@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bexyntf5luo2e"]
+[gd_scene load_steps=10 format=3 uid="uid://dgaq3hxtqfpiy"]
 
 [ext_resource type="Texture2D" uid="uid://do8fk4sxppdul" path="res://assets/gfx/Enemy/Bloodsplatter/frame_1.png" id="1_7kkxs"]
 [ext_resource type="Texture2D" uid="uid://b35hf2gygjet0" path="res://assets/gfx/Enemy/Bloodsplatter/frame_2.png" id="2_rujfa"]
