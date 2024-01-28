@@ -74,16 +74,15 @@ func attack(delta):	#Function called every frame
 			weaponActive=true
 			
 	if(abs(distFromPlayer-firingRange)>rangeRange):	#
-		print("Out of range")
+		attackTimer=0
 		attackingTimer=0
 		movingToRange=true
-		weaponActive=false
 		takeAim=true
 		animation.play("Idle",0,false)	
 	else:
 		movingToRange=false
+		print(weaponActive)
 			
-	
 	
 	attackTimer+=delta	#Update timers
 	attackingTimer+=delta;
