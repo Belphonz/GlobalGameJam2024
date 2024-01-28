@@ -91,4 +91,5 @@ func explode():
 			if(!area.get_parent().iFramesActive):
 				area.get_parent().HP-= damage
 				area.get_parent().iFramesActive=true
+				print("Hurt player")
 	

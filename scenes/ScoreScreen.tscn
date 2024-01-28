@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://t1s1qp1nrblc"]
+[gd_scene load_steps=13 format=3 uid="uid://b6facwmkvjlju"]
 
 [ext_resource type="Script" path="res://scripts/ScoreScreen.gd" id="1_0h8f4"]
 [ext_resource type="Texture2D" uid="uid://bgox1nmwjs8yx" path="res://assets/gfx/Menu/DeathScreen.png" id="1_xn208"]
+[ext_resource type="AudioStream" uid="uid://c62kcomkvbgs3" path="res://assets/sfx/Themes/Button_Click.wav" id="2_cdh2e"]
+[ext_resource type="AudioStream" uid="uid://c3tijyvbg4uo4" path="res://assets/sfx/Themes/Main_Menu_Theme.wav" id="3_e7vpf"]
 [ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_h6xbi"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButton.png" id="4_0vukb"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/NextButtonW.png" id="5_p6dyf"]
+[ext_resource type="Texture2D" path="res://assets/gfx/Menu/Menu.png" id="5_rh1v5"]
+[ext_resource type="Texture2D" uid="uid://cpgjbm3cxgfcs" path="res://assets/gfx/Menu/MenuWS.png" id="8_c1shu"]
+[ext_resource type="Texture2D" uid="uid://7qcr3fki2vr7" path="res://assets/gfx/Menu/MenuW.png" id="9_l8f86"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2dt0"]
 
@@ -53,28 +60,58 @@ self_modulate = Color(0.34902, 0.34902, 0.34902, 1)
 position = Vector2(568, 396)
 scale = Vector2(6.40625, 3.35156)
 
-[node name="Forward" type="Button" parent="."]
-offset_left = 931.0
-offset_top = 482.0
-offset_right = 1038.0
-offset_bottom = 586.0
+[node name="Forward" type="TextureButton" parent="."]
+clip_contents = true
+offset_left = 960.0
+offset_top = 496.0
+offset_right = 1456.0
+offset_bottom = 946.0
+scale = Vector2(0.260221, 0.260221)
+texture_normal = ExtResource("4_0vukb")
+texture_hover = ExtResource("5_p6dyf")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Back" type="Button" parent="."]
-offset_left = 145.0
-offset_top = 485.0
-offset_right = 251.0
-offset_bottom = 591.0
+[node name="Back" type="TextureButton" parent="."]
+clip_contents = true
+offset_left = 64.0
+offset_top = 496.0
+offset_right = 560.0
+offset_bottom = 946.0
+scale = Vector2(0.260221, 0.260221)
+texture_normal = ExtResource("4_0vukb")
+texture_hover = ExtResource("5_p6dyf")
+ignore_texture_size = true
+stretch_mode = 3
+flip_h = true
 
-[node name="Mainbutton" type="Button" parent="."]
-offset_left = 426.0
-offset_top = 530.0
-offset_right = 714.0
-offset_bottom = 622.0
-theme_override_font_sizes/font_size = 47
-text = "Main Menu"
+[node name="Mainbutton" type="TextureButton" parent="."]
+offset_left = 440.0
+offset_top = 520.0
+offset_right = 1972.0
+offset_bottom = 1116.0
+scale = Vector2(0.177091, 0.177091)
+texture_normal = ExtResource("5_rh1v5")
+texture_pressed = ExtResource("8_c1shu")
+texture_hover = ExtResource("9_l8f86")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(64, 496)
+scale = Vector2(0.260221, 0.260221)
+stream = ExtResource("2_cdh2e")
+volume_db = 6.199
+
+[node name="Theme" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(64, 496)
+scale = Vector2(0.260221, 0.260221)
+stream = ExtResource("3_e7vpf")
+volume_db = -9.369
+autoplay = true
 
 [connection signal="ready" from="LineEdit" to="." method="_on_line_edit_ready"]
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Forward" to="." method="_on_forward_pressed"]
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_forward_pressed"]
 [connection signal="pressed" from="Mainbutton" to="." method="_on_mainbutton_pressed"]

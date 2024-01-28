@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0gowbgedveg8" path="res://assets/gfx/Enemy/ringmaster/ringmasterIdle.png" id="2_5cy76"]
 [ext_resource type="Texture2D" uid="uid://bs3o3tegwepbr" path="res://assets/gfx/Enemy/ringmaster/ringmasterSpin1.png" id="3_x2ua5"]
 [ext_resource type="Texture2D" uid="uid://cb5hssqljbswb" path="res://assets/gfx/Enemy/ringmaster/ringmasterSpin2.png" id="4_i32bu"]
-[ext_resource type="Texture2D" uid="uid://vpwoyefm6my7" path="res://assets/gfx/Enemy/ringmaster/ringmasterBack.PNG" id="5_j7ipf"]
+[ext_resource type="AudioStream" uid="uid://8bfbaxhycaff" path="res://assets/sfx/Enemy/Ringmaster/Cane_Spin.wav" id="4_mk61v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p0x08"]
 animations = [{
@@ -26,33 +26,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rr0ia"]
-radius = 14.0
-height = 54.0
+radius = 11.0
+height = 46.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tj3t0"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_5cy76")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_j7ipf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_j7ipf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_j7ipf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_5cy76")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_5cy76")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_5cy76")
-}, {
 "duration": 1.0,
 "texture": ExtResource("2_5cy76")
 }],
@@ -73,6 +52,7 @@ script = ExtResource("1_pbvv3")
 scale = Vector2(0.0496582, 0.0496582)
 sprite_frames = SubResource("SpriteFrames_p0x08")
 animation = &"Spin"
+frame_progress = 0.994196
 offset = Vector2(-40.2753, -483.304)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -82,10 +62,10 @@ polygon = PackedVector2Array(-57.2158, -18.5029, 10.5444, -34.5516, 45.3408, 26.
 
 [node name="SpinAudio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0.292633, -28.9858)
+stream = ExtResource("4_mk61v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
-scale = Vector2(0.9, 0.9)
 shape = SubResource("CapsuleShape2D_rr0ia")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -96,10 +76,7 @@ offset = Vector2(67.0972, -731.245)
 
 [node name="EnemyCollider" type="Area2D" parent="."]
 position = Vector2(0.292633, -28.9858)
-scale = Vector2(1.37282, 1.08813)
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="EnemyCollider"]
 position = Vector2(-0.292633, 13.9858)
 shape = SubResource("CapsuleShape2D_rr0ia")
-
-[connection signal="area_entered" from="EnemyCollider" to="." method="_on_enemy_collider_area_entered"]

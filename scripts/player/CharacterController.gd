@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var HP:int = 1
-@export var MAX_HP:int = 6
+var HP:int = 100
+@export var MAX_HP:int = 100
 @export var MOVEMENT_SPEED:float = 300.0
 @export var BULLET_BOUNCE_COUNT:int = 3
 @export var BULLET_DAMAGE:float = 3
@@ -17,9 +17,8 @@ var bulletID = 0
 @export var BOUNCEY = 0.4
 @export var iFrameTime:float=2.0
 var scoretimer = 0
-@export var score : float= 0
+@export var score = 0
 var alive = true
-var LastHitBy : String
 
 
 @export var DashSpeedmultiplier : float = 4
@@ -35,7 +34,7 @@ var isLeft : bool = false
 var rotationFrame : int
 func _ready():
 	Highscore.Player = self
-	HP=MAX_HP
+
 
 func Controller(delta):
 	if not isDashing:
@@ -44,6 +43,7 @@ func Controller(delta):
 	
 	if Input.is_action_just_pressed("dash") and not isDashing:
 		isDashing = true
+		get_child(5).play()
 	if isDashing:
 		velocity = lastsaved_move_direction * MOVEMENT_SPEED * DashSpeedmultiplier
 	else:
@@ -128,36 +128,26 @@ func Death():
 	score = floor(scoretimer) * 10
 	Highscore.runscore = score
 	alive = false
-	ProcessDeath()
-	var DeathScreen : Node2D = preload("res://scenes/DeathScreen.tscn").instantiate()
-	(DeathScreen.get_node("Deathmessasage") as Label).text = LastHitBy
-	get_tree().root.add_child(DeathScreen)
-	get_tree().root.remove_child(get_tree().root.get_child(1))
-	
-func ProcessDeath():
-	if "PlBullet" in LastHitBy :
-		LastHitBy = "YOURSELF, IDIOT !"
-	elif "EnBullet" in LastHitBy :
-		LastHitBy = "THE AK CLOWN's NONSTOP SPRAY!"
-	elif "ClownAK47" in LastHitBy :
-		LastHitBy = "THE AK CLOWN's BELLYFLOP!"
-	elif "Ringmaster" in LastHitBy :
-		LastHitBy = "THE RINGMASTER's BELLYFLOP!"
+	get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
 func Scorecounter(delta):
 	if alive:
 		scoretimer += delta
 	else:
 		var highscore : Label = get_node("../HighscoreManager").get_child(0)
+		highscore.text = score.to_string()
 	
 func _physics_process(delta):
 	Controller(delta)
-
+	var animation = get_child(0) as CanvasItem
+	
 	if(iFramesActive):
 		iFramesTimer+=delta
+		animation.modulate = "7b7b7b"
 		if(iFramesTimer>iFrameTime):
 			iFramesTimer=0
 			iFramesActive=false	
+			animation.modulate = "ffffff"
 	
 	Shoot(delta)
 	Scorecounter(delta)
@@ -167,9 +157,11 @@ func _physics_process(delta):
 
 
 func _on_player_collider_area_entered(area):
+	var hitsound = get_child(4) as AudioStreamPlayer2D
 	if "Bullet" in area.owner.name && !iFramesActive:
 		LastHitBy = area.owner.name
 		iFramesActive=true
+		hitsound.play()
 		var Bullet:Node2D=area.get_parent()
 		Bullet.death()
 		HP -= Bullet.damage
@@ -178,6 +170,5 @@ func _on_player_collider_area_entered(area):
 		iFramesActive=true
 		var Enemy:Node2D=area.get_parent()
 		HP -= Enemy.PHYSICAL_DAMAGE
-		
 		
 	

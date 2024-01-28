@@ -59,7 +59,7 @@ func attack(delta):
 			var NailHazard =nailHazard.instantiate()
 			NailHazard.damage = NAIL_DAMAGE
 			NailHazard.throw(get_global_position(),get_global_position()+throwDirection*nailThrowDistance)
-			get_node("../../SpikeNode").add_child(NailHazard)
+			get_node("../../BulletObject").add_child(NailHazard)
 		else:
 			
 			#Throw bell

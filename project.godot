@@ -21,7 +21,6 @@ Highscore="*res://scripts/ReadScores.gd"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [dotnet]
