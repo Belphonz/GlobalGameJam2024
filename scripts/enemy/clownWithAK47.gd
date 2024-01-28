@@ -53,7 +53,6 @@ func _process(delta):
 		Dying = true
 	onDeath()
 	var facingDirection = ((Player.global_position - global_position).normalized())
-	print(EnemySpin(facingDirection))
 
 
 

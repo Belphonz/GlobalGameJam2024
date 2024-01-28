@@ -3,24 +3,27 @@ extends Node2D
 var file_data
 var ID : int
 var data_received
+var runscore = 0
 var Player : Node2D
+var currentScene
+var fileArray
 
 func _ready():
-	Player = get_node("../Player")
-	var highscore = Player.score
-	print ("go go go")
+	
+	
 
 	loadScores()
 	var newscore = [1, "ADL", 1921]
 	var json_string = JSON.stringify(file_data)
 	var json = JSON.new()
+	
 	#var scorelist = json.parse()
 	
 	var error = json.parse(json_string)
 	if error == OK:
 		data_received = json.data
 		if typeof(data_received) == TYPE_ARRAY:
-			
+			fileArray = data_received
 			print (data_received[0][1], "\t", data_received[0][2], "\n")
 			ID = data_received[-1][0]
 		else:
@@ -43,16 +46,11 @@ func loadScores():
 	var data = JSON.parse_string(file.get_as_text())
 	file_data = data
 
-func _process(delta):
+func Savescore(nam):
 	var json = JSON.new()
-	var hi
 	var json_string = JSON.stringify(file_data)
-	var error = json.parse(json_string)
-	var fileArray = json.data
-	fileArray.push_back([ID + 1, "GOO", 23])
-	if Input.is_action_pressed("ui_right"):
-		print(fileArray)
-
+	fileArray = json.data
+	#fileArray.push_back([ID + 1, nam, runscore])
 
 func sortScores(a, b):
 	if a[2] < b[2]:

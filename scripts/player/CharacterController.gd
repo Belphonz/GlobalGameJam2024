@@ -15,7 +15,7 @@ var bulletID = 0
 @export var BOUNCEY = 0.4
 @export var iFrameTime:float=2.0
 var scoretimer = 0
-var score = 0
+@export var score = 0
 var alive = true
 
 var usingController:bool=false
@@ -23,6 +23,8 @@ var usingController:bool=false
 var iFramesActive:bool=false
 var iFramesTimer:float=0
 
+func _ready():
+	Highscore.Player = self
 
 func Controller():
 	var move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
@@ -80,13 +82,14 @@ func Bounce(delta):
 	
 func Death():
 	if HP == 0:
-		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
+		score = floor(scoretimer) * 10
+		Highscore.runscore = score
 		alive = false
+		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
 func Scorecounter(delta):
 	if alive:
 		scoretimer += delta
-		score = floor(scoretimer) * 10
 	else:
 		var highscore : Label = get_node("../HighscoreManager").get_child(0)
 		highscore.text = score.to_string()
