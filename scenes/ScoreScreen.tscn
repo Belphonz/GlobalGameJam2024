@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://t1s1qp1nrblc"]
+[gd_scene load_steps=6 format=3 uid="uid://t1s1qp1nrblc"]
 
-[ext_resource type="Script" path="res://scenes/ScoreScreen.gd" id="1_0h8f4"]
+[ext_resource type="Script" path="res://scripts/ScoreScreen.gd" id="1_0h8f4"]
 [ext_resource type="Texture2D" uid="uid://bgox1nmwjs8yx" path="res://assets/gfx/Menu/DeathScreen.png" id="1_xn208"]
 [ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_h6xbi"]
-[ext_resource type="Texture2D" path="res://assets/gfx/tempHazardTEMP.png" id="4_y26fq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2dt0"]
 
@@ -53,7 +52,6 @@ modulate = Color(0, 0, 0, 0.372549)
 self_modulate = Color(0.34902, 0.34902, 0.34902, 1)
 position = Vector2(568, 396)
 scale = Vector2(6.40625, 3.35156)
-texture = ExtResource("4_y26fq")
 
 [node name="Forward" type="Button" parent="."]
 offset_left = 931.0

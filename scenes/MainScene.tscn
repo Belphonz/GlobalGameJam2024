@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bolxcixlhgykv"]
 
 [ext_resource type="PackedScene" uid="uid://shkw5ab00lsl" path="res://scenes/Stage.tscn" id="1_eong5"]
-[ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_we28v"]
+[ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_we28v"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
 [ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
 [ext_resource type="AudioStream" uid="uid://ck86rgpyvyfgx" path="res://assets/sfx/Themes/Game_Theme.wav" id="4_kkpkc"]
-[ext_resource type="PackedScene" uid="uid://btjbvawyjpsqa" path="res://highscore.tscn" id="5_pfcbs"]
+[ext_resource type="PackedScene" uid="uid://btjbvawyjpsqa" path="res://scenes/highscore.tscn" id="5_pfcbs"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_we28v")

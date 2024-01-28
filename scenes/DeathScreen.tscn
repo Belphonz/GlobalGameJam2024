@@ -55,3 +55,5 @@ theme_override_fonts/font = ExtResource("3_cbjd4")
 theme_override_font_sizes/font_size = 21
 text = "Raging lion"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

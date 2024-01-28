@@ -101,11 +101,10 @@ func Bounce(delta):
 		sprite.move_local_y(BOUNCEY, false)
 	
 func Death():
-	if HP == 0:
-		score = floor(scoretimer) * 10
-		Highscore.runscore = score
-		alive = false
-		get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
+	score = floor(scoretimer) * 10
+	Highscore.runscore = score
+	alive = false
+	get_tree().change_scene_to_file("res://scenes/DeathScreen.tscn")
 
 func Scorecounter(delta):
 	if alive:
@@ -117,18 +116,16 @@ func Scorecounter(delta):
 func _physics_process(delta):
 	Controller(delta)
 
-	
-	
 	if(iFramesActive):
 		iFramesTimer+=delta
 		if(iFramesTimer>iFrameTime):
 			iFramesTimer=0
-			iFramesActive=false
-			
+			iFramesActive=false	
 	
 	Shoot(delta)
 	Scorecounter(delta)
-	Death()
+	if HP <= 0:
+		Death()
 	
 
 
@@ -140,4 +137,4 @@ func _on_player_collider_area_entered(area):
 		HP-=1
 		iFramesActive=true
 		
-	Death()
+	
