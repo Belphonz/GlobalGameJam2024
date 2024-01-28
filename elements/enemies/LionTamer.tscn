@@ -1,58 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://3py0d5s8kyfg"]
+[gd_scene load_steps=3 format=3 uid="uid://0txhtv3v5vdk"]
 
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_vgwdo"]
-[ext_resource type="Texture2D" uid="uid://cmtd5suen1l8y" path="res://assets/gfx/Enemy/Lion Tamer/LionTamer1.png" id="2_64qg5"]
 [ext_resource type="Script" path="res://scripts/enemy/LionTamer.gd" id="2_k6dxg"]
-[ext_resource type="Texture2D" uid="uid://ewrir5a763nw" path="res://assets/gfx/Enemy/Lion Tamer/LionTamer2.png" id="4_fi7wh"]
-[ext_resource type="Texture2D" uid="uid://cgq55p1hq6jt4" path="res://assets/gfx/Enemy/Lion Tamer/LionTamerSad.png" id="5_yupmu"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_fsm27"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_64qg5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_fi7wh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_fi7wh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_fi7wh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_64qg5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_64qg5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_64qg5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_64qg5")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_yupmu")
-}],
-"loop": true,
-"name": &"Sad",
-"speed": 5.0
-}]
 
 [node name="BaseEnemy" instance=ExtResource("1_vgwdo")]
 script = ExtResource("2_k6dxg")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.075, 0.077)
-sprite_frames = SubResource("SpriteFrames_fsm27")
-animation = &"Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
 scale = Vector2(0.06, 0.06)

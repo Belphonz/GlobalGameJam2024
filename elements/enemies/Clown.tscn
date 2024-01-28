@@ -1,64 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bibxffa0rsva4"]
+[gd_scene load_steps=3 format=3 uid="uid://diokg6804xyhq"]
 
 [ext_resource type="PackedScene" uid="uid://b0iranba74mqb" path="res://elements/enemies/baseEnemy.tscn" id="1_0b1j0"]
 [ext_resource type="Script" path="res://scripts/enemy/Clown.gd" id="2_54rru"]
-[ext_resource type="Texture2D" uid="uid://bp6nurs44b5xm" path="res://assets/gfx/Enemy/Clown/ClownThrownEnd.png" id="3_ey5n5"]
-[ext_resource type="Texture2D" uid="uid://qsyss6rr4b06" path="res://assets/gfx/Enemy/Clown/ClownIdle.png" id="3_l5prd"]
-[ext_resource type="Texture2D" uid="uid://04k2m7n0mkkp" path="res://assets/gfx/Enemy/Clown/ClownBackIdle.png" id="4_1m7v3"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kxj2k"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_ey5n5")
-}],
-"loop": true,
-"name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_l5prd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1m7v3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1m7v3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1m7v3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l5prd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l5prd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l5prd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l5prd")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
 
 [node name="BaseEnemy3" instance=ExtResource("1_0b1j0")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_54rru")
 BOMB_DAMAGE = 0.0
-_moveSpeed = 150.0
 throwDistance = 128.0
-BOUNCEPOWER = 0.75
-DEGREES = 8
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.13, 0.13)
-sprite_frames = SubResource("SpriteFrames_kxj2k")
-animation = &"Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 21)
