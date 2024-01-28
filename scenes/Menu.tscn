@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc7ka0053noyb"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_s7svw"]
-[ext_resource type="Texture2D" uid="uid://5b715nokfi38" path="res://assets/gfx/Menu/BGMenuTEMP.jpg" id="2_mra1w"]
+[ext_resource type="Texture2D" uid="uid://ddwqkefwe2dr" path="res://assets/gfx/Menu/BGMenu.png" id="2_pdvhk"]
 [ext_resource type="Texture2D" uid="uid://c0la3jc5omihc" path="res://assets/gfx/Menu/TitleLogoTEMP.png" id="3_hvxcm"]
 [ext_resource type="FontFile" uid="uid://djtmfhr34omsr" path="res://assets/gfx/CorrectionBrush.ttf" id="3_rxeui"]
 [ext_resource type="AudioStream" uid="uid://c3tijyvbg4uo4" path="res://assets/sfx/Themes/Main_Menu_Theme.wav" id="4_put7u"]
@@ -11,8 +11,8 @@ script = ExtResource("1_s7svw")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
-scale = Vector2(1.74545, 1.8)
-texture = ExtResource("2_mra1w")
+scale = Vector2(0.6, 0.619)
+texture = ExtResource("2_pdvhk")
 
 [node name="Controls" type="Button" parent="."]
 offset_left = 408.0
