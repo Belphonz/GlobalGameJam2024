@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://br45m7cneoyr3" path="res://assets/sfx/Player/Player_Fire_2.wav" id="5_ftle7"]
 [ext_resource type="AudioStream" uid="uid://blmmku6sbc15c" path="res://assets/sfx/Player/Player_Fire_3.wav" id="6_4equ1"]
 [ext_resource type="AudioStream" uid="uid://b8lkjuv8hbcvl" path="res://assets/sfx/Player/Player_Fire_NoShot.wav" id="7_n2m8u"]
-[ext_resource type="PackedScene" uid="uid://bdqrpaqpvb5ud" path="res://elements/healthBar.tscn" id="9_5hpmp"]
+[ext_resource type="PackedScene" path="res://elements/healthBar.tscn" id="9_5hpmp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8jcc5"]
 animations = [{
@@ -108,7 +108,7 @@ scale = Vector2(0.676434, 0.793036)
 shape = SubResource("CapsuleShape2D_uvbos")
 
 [node name="HealthBar" parent="." instance=ExtResource("9_5hpmp")]
-position = Vector2(-132.459, -100.103)
+position = Vector2(-105.158, -83.4189)
 scale = Vector2(0.1, 0.1)
 
 [connection signal="area_entered" from="PlayerCollider" to="." method="_on_player_collider_area_entered"]

@@ -39,6 +39,7 @@ var HealthBar:Node2D
 func _ready():
 	Highscore.Player = self
 	HP=MAX_HP
+	HealthBar = get_node("HealthBar")
 
 func Controller(delta):
 	if not isDashing:
@@ -160,6 +161,9 @@ func _physics_process(delta):
 		if(iFramesTimer>iFrameTime):
 			iFramesTimer=0
 			iFramesActive=false	
+	
+	HealthBar.setHealth(HP,MAX_HP)
+	
 	
 	Shoot(delta)
 	Scorecounter(delta)

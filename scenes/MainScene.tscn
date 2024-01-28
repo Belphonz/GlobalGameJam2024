@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bolxcixlhgykv"]
 
-[ext_resource type="PackedScene" uid="uid://shkw5ab00lsl" path="res://scenes/Stage.tscn" id="1_eong5"]
+[ext_resource type="PackedScene" path="res://scenes/Stage.tscn" id="1_eong5"]
 [ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_we28v"]
 [ext_resource type="PackedScene" uid="uid://dqwi7ki8bncgk" path="res://elements/player.tscn" id="2_rnxx0"]
 [ext_resource type="PackedScene" uid="uid://b1ma2y6clm8hm" path="res://elements/enemies/enemyManager.tscn" id="3_i7k7l"]
@@ -23,10 +23,6 @@ autoplay = true
 
 [node name="EnemyManager" parent="." instance=ExtResource("3_i7k7l")]
 
-[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
-position = Vector2(-120, -224)
-scale = Vector2(2.3, 2.3)
-
 [node name="Stage" parent="." instance=ExtResource("1_eong5")]
 scale = Vector2(1.8, 1.8)
 
@@ -34,3 +30,7 @@ scale = Vector2(1.8, 1.8)
 
 [node name="WaveManager" parent="." instance=ExtResource("7_yq4m0")]
 enemiesPerWave = [5, 8.0, 10.0]
+
+[node name="Player" parent="." instance=ExtResource("2_rnxx0")]
+position = Vector2(-120, -224)
+scale = Vector2(2.3, 2.3)
