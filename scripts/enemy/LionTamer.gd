@@ -34,15 +34,42 @@ func _process(delta):
 	
 	
 func move(delta):
+	var sprite = get_child(0) as Node2D
 	if(!lionAlive):
+		(sprite as AnimatedSprite2D).play("Sad",0,false)
 		return
+	bounce()
+	var facingDirection = ((Player.global_position - global_position).normalized())
+	if (sprite as AnimatedSprite2D).animation == "Idle":
+		(sprite as AnimatedSprite2D).frame = EnemySpin(facingDirection) 
+		if EnemySpin(facingDirection) in leftDirection:
+			(sprite as AnimatedSprite2D).flip_h = true
+		else:
+			(sprite as AnimatedSprite2D).flip_h = false
 	velocity+=moveSpeed * playerDirection
+	(sprite as AnimatedSprite2D).play("Idle",0,false)
 	move_and_slide()
 	velocity=Vector2(0,0)
 	
 func attack(delta):
 	pass
-	
+
+@export var BOUNCEPOWER = 0.5
+@export var DEGREES = 10
+@export var BOUNCEHEIGHT = 1.5
+@export var BOUNCEY = 0.2
+
+func bounce():
+	var sprite = get_child(0) as Node2D
+	# rotates only sprite and flips if over the limit
+	sprite.rotate(BOUNCEPOWER * (PI/180))
+	if sprite.rotation_degrees >= DEGREES or sprite.rotation_degrees <= -DEGREES:
+		BOUNCEPOWER = BOUNCEPOWER * -1
+		rotate(BOUNCEPOWER * (PI/180))
+	sprite.move_local_y(BOUNCEY, false)
+	if sprite.position.y >= BOUNCEHEIGHT or sprite.position.y <= -BOUNCEHEIGHT:
+		BOUNCEY = BOUNCEY * -1
+		sprite.move_local_y(BOUNCEY, false)
 func onDeath():
 	if Lion: 
 		Lion.freeLion()

@@ -12,10 +12,25 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_2y0w7")
+"texture": ExtResource("5_a3rbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3rbr")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_cf22p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3rbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3rbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3rbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2y0w7")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_a3rbr")
@@ -30,6 +45,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_vcn2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vcn2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vcn2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0qla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0qla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0qla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_n0qla")
 }],
 "loop": true,
 "name": &"Idle",
@@ -42,7 +75,7 @@ script = ExtResource("2_0kqpx")
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_vn5ji")
-animation = &"Idle"
+animation = &"Attack"
 
 [node name="CollisionShape2D" parent="." index="1"]
 scale = Vector2(0.18, 0.18)
