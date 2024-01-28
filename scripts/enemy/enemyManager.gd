@@ -6,7 +6,7 @@ var Player: Node2D
 var jester
 var cAK47
 var rm
-
+var lionTamer
 
 @export
 var CAK47MoveSpeed:float
@@ -18,10 +18,14 @@ func _ready():
 	cAK47 = preload("res://elements/enemies/ClownWithAK47.tscn")
 	rm = preload("res://elements/enemies/ringmaster.tscn")
 	jester=preload("res://elements/enemies/jester.tscn")
+	lionTamer=preload("res://elements/enemies/LionTamer.tscn")
 	Player=get_node("../Player")
+
 	spawnClownAK47(Vector2(100,100))
 	spawnRingmaster(Vector2(100,100))
 	spawnJester(Vector2(100,100))
+	spawnLionTamer(Vector2(100,100))
+
 
 
 	
@@ -48,6 +52,16 @@ func spawnJester(position:Vector2):
 	enemyInstanceNode.start(Player,1)
 	enemyInstanceNode.name="Enemy Jester" + str(EnemyID)
 	add_child(enemyInstanceNode)
+	
+func spawnLionTamer(position:Vector2):
+	var enemyInstanceNode=lionTamer.instantiate()
+	enemyInstanceNode.set_global_position(position)
+	EnemyID+=1	#One for the tamer
+	enemyInstanceNode.Start(Player,1,EnemyID)
+	enemyInstanceNode.name="Enemy Lion Tamer" + str(EnemyID)
+	EnemyID+=1	#One for the lion
+	add_child(enemyInstanceNode)
+	enemyInstanceNode.addLion(EnemyID)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
